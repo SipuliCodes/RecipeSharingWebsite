@@ -57,6 +57,8 @@ button:hover {
   position: relative;
   align-self: start;
   margin-left: 10%;
+  font-size: 45px;
+  text-shadow: 1px 1px var(--tertiary-text-color);
 }
 
 .left-content {
