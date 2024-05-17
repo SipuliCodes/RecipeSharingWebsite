@@ -1,0 +1,56 @@
+@import url('../../theme.css');
+
+.signup-input {
+  width: 98%;
+  background-color: var(--primary-background-color);
+  border: 3px solid var(--secondary-background-color);
+  border-radius: 10px;
+  height: 20px;
+  margin: 5px 10px;
+}
+
+.signup-h1 {
+  color: var(--secondary-text-color);
+  align-self: center;
+  margin: 0;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-background-color);
+  border-radius: 15px;
+  margin: 20px;
+  border: 1px solid var(--secondary-background-color);
+}
+
+.signupform-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.short-input {
+  width: 45%;
+}
+
+.input-error {
+  border: 1px solid var(--error-color);
+}
+
+.input-error:focus {
+  outline: none;
+}
+
+.error-text-signupform {
+  margin: 0 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.create-button {
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  align-self: center;
+  height: auto;
+}
