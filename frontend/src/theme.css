@@ -1,0 +1,19 @@
+/* colors */
+:root {
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #252525;
+  --primary-background-color: #006909;
+  --secondary-background-color: #fff;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+/* font styles */
+:root {
+  --primary-font: 'Arial', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}

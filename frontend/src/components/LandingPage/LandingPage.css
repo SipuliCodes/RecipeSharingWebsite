@@ -1,0 +1,68 @@
+@import url('../../theme.css');
+
+.landingpage-grid-container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto auto auto;
+}
+
+.background {
+  background-image: url("../../pictures/landingpage_background.jpg");
+  background-color: var(--primary-background-color);
+  margin: 0;
+}
+
+h1 {
+  color: var(--primary-text-color);
+}
+
+header {
+  display: flex;
+}
+
+.logo {
+  margin-left: 10%;
+  font-size: 60px;
+}
+
+.content-grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.content {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--secondary-text-color);
+  opacity: 60%;
+  width: 60%;
+  margin: 10px;
+  height: 60px;
+  border-radius: 15px;
+  border: 3px solid var(--primary-background-color);
+  background-color: var(--secondary-background-color);
+}
+
+button:hover {
+  opacity: 100%;
+  width: 65%;
+}
+
+.motto {
+  position: relative;
+  align-self: start;
+  margin-left: 10%;
+}
+
+.left-content {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+}
+
