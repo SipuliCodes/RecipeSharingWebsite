@@ -35,7 +35,6 @@ const SignUpForm = () => {
   const confirmPasswordError = !arePasswordsSame(formData.password, formData.confirmPassword) && confirmPasswordTouched;
   const usernameError = !isUsernameValid(formData.username) && usernameTouched;
   const emailError = !isEmailValid(formData.email) && emailTouched;
-  console.log(emailError);
 
   return (
     <div className='signup-container'>
