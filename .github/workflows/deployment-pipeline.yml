@@ -1,0 +1,36 @@
+name: deployment-pipeline
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+jobs: 
+  frontend_pipeline:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Installing packets
+        run: |
+          cd frontend
+          npm install
+      - name: Linting
+        run: |
+          cd frontend
+          npm run lint
+      - name: Building
+        run: |
+          cd frontend
+          npm run build
+      - name: Testing wiht jest
+        run: |
+          cd frontend
+          npm run test
