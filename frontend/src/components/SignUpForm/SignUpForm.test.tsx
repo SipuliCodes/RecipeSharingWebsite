@@ -6,14 +6,14 @@ import SignUpForm from './SignUpForm';
 test('renders SignUpForms header, input fields and create button correctly', () => {
   render(<SignUpForm />);
 
-  expect(screen.getByText('Sign Up'));
+  screen.getByText('Sign Up');
 
-  expect(screen.getAllByPlaceholderText('First name'));
-  expect(screen.getAllByPlaceholderText('Last name'));
-  expect(screen.findAllByPlaceholderText('Username'));
-  expect(screen.getAllByPlaceholderText('Email'));
-  expect(screen.getAllByPlaceholderText('Password'));
-  expect(screen.findAllByPlaceholderText('Confirm password'));
+  screen.getAllByPlaceholderText('First name');
+  screen.getAllByPlaceholderText('Last name');
+  screen.findAllByPlaceholderText('Username');
+  screen.getAllByPlaceholderText('Email');
+  screen.getAllByPlaceholderText('Password');
+  screen.findAllByPlaceholderText('Confirm password');
 
-  expect(screen.getByRole('button', { name: 'Create' }));
+  screen.getByRole('button', { name: 'Create User' });
 });
