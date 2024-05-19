@@ -23,8 +23,8 @@ const SignUpForm = () => {
     console.log(formData);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
     setFormData({
       ...formData,
       [name]: value,
@@ -96,7 +96,7 @@ const SignUpForm = () => {
           onFocus={() => setConfirmPasswordTouched(true)}
         />
         {confirmPasswordError && <p className='error-text-signupform'>Passwords must be same</p>}
-        <button type='submit' className='create-button'>Create</button>
+        <button type='submit' className='create-button'>Create User</button>
       </form>
     </div>
   );
