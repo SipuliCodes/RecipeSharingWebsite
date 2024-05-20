@@ -6,3 +6,4 @@
 | 17.5.2024 | 3 | Rekistöröitymislomake lisätty frontendiin |
 | 18.5.2024 | 4 | Tein testin rekisteröitymislomakkeelle |
 | 19.5.2024 | 2 | Tein kirjautumisenlomakkeen ja testin sille |
+| 20.5.2024 | 6 | Backend toiminnallisuutta käyttäjien lisäämiseen |
