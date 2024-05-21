@@ -41,3 +41,11 @@ export const parsePassword = (password: unknown): string => {
 
   return password;
 };
+
+export const parseSecret = (secret: unknown): string => {
+  if (!secret || !isString(secret)) {
+    throw new Error('Missing secret');
+  }
+
+  return secret;
+};

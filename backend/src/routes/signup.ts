@@ -3,6 +3,7 @@ import { Router } from "express";
 import userService from "../services/userService";
 import { IUser } from "../interfaces/userInterfaces";
 import { toNewUser } from '../utils/requestValidations';
+import { createToken } from "../utils/token";
 
 const router: Router = Router();
 
@@ -13,9 +14,10 @@ router.get('/', (_req, res) => {
 router.post('/', (req, res) => {
   try {
     const newUser = toNewUser(req.body);
-    
+
     userService.addUser(newUser).then((addedUser: IUser) => {
-    res.json(addedUser);
+      const token = createToken(addedUser.username, addedUser.id);
+      res.json({addedUser, token});
   }).catch((error) => {
     console.log(error);
   });
