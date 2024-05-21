@@ -4,7 +4,7 @@ import './LandingPage.css';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import LoginForm from '../LoginForm/LoginForm';
 const LandingPage = () => {
-  const [rightContent, setRightContent] = useState('login');
+  const [rightContent, setRightContent] = useState('feed');
 
   return (
     <div className="landingpage-grid-container background">
