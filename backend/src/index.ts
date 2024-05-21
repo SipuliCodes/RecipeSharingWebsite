@@ -1,5 +1,6 @@
-import express from 'express';
+import express, { Request} from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import { MONGODB_URI, PORT } from './utils/config';
 import SignupRouter from './routes/signup';
@@ -20,6 +21,7 @@ if (MONGODB_URI) {
 
 const app = express();
 app.use(express.json());
+app.use(cors<Request>());
 
 app.use('/api/signup', SignupRouter);
 

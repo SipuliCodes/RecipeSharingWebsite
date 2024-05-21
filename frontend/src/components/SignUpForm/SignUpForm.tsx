@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
+import './SignUpForm.css';
 import { SignupFormData } from '../../interfaces/userInterfaces';
 import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from '../../utils/validationUtils';
-import './SignUpForm.css';
+import { signup } from '../../services/userService';
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -20,7 +21,7 @@ const SignUpForm = () => {
 
   const onSubmit = ( event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formData);
+    signup(formData);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

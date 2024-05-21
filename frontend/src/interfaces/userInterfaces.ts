@@ -7,6 +7,8 @@ export interface SignupFormData {
   confirmPassword: string;
 }
 
+export type User = Omit<SignupFormData, 'confirmPassword'>
+
 export interface LoginFormData {
   username: string,
   password: string
