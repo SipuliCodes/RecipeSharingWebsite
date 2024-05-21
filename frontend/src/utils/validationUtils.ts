@@ -1,34 +1,34 @@
 export const isPasswordValid = (password: string): string => {
-  let errorMessage: string = 'Password must';
+  let errorMessage: string = 'Password must have';
   if (password.length < 8) {
-    errorMessage += ' be atleast 8 characters';
+    errorMessage += ' atleast 8 characters';
   }
   if (!/\d/.test(password)) {
     if (errorMessage.length > 13) {
       errorMessage += ',';
     }
-    errorMessage += ' have a number';
+    errorMessage += ' a number';
   }
 
   if (!/[a-zäåö]/.test(password)) {
     if (errorMessage.length > 13) {
       errorMessage += ',';
     }
-    errorMessage += ' have a small letter';
+    errorMessage += ' a small letter';
   }
 
   if (!/[A-ZÄÅÖ]/.test(password)) {
     if (errorMessage.length > 13) {
       errorMessage += ',';
     }
-    errorMessage += ' have a big letter';
+    errorMessage += ' a big letter';
   }
 
   if (!/[^a-zA-Z0-9äåöÄÅÖ]/.test(password)) {
     if (errorMessage.length > 13) {
       errorMessage += ',';
     }
-    errorMessage += ' have a special character';
+    errorMessage += ' a special character';
   }
 
   if (errorMessage.length < 14) {
