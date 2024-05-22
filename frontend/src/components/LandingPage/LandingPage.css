@@ -12,7 +12,7 @@
   margin: 0;
 }
 
-h1 {
+.landingpage-h1 {
   color: var(--primary-text-color);
 }
 

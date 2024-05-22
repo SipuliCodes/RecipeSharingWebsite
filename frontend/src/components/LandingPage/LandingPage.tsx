@@ -8,10 +8,10 @@ const LandingPage = () => {
 
   return (
     <div className="landingpage-grid-container background">
-      <header> <h1 className='logo' onClick={() => setRightContent('feed')}> Reciphare </h1></header>
+      <header> <h1 className='logo landingpage-h1' onClick={() => setRightContent('feed')}> Reciphare </h1></header>
       <div className="content content-grid-container">
         <div className='left-content'>
-          <h1 className='motto'> <span className='motto-background'>Share,</span> <br></br> <span className='motto-background'>find and</span> <br></br> <span className='motto-background'>enjoy great recipes</span></h1>
+          <h1 className='motto landingpage-h1'> <span className='motto-background'>Share,</span> <br></br> <span className='motto-background'>find and</span> <br></br> <span className='motto-background'>enjoy great recipes</span></h1>
           <button onClick={() => setRightContent('login')}>Log in</button>
           <button onClick={() => setRightContent('signup')}>Sign up</button>
         </div>
