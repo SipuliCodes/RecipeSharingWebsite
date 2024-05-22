@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { config } from '../utils/config';
-import { User } from '../interfaces/userInterfaces';
+import { LoginFormData, User } from '../interfaces/userInterfaces';
 
 const signup = (user: User) => {
   axios.post(`${config.apiUrl}/signup`, user)
@@ -13,4 +13,14 @@ const signup = (user: User) => {
     });
 };
 
-export { signup };
+const login = (user: LoginFormData) => {
+  axios.post(`${config.apiUrl}/login`, user)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export { signup, login };

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { LoginFormData } from '../../interfaces/userInterfaces';
 
 import './LoginForm.css';
+import { login } from '../../services/userService';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState<LoginFormData>({
@@ -17,10 +18,15 @@ const LoginForm = () => {
     });
   };
 
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    login(formData);
+  };
+
   return (
     <div className='login-container'>
       <h1 className='login-h1'>Login</h1>
-      <form className='loginform-flex-container'>
+      <form onSubmit={onSubmit} className='loginform-flex-container'>
         <input
           className='login-input'
           type="text"
