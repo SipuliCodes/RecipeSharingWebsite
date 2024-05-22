@@ -17,5 +17,5 @@
 /* font styles */
 :root {
   --primary-font: 'Arial', sans-serif;
-  --secondary-font: 'Roboto', sans-serif;
+  --secondary-font: 'Courier New', Courier, monospace;
 }

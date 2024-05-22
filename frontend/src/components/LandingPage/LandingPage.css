@@ -22,8 +22,10 @@ header {
 
 .logo {
   margin-left: 10%;
-  font-size: 60px;
+  font-size: 70px;
   margin-bottom: 0;
+  margin-top: 2%;
+  font-family: 'Brush Script MT', cursive;
 }
 
 .logo:hover {
@@ -43,6 +45,7 @@ header {
 button {
   font-size: 30px;
   font-weight: bold;
+  font-family: var(--primary-font);
   color: var(--secondary-text-color);
   opacity: 60%;
   width: 60%;
@@ -63,6 +66,7 @@ button:hover {
   align-self: start;
   margin-left: 10%;
   font-size: 45px;
+  font-family: var(--secondary-font);
 }
 
 .motto-background {

@@ -19,6 +19,7 @@
   color: var(--secondary-text-color);
   align-self: center;
   margin-bottom: 0;
+  font-family: var(--primary-font);
 }
 
 .login-input {
@@ -35,4 +36,5 @@
   background-color: var(--secondary-background-color);
   color: var(--primary-text-color);
   width: 50%;
+  font-family: var(--primary-font);
 }
