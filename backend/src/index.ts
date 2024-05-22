@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import { MONGODB_URI, PORT } from './utils/config';
+
 import SignupRouter from './routes/signup';
+import LoginRouter from './routes/login';
 
 mongoose.set('strictQuery', false);
 
@@ -24,6 +26,7 @@ app.use(express.json());
 app.use(cors<Request>());
 
 app.use('/api/signup', SignupRouter);
+app.use('/api/login', LoginRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

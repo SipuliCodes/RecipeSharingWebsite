@@ -10,6 +10,8 @@ export interface IUser {
   friends?: string[];
 }
 
+export type LoginUser = Pick<IUser, 'username' | 'password'>;
+
 export type NewUser = Omit<IUser, 'id'>;
 
 export interface IUserDocument extends Document, Omit<IUser, 'id'> {
