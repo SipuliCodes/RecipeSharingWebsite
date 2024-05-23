@@ -29,3 +29,7 @@ a {
   display: flex;
   align-items: center;
 }
+
+.green-background {
+  background-color: var(--secondary-background-color);
+}

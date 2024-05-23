@@ -1,8 +1,9 @@
 import './Footer.css';
+import { FooterProps } from '../../interfaces/props';
 
-const Footer = () => {
+const Footer = ({ greenBackground }: FooterProps ) => {
   return (
-    <footer>
+    <footer className={ greenBackground ? 'green-background' : '' }>
       <div className="copyright text">
         &copy; 2024 Reciphare. All Rights Reserved.
       </div>

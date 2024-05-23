@@ -21,7 +21,7 @@ const LandingPage = () => {
           {rightContent === 'login' && <LoginForm />}
         </div>
       </div>
-      <Footer />
+      <Footer greenBackground={false} />
     </div>
   );
 
