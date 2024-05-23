@@ -97,7 +97,7 @@ const SignUpForm = () => {
           onFocus={() => setConfirmPasswordTouched(true)}
         />
         {confirmPasswordError && <p className='error-text-signupform'>Passwords must be same</p>}
-        <button type='submit' className='create-button'>Create User</button>
+        <button type='submit' className='create-button basic-button'>Create User</button>
       </form>
     </div>
   );

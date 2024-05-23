@@ -12,8 +12,8 @@ const LandingPage = () => {
       <div className="content content-grid-container">
         <div className='left-content'>
           <h1 className='motto landingpage-h1'> <span className='motto-background'>Share,</span> <br></br> <span className='motto-background'>find and</span> <br></br> <span className='motto-background'>enjoy great recipes</span></h1>
-          <button onClick={() => setRightContent('login')}>Log in</button>
-          <button onClick={() => setRightContent('signup')}>Sign up</button>
+          <button className='basic-button' onClick={() => setRightContent('login')}>Log in</button>
+          <button className='basic-button' onClick={() => setRightContent('signup')}>Sign up</button>
         </div>
         <div className='right-content'>
           {rightContent === 'feed' && <h1>Coming up picture of feed or live feed</h1>}

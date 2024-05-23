@@ -42,7 +42,7 @@ header {
   background-size: cover;
 }
 
-button {
+.basic-button {
   font-size: 30px;
   font-weight: bold;
   font-family: var(--primary-font);
