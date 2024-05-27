@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Footer from '../Footer/Footer';
 import './HomePage.css';
 import Sidebar from './Sidebar/Sidebar';
+import RecipeList from './RecipeList/RecipeList';
 
 const HomePage = () => {
   const [isChanged, setIsChanged] = useState(false);
@@ -25,7 +26,7 @@ const HomePage = () => {
         <div className='home-content-left'>
           { isChanged && <Sidebar />}
         </div>
-        <div className='home-content-center'> <h1>Recipes</h1></div>
+        <div className='home-content-center'> <RecipeList /></div>
         <div className='home-content-right'>
         </div>
       </div>

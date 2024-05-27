@@ -1,3 +1,7 @@
+export const isString = (text: unknown): text is string => {
+  return typeof text === 'string' || text instanceof String;
+};
+
 export const isPasswordValid = (password: string): string => {
   let errorMessage: string = 'Password must have';
   const errorMessageStartLength = errorMessage.length;
@@ -41,7 +45,10 @@ export const isPasswordValid = (password: string): string => {
   return errorMessage;
 };
 
-export const arePasswordsSame = (password: string, confirmPassword: string): boolean => {
+export const arePasswordsSame = (
+  password: string,
+  confirmPassword: string
+): boolean => {
   return password === confirmPassword;
 };
 

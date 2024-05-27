@@ -1,7 +1,7 @@
 .homepage-container {
   display: grid;
   height: 100vh;
-  grid-template-rows: 10% auto 10%;
+  grid-template-rows: 10% 80% 10%;
   background-color: var(--primary-background-color);
 }
 
@@ -81,6 +81,8 @@
 
 .home-content-center {
   width: 60vw;
+  display: flex;
+  justify-content: center;
 }
 
 .home-content-right {
