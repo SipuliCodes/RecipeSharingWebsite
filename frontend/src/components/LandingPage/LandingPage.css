@@ -56,7 +56,7 @@ header {
   background-color: var(--primary-background-color);
 }
 
-button:hover {
+.basic-button:hover {
   opacity: 100%;
   width: 65%;
 }
