@@ -23,12 +23,10 @@ const HomePage = () => {
         <input className='searchbar' placeholder='search'></input>
       </div>
       <div className={ isChanged ? 'change home-content' : 'home-content' }>
-        <div className='home-content-left'>
-          { isChanged && <Sidebar />}
+        <div className='home-sidebar'>
+          <Sidebar />
         </div>
         <div className='home-content-center'> <RecipeList /></div>
-        <div className='home-content-right'>
-        </div>
       </div>
       <Footer greenBackground={true} />
     </div>
