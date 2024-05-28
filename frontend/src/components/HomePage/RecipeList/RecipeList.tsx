@@ -1,6 +1,6 @@
 import './RecipeList.css';
 import recipeData from '../../../../recipe_data.json';
-import Recipe from './Recipe/Recipe';
+import Recipe from './Recipe/RecipeCard';
 import { isString } from '../../../utils/validationUtils';
 
 const RecipeList = () => {

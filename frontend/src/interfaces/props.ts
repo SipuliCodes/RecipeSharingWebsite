@@ -4,7 +4,7 @@ export interface FooterProps {
   greenBackground: boolean;
 }
 
-export interface RecipeProps {
+export interface RecipeCardProps {
   title: string;
   image: string;
   description: string;

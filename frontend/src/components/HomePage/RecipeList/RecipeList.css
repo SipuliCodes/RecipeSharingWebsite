@@ -1,16 +1,17 @@
 .recipe-list-flex {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   align-items: center;
 }
 
 .recipe-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  flex-wrap: wrap;
+  margin: 10px;
 }
 
 .recipe-list::-webkit-scrollbar {
@@ -22,6 +23,7 @@
   margin-top: 0;
   margin-bottom: 0;
   font-family: var(--primary-font);
+  font-size: 2rem;
   position: absolute;
   background-color: var(--secondary-background-color);
   border-radius: 0 0 15px 15px;
