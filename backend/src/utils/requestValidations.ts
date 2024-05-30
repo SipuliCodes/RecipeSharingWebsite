@@ -1,5 +1,5 @@
 import { LoginUser, NewUser } from "../interfaces/userInterfaces";
-import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "./parsers";
+import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "../parsers/userParsers";
 
 export const toNewUser = (object: unknown): NewUser => {
   if (!object || typeof object !== 'object') {

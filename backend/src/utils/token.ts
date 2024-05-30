@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 import { SECRET} from './config';
-import { parseSecret } from './parsers';
+import { parseSecret } from '../parsers/tokenParsers';
 
 export const createToken = (username: string, id: string): string => {
 
