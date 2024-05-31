@@ -1,4 +1,5 @@
 import { isString, isDate, isNumber, isStringList, isCommentList } from "./parserHelpers";
+import { Comment } from "../interfaces/recipeInterfaces";
 
 export const parseTitle = (title: unknown): string => {
   if (!isString(title)) {
@@ -6,6 +7,14 @@ export const parseTitle = (title: unknown): string => {
   }
 
   return title;
+};
+
+export const parseImage = (image: unknown): string => {
+  if (!isString(image)) {
+    throw new Error("Incorrect image");
+  }
+
+  return image;
 };
 
 export const parseDescription = (description: unknown): string => {
@@ -67,16 +76,3 @@ export const parseComments = (comments: unknown): Comment[] => {
 
   return comments;
 };
-
-
-/*
-title: string;
-  image: string;
-  description: string;
-  ingredients: string[];
-  steps: string[];
-  username: string;
-  likes: number;
-  date: Date;
-  comments: Comment[];
-  */
