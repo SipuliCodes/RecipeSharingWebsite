@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "title": "Spaghetti Carbonara",
     "image": "https://www.spendwithpennies.com/wp-content/uploads/2023/04/1200-Spaghetti-Carbonara-2-SpendWithPennies.jpg",
     "description": "Spaghetti Carbonara is a classic Italian pasta dish made with simple, high-quality ingredients. It's a creamy, savory delight that combines al dente spaghetti with crispy pancetta, rich eggs, and a blend of Pecorino and Parmesan cheeses. This dish is quick and easy to prepare, making it perfect for a weeknight dinner or a special occasion. Its velvety texture and rich flavors make it a perennial favorite.",
@@ -46,7 +46,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": "2",
     "title": "Chocolate Chip Cookies",
     "image": "https://cookiesfordays.com/wp-content/uploads/2024/01/chocolate-chip-cookie-recipe-ft.jpg",
     "description": "These Chocolate Chip Cookies are the ultimate comfort food. Soft and chewy with a slight crunch on the edges, they are packed with gooey semisweet chocolate chips that melt in your mouth. The combination of brown sugar and vanilla gives them a rich, caramel-like flavor. Perfect for an afternoon snack or a sweet treat after dinner, these cookies are sure to bring a smile to anyone's face.",
@@ -91,7 +91,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": "3",
     "title": "Classic Margherita Pizza",
     "image": "https://static.toiimg.com/thumb/56868564.cms?imgsize=1948751&width=800&height=800",
     "description": "The Classic Margherita Pizza is a timeless favorite that showcases the beauty of simple, fresh ingredients. With a thin and crispy crust, this pizza is topped with a tangy tomato sauce, creamy mozzarella cheese, and fragrant fresh basil leaves. A drizzle of extra virgin olive oil and a sprinkle of salt and pepper complete this masterpiece. It's the perfect meal for pizza lovers who appreciate tradition and quality.",
@@ -132,7 +132,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": "4",
     "title": "Chicken Caesar Salad",
     "image": "https://reciperunner.com/wp-content/uploads/2017/07/Grilled-Chicken-Caesar-Salad-Photograph.jpg",
     "description": "The Chicken Caesar Salad is a hearty and satisfying dish that's both nutritious and delicious. Crisp romaine lettuce is tossed with crunchy croutons and grated Parmesan cheese, then topped with juicy, perfectly cooked chicken breast slices. The creamy Caesar dressing ties everything together, creating a balanced and flavorful salad that's perfect for a light lunch or a starter. This classic salad is a staple for healthy eating without sacrificing taste.",
@@ -173,7 +173,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": "5",
     "title": "Lemon Garlic Shrimp",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9T9t5uKiMsJ4ma2RBPaZcCgBH5UxyXKTF4w&s",
     "description": "Lemon Garlic Shrimp is a quick and flavorful dish that's perfect for a light dinner or an elegant appetizer. Succulent shrimp are sautéed in a tangy and aromatic mixture of lemon juice, garlic, and butter, then garnished with fresh parsley. This dish pairs beautifully with pasta, rice, or crusty bread to soak up the delicious sauce.",
@@ -211,7 +211,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": "6",
     "title": "Beef Tacos",
     "image": "https://www.twopeasandtheirpod.com/wp-content/uploads/2022/12/Beef-Tacos-55.jpg",
     "description": "Beef Tacos are a crowd-pleasing favorite that combines seasoned ground beef with fresh toppings in a crispy taco shell. The beef is cooked with a blend of spices, creating a flavorful and satisfying filling. Topped with lettuce, tomatoes, cheese, and a dollop of sour cream, these tacos are perfect for a casual dinner or a fun taco night with friends and family.",
@@ -258,7 +258,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": "7",
     "title": "Vegetable Stir-Fry",
     "image": "https://images.immediate.co.uk/production/volatile/sites/30/2022/10/vegetarian-stir-fry-hero-fe84012.jpg",
     "description": "This Vegetable Stir-Fry is a vibrant and healthy dish that features a medley of colorful vegetables cooked in a savory sauce. Perfect for a quick and nutritious meal, this stir-fry is packed with flavors and nutrients. Serve it over rice or noodles for a complete and satisfying meal.",
@@ -300,7 +300,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": "8",
     "title": "French Onion Soup",
     "image": "https://www.simplyrecipes.com/thmb/YW8ehcfEPuMxkbbkqu9p9KYZlq8=/1920x1280/smart/filters:no_upscale()/Simply-Recipes-French-Onion-Soup-LEAD-7-2df68a104d674c648f2bc3120bbf8cbf.jpg",
     "description": "French Onion Soup is a comforting and flavorful dish made with caramelized onions, beef broth, and a splash of wine. Topped with a toasted baguette slice and melted Gruyère cheese, this soup is rich and satisfying. It's perfect for a cozy dinner on a cold night.",
@@ -347,7 +347,7 @@
     ]
   },
   {
-    "id": 9,
+    "id": "9",
     "title": "Berry Smoothie Bowl",
     "image": "https://downshiftology.com/wp-content/uploads/2021/03/Berry-Smoothie-Bowl-5.jpg",
     "description": "This Berry Smoothie Bowl is a refreshing and healthy breakfast option that's packed with antioxidants and vitamins. Made with a blend of mixed berries, banana, and Greek yogurt, it's creamy, tangy, and slightly sweet. Topped with fresh berries, granola, and a drizzle of honey, it's a nutritious way to start your day.",
@@ -383,7 +383,7 @@
     ]
   },
   {
-    "id": 10,
+    "id": "10",
     "title": "Quinoa Salad",
     "image": "https://www.simplyrecipes.com/thmb/ujUwNk38IGzhLuyyZHpo3DPqFOU=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Quinoa-Salad-LEAD-3-132ebfd74e0e4744ab1a932dcf18d31e.jpg",
     "description": "This Quinoa Salad is a light and healthy dish that's perfect for lunch or as a side dish. Packed with protein-rich quinoa, colorful vegetables, and a zesty lemon vinaigrette, it's both nutritious and delicious. The fresh herbs and feta cheese add a burst of flavor, making this salad a satisfying and wholesome choice.",
@@ -428,7 +428,7 @@
     ]
   },
   {
-    "id": 11,
+    "id": "11",
     "title": "Chicken Alfredo",
     "image": "https://therecipecritic.com/wp-content/uploads/2020/03/chickenalfredo-1.jpg",
     "description": "Chicken Alfredo is a rich and creamy pasta dish that's perfect for a comforting dinner. Tender chicken breast is cooked in a luscious Alfredo sauce made with butter, heavy cream, and Parmesan cheese, then tossed with fettuccine. This dish is indulgent and satisfying, making it a favorite for pasta lovers.",
@@ -472,7 +472,7 @@
     ]
   },
   {
-    "id": 12,
+    "id": "12",
     "title": "Classic Pancakes",
     "image": "https://www.cookingclassy.com/wp-content/uploads/2022/08/pancakes-11.jpg",
     "description": "These Classic Pancakes are light, fluffy, and perfect for a weekend breakfast. Made with simple ingredients like flour, eggs, milk, and butter, they come together quickly and taste amazing. Top them with maple syrup, fresh berries, or a dollop of whipped cream for a delicious morning treat.",
@@ -510,7 +510,7 @@
     ]
   },
   {
-    "id": 13,
+    "id": "13",
     "title": "Classic Lasagna",
     "image": "https://www.simplyrecipes.com/thmb/l5qUukmInqqxzWLMbp-t-9XBwm0=/2000x1500/filters:no_upscale()/Simply-Recipes-Lasagna-LEAD-4-fb4ea453e4db4a5e871c88d99af0a6ef.jpg",
     "description": "Classic Lasagna is a hearty and comforting dish that layers rich meat sauce with creamy ricotta, mozzarella, and Parmesan cheese, all between sheets of tender pasta. Baked to perfection, this dish is a family favorite that's perfect for any occasion.",
@@ -560,7 +560,7 @@
     ]
   },
   {
-    "id": 14,
+    "id": "14",
     "title": "Chocolate Chip Cookies",
     "image": "https://www.modernhoney.com/wp-content/uploads/2018/02/Chocolate-Chip-Cookies-6.jpg",
     "description": "These Chocolate Chip Cookies are soft, chewy, and packed with chocolate chips. Made with simple ingredients like butter, sugar, eggs, and flour, they are easy to whip up and perfect for satisfying your sweet tooth. Enjoy them fresh out of the oven with a glass of milk.",
@@ -603,7 +603,7 @@
     ]
   },
   {
-    "id": 15,
+    "id": "15",
     "title": "Spaghetti Carbonara",
     "image": "https://www.simplyrecipes.com/thmb/bIAD90EsPezxb0vprmWIGtO6uEM=/2000x1500/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Carbonara-LEAD-2-b40bb41567b948d1ad86e4c6b52ef83b.jpg",
     "description": "Spaghetti Carbonara is a classic Italian pasta dish made with eggs, cheese, pancetta, and pepper. It's creamy, savory, and incredibly satisfying. This dish comes together quickly and is perfect for a comforting and indulgent meal.",
@@ -644,7 +644,7 @@
     ]
   },
   {
-    "id": 16,
+    "id": "16",
     "title": "Margherita Pizza",
     "image": "https://www.simplyrecipes.com/thmb/7c_TAPcCVGkmeWvvhsVbhZZoBPI=/2000x1333/filters:no_upscale()/Simply-Recipes-Margherita-Pizza-LEAD-3-c3c0a0ceae6d4ebd99e466698c961d42.jpg",
     "description": "Margherita Pizza is a simple yet delicious pizza that features a thin crust topped with fresh tomatoes, mozzarella cheese, and basil. The combination of fresh ingredients makes this pizza a favorite for its light and refreshing flavors.",

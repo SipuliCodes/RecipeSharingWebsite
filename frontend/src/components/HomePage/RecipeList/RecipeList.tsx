@@ -1,9 +1,18 @@
 import './RecipeList.css';
-import recipeData from '../../../../recipe_data.json';
-import Recipe from './Recipe/RecipeCard';
-import { isString } from '../../../utils/validationUtils';
+import RecipeCard from './RecipeCard/RecipeCard';
+import { isString } from '../../../validations/signupValidation';
+import { useEffect, useState } from 'react';
+import { getAllRecipes } from '../../../services/recipeService';
+import { Recipe } from '../../../interfaces/recipeInterfaces';
 
 const RecipeList = () => {
+  const [recipeData, setRecipeData] = useState<Recipe[]>();
+
+  useEffect(() => {
+    getAllRecipes()
+      .then(recipes => setRecipeData(recipes))
+      .catch(error => console.log(error));
+  }, []);
 
   const isIsoDateString = (value: unknown): boolean => {
     const isoDateRegex = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/;
@@ -18,11 +27,19 @@ const RecipeList = () => {
     throw new Error('Invalid date');
   };
 
+  if (!recipeData) return <div></div>;
+
   return (
     <div className='recipe-list-flex'>
       <h1 className='recipes-h1'>Recipes</h1>
       <div className='recipe-list'>
-        {recipeData.map(recipe => <Recipe title={recipe.title} image={recipe.image} description={recipe.description} ingredients={recipe.ingredients} steps={recipe.steps} username={recipe.username} likes={recipe.likes} date={parseDates(recipe.date)} comments={recipe.comments} />)}
+        <div onClick={() => console.log('works')} className='recipe-card recipe-grid'>
+          <div></div>
+          <div className='recipe-details-box'>
+            <h1 className='recipe-h1'>Add recipe</h1>
+          </div>
+        </div>
+        {recipeData.map(recipe => <RecipeCard title={recipe.title} image={recipe.image} description={recipe.description} ingredients={recipe.ingredients} steps={recipe.steps} username={recipe.username} likes={recipe.likes} date={parseDates(recipe.date)} comments={recipe.comments} />)}
       </div>
     </div>
   );
