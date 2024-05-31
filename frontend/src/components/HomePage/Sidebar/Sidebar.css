@@ -7,32 +7,33 @@
   justify-content: space-evenly;
   z-index: 1;
   height: 100%;
-  transition: 0.4s;
+  transition: 0.5s;
 }
 
 .change .sidebar {
   transition: 0.5s;
   right: 0;
+  width: 100%;
 }
 
 .profile-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10px;
+  padding: 1rem;
   border: var(--primary-background-color) 3px solid;
-  border-radius: 15px;
-  margin: 10px;
+  border-radius: 1rem;
+  margin: 1rem;
 }
 
 .profilepic {
-  margin-top: 10px;
-  width: 50%;
+  height: 10rem;
+  width: 10rem;
+  color: var(--primary-text-color);
 }
 
 .username {
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
   color: var(--primary-text-color);
   font-family: var(--secondary-font);
 }
@@ -46,7 +47,7 @@
 
 .sidebar-links {
   color: var(--primary-text-color);
-  font-size: 30px;
-  margin: 10px 0;
+  font-size: 2rem;
+  margin: 0.5rem 0;
   font-family: var(--primary-font);
 }

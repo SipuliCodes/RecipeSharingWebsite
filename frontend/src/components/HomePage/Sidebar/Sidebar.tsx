@@ -1,10 +1,19 @@
 import './Sidebar.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  IconDefinition,
+  findIconDefinition
+} from '@fortawesome/fontawesome-svg-core';
+
 const Sidebar = () => {
+
+  const userIconDefinition: IconDefinition = findIconDefinition({prefix: 'fas', iconName: 'user'});
+
   return (
     <div className='sidebar'>
       <div className='profile-details'>
-        <img className='profilepic' src='./src/pictures/default_profile.png' />
+        <FontAwesomeIcon className='profilepic' icon={userIconDefinition} />
         <h4 className='username'>@username</h4>
       </div>
       <div className='link-list'>
