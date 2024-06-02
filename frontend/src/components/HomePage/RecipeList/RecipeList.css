@@ -30,3 +30,15 @@
   padding: 5px;
   padding-top: 0;
 }
+
+.add-recipe-icon {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: var(--primary-background-color);
+}
+
+.recipe-card:hover .add-recipe-icon {
+  color: var(--tertiary-text-color);
+}

@@ -1,0 +1,88 @@
+.add-recipe-container {
+  width: fit-content;
+  height: 75vh;
+}
+
+.add-recipe-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+}
+
+.add-recipe-flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 2rem;
+}
+
+.add-recipe-inputs {
+  min-width: 20rem;
+  width: 35%;
+}
+
+.input-box {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.add-recipe-input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--tertiary-text-color);
+}
+
+ .input-placeholder {
+  font-size: 1rem;
+   padding: 0.5rem;
+   pointer-events: none;
+   position: absolute;
+   left: 1rem;
+   top: 0.5rem;
+   transition: 0.2s;
+   opacity: 0.5;
+   background: var(--primary-background-color);
+ }
+
+ .add-recipe-input:focus+.input-placeholder,
+ .add-recipe-input:not(:placeholder-shown)+.input-placeholder {
+   opacity: 1;
+   transform: translateY(-45%) translateX(2px);
+   padding: 0 0.5rem;
+ }
+
+.add-recipe-textarea {
+  resize: none;
+}
+
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--tertiary-text-color);
+  width: 30%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: clip;
+}
+
+.add-recipe-pic {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
+
+.add-recipe-default-pic {
+  color: var(--secondary-background-color);
+  width: 50%;
+}
+
