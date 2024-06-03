@@ -3,25 +3,32 @@ import Footer from '../Footer/Footer';
 import './LandingPage.css';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import LoginForm from '../LoginForm/LoginForm';
+import Logo from '../Logo/Logo';
 const LandingPage = () => {
-  const [rightContent, setRightContent] = useState('feed');
+  const [leftContent, setLeftContent] = useState('buttons');
 
   return (
     <div className="landingpage-grid-container background">
-      <header> <h1 className='logo landingpage-h1' onClick={() => setRightContent('feed')}> Reciphare </h1></header>
-      <div className="content content-grid-container">
-        <div className='left-content'>
-          <h1 className='motto landingpage-h1'> <span className='motto-background'>Share,</span> <br></br> <span className='motto-background'>find and</span> <br></br> <span className='motto-background'>enjoy great recipes</span></h1>
-          <button className='basic-button' onClick={() => setRightContent('login')}>Log in</button>
-          <button className='basic-button' onClick={() => setRightContent('signup')}>Sign up</button>
+      <div className="content content-flex-container">
+        <div className='left-content-background'>
+          <div className='left-content'>
+            <Logo />
+            {leftContent === 'buttons' &&
+              <>
+                <h1 className='motto landingpage-h1'> Share and find great recipes</h1>
+                <div className='button-box'>
+                  <button className='basic-button' onClick={() => setLeftContent('login')}>Log in</button>
+                  <button className='basic-button' onClick={() => setLeftContent('signup')}>Sign up</button>
+                </div> 
+              </>}
+            {leftContent === 'signup' && <SignUpForm setLeftContent={setLeftContent}/>}
+            {leftContent === 'login' && <LoginForm setLeftContent={setLeftContent} />}
+          </div>
         </div>
         <div className='right-content'>
-          {rightContent === 'feed' && <h1>Coming up picture of feed or live feed</h1>}
-          {rightContent === 'signup' && <SignUpForm />}
-          {rightContent === 'login' && <LoginForm />}
         </div>
       </div>
-      <Footer greenBackground={false} />
+      <Footer greenBackground={true} />
     </div>
   );
 
