@@ -3,8 +3,9 @@ import { LoginFormData } from '../../interfaces/userInterfaces';
 
 import './LoginForm.css';
 import { login } from '../../services/userService';
+import { LoginFormProps } from '../../interfaces/props';
 
-const LoginForm = () => {
+const LoginForm = ({setLeftContent}: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginFormData>({
     username: '',
     password: ''
@@ -25,7 +26,15 @@ const LoginForm = () => {
 
   return (
     <div className='login-container'>
-      <h1 className='login-h1'>Login</h1>
+      <div className='login-header-grid'>
+        <div>
+          <button onClick={() => setLeftContent('buttons') } className='login-close-button'>
+            <div className='login-close-button-bar1'></div>
+            <div className='login-close-button-bar2'></div>
+          </button>
+        </div>
+        <h1 className='login-h1'>Login</h1>
+      </div>
       <form onSubmit={onSubmit} className='loginform-flex-container'>
         <input
           className='login-input'
@@ -43,7 +52,7 @@ const LoginForm = () => {
           onChange={handleChange}
           name='password'
         />
-        <button className="login-button basic-button" type="submit">Login</button>
+        <button className="login-button" type="submit">Login</button>
       </form>
     </div>
   );
