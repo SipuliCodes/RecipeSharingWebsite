@@ -2,10 +2,11 @@ import { useState } from 'react';
 
 import './SignUpForm.css';
 import { SignupFormData } from '../../interfaces/userInterfaces';
-import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from '../../utils/validationUtils';
+import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from '../../validations/signupValidation';
 import { signup } from '../../services/userService';
+import { SignUpFormProps } from '../../interfaces/props';
 
-const SignUpForm = () => {
+const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
   const [formData, setFormData] = useState<SignupFormData>({
     firstName: '',
     lastName: '',
@@ -39,11 +40,19 @@ const SignUpForm = () => {
 
   return (
     <div className='signup-container'>
-      <h1 className='signup-h1'>Sign Up</h1>
+      <div className='signup-header-grid'>
+        <div>
+          <button onClick={() => setLeftContent('buttons') } className='signup-close-button'>
+            <div className='signup-close-button-bar1'></div>
+            <div className='signup-close-button-bar2'></div>
+          </button>
+        </div>
+        <h1 className='signup-h1'>Sign Up</h1>
+      </div>
       <form onSubmit={onSubmit} className='signupform-flex-container'>
         <input
           type="text"
-          className="signup-input short-input"
+          className="signup-input"
           placeholder="First name"
           name="firstName"
           value={formData.firstName}
@@ -51,7 +60,7 @@ const SignUpForm = () => {
         />
         <input
           type="text"
-          className="signup-input short-input"
+          className="signup-input"
           placeholder="Last name"
           name="lastName"
           value={formData.lastName}
@@ -97,7 +106,7 @@ const SignUpForm = () => {
           onFocus={() => setConfirmPasswordTouched(true)}
         />
         {confirmPasswordError && <p className='error-text-signupform'>Passwords must be same</p>}
-        <button type='submit' className='create-button basic-button'>Create User</button>
+        <button type='submit' className='create-button'>Create Account</button>
       </form>
     </div>
   );
