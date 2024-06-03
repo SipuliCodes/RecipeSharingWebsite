@@ -16,3 +16,7 @@ export interface Recipe {
   date: Date;
   comments: Comment[];
 }
+
+export type NewRecipe = Omit<Recipe, 'id'>
+
+export type RecipeFormData = Pick<Recipe, 'title' | 'image' | 'description' | 'ingredients' | 'steps' >

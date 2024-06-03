@@ -1,4 +1,5 @@
 import Footer from '../Footer/Footer';
+import Logo from '../Logo/Logo';
 import './AddRecipe.css';
 import AddRecipeForm from './AddRecipeForm/AddRecipeForm';
 
@@ -6,7 +7,7 @@ const AddRecipe = () => {
   return (
     <div className="add-recipe-grid">
       <div className="add-recipe-header">
-        <h1>Add recipe</h1>
+        <Logo />
       </div>
       <div className="add-recipe-content">
         <AddRecipeForm />

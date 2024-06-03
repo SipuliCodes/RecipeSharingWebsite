@@ -1,7 +1,7 @@
 .add-recipe-grid {
   display: grid;
   height: 100vh;
-  grid-template-rows: 10% 80% auto;
+  grid-template-rows: max-content auto max-content;
   padding: 0;
   background-color: var(--primary-background-color);
 }
@@ -13,6 +13,7 @@
   text-align: center;
   text-justify: center;
   font-family: var(--primary-font);
+  min-height: fit-content;
 }
 
 .home-button {
@@ -33,4 +34,5 @@
 
 .add-recipe-footer {
   margin: 0;
+  height: fit-content;
 }
