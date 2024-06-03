@@ -16,3 +16,11 @@ export interface RecipeCardProps {
   comments: Comment[];
 }
 
+export interface SignUpFormProps {
+   setLeftContent: React.Dispatch<React.SetStateAction<string>>
+}
+
+export interface LoginFormProps {
+  setLeftContent: React.Dispatch<React.SetStateAction<string>>;
+}
+
