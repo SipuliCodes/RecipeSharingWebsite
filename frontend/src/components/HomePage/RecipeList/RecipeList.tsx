@@ -43,7 +43,7 @@ const RecipeList = () => {
             <h1 className='add-recipe-h1 recipe-h1'>Add recipe</h1>
           </div>
         </div>
-        {recipeData.map(recipe => <RecipeCard title={recipe.title} image={recipe.image} description={recipe.description} ingredients={recipe.ingredients} steps={recipe.steps} username={recipe.username} likes={recipe.likes} date={parseDates(recipe.date)} comments={recipe.comments} />)}
+        {recipeData.map(recipe => <RecipeCard key={recipe.id} title={recipe.title} image={recipe.image} description={recipe.description} ingredients={recipe.ingredients} steps={recipe.steps} username={recipe.username} likes={recipe.likes} date={parseDates(recipe.date)} comments={recipe.comments} />)}
       </div>
     </div>
   );
