@@ -37,7 +37,7 @@ const AddRecipeForm = () => {
     setFunc(value);
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>) => {
     const { name } = event.currentTarget;
     if (name === 'ingredient' && addIngredient) {
       formData.ingredients.push(addIngredient);
@@ -63,6 +63,14 @@ const AddRecipeForm = () => {
     }
   };
 
+  const preventEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    event.key === 'Enter' && event.preventDefault();
+  };
+
+  const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') { event.preventDefault(), handleClick(event);}
+  };
+
   return (
     <div className='add-recipe-flex add-recipe-container'>
       <h1 className='add-recipe-form-h1'>Add recipe</h1>
@@ -71,6 +79,7 @@ const AddRecipeForm = () => {
           <form onSubmit={handleSubmit} className='add-recipe-inputs'>
             <p className='input-box'>
               <input 
+                onKeyDown={preventEnter}
                 placeholder=""
                 value={formData.title}
                 onChange={handleFormDataChange }
@@ -80,7 +89,8 @@ const AddRecipeForm = () => {
               <label className='input-placeholder'>Title</label>
             </p>
             <p className='input-box'>
-              <input 
+              <input
+                onKeyDown={preventEnter}
                 placeholder=""
                 value={formData.image}
                 onChange={handleFormDataChange }
@@ -96,13 +106,14 @@ const AddRecipeForm = () => {
                 onChange={handleFormDataChange}
                 name='description'
                 ref={descriptionRef}
-                rows={2}
+                rows={3}
                 className='add-recipe-input add-recipe-textarea'
               />
               <label className='input-placeholder'>Description</label>
             </p>
             <p className='input-box'>
-              <input 
+              <input
+                onKeyDown={handleEnter}
                 placeholder=""
                 value={addIngredient}
                 onChange={(event) => handleInputChange(event, setAddIngredient) }
@@ -117,7 +128,8 @@ const AddRecipeForm = () => {
               {formData.ingredients.map((ingredient, index) => { return (`${index > 0 ? ', ' : ''}${ingredient}`); })}
             </p> }
             <p className='input-box'>
-              <input 
+              <input
+                onKeyDown={handleEnter}
                 placeholder=""
                 value={addStep}
                 onChange={(event) => handleInputChange(event, setAddStep)}

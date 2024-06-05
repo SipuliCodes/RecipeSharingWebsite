@@ -22,7 +22,7 @@
 .add-recipe-flex-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -56,6 +56,7 @@
   padding: 0.5rem;
   width: 95%;
   margin: 0.5rem 0;
+  margin-right: 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid var(--tertiary-text-color);
 }
@@ -63,11 +64,17 @@
 .add-recipe-input-extra {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  margin-right: 0;
+}
+
+.add-recipe-input-extra:focus~.add-button {
+  border: none;
 }
 
 .add-button {
   font-size: 1rem;
   font-family: var(--primary-font);
+  margin-right: 0.5rem;
   padding: 0.5rem;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -110,7 +117,9 @@
  }
 
 .add-recipe-textarea {
+  min-height: 4rem;
   resize: none;
+  width: 100%;
 }
 
 .add-recipe-form-button-box {
@@ -152,6 +161,7 @@
   border: 2px solid var(--tertiary-text-color);
   max-height: 60vh;
   height: 60vh;
+  margin: 1rem;
   min-width: 20rem;
   aspect-ratio: 1 / 1;
   border-radius: 1rem;

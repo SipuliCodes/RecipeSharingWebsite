@@ -9,7 +9,8 @@ const useAutosizeTextArea = (
     if (textAreaRef) {
       textAreaRef.style.height = '60px';
       const scrollHeight = textAreaRef.scrollHeight;
-      textAreaRef.style.height = scrollHeight + 'px';
+
+      textAreaRef.style.height = scrollHeight - 15 + 'px';
     }
   }, [textAreaRef, value]);
 };
