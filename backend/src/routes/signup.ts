@@ -26,6 +26,7 @@ router.post("/", (req, res) => {
         let errorMessage = "Something went wrong.";
         if (error instanceof MongoServerError) {
           res.status(400).json(error.keyValue);
+          return;
         }
         if (error instanceof Error) {
           errorMessage += "Error: " + error.message;
