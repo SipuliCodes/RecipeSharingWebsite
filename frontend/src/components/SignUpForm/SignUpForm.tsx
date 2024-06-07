@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useContext } from 'react';
 
 import './SignUpForm.css';
 import { SignupFormData } from '../../interfaces/userInterfaces';
 import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from '../../validations/signupValidation';
 import { signup } from '../../services/userService';
 import { SignUpFormProps } from '../../interfaces/props';
+import { UserSetTokenContext } from '../../contexts/userContext';
+import { setToken } from '../../utils/localStorage';
 
 const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -20,9 +23,18 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
   const [usernameTouched, setUsernameTouched] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
 
-  const onSubmit = ( event: React.FormEvent<HTMLFormElement>) => {
+  const setTokenContext = useContext(UserSetTokenContext);
+
+  const onSubmit = async ( event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    signup(formData);
+    try {
+      const { token, user } = await signup(formData);
+      setTokenContext(token);
+      setToken(token);
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

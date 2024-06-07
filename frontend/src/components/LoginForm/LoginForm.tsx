@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import { LoginFormData } from '../../interfaces/userInterfaces';
+import { useContext } from 'react';
 
 import './LoginForm.css';
 import { login } from '../../services/userService';
 import { LoginFormProps } from '../../interfaces/props';
+import { UserSetTokenContext } from '../../contexts/userContext';
+import { setToken } from '../../utils/localStorage';
 
 const LoginForm = ({setLeftContent}: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginFormData>({
     username: '',
     password: ''
   });
+
+  const setTokenContext = useContext(UserSetTokenContext);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -19,9 +24,16 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
     });
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    login(formData);
+    try {
+      const { token, user } = await login(formData);
+      setTokenContext(token);
+      setToken(token);
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
