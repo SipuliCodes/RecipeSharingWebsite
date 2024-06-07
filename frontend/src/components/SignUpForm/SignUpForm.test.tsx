@@ -2,9 +2,10 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import SignUpForm from './SignUpForm';
 
+const mockSetLeftContent = jest.fn();
 
 test('renders SignUpForms header, input fields and create button correctly', () => {
-  render(<SignUpForm />);
+  render(<SignUpForm setLeftContent={mockSetLeftContent} />);
 
   screen.getByText('Sign Up');
 

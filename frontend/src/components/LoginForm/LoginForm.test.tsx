@@ -2,8 +2,10 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import LoginForm from './LoginForm';
 
+const mockSetLeftContent = jest.fn();
+
 test('renders Loginforms header, input fields and login button correclty', () => {
-  render(<LoginForm />);
+  render(<LoginForm setLeftContent={mockSetLeftContent} />);
 
   screen.getByRole('heading', {name: 'Login'});
 
