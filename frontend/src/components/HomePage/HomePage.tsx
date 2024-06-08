@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import Footer from '../Footer/Footer';
 import './HomePage.css';
 import Sidebar from './Sidebar/Sidebar';
 import RecipeList from './RecipeList/RecipeList';
+import { UserTokenContext } from '../../contexts/userContext';
+import useAutoNavigation from '../../hooks/useAutoNavigation';
 
 const HomePage = () => {
   const [isChanged, setIsChanged] = useState(false);
+  const token = useContext(UserTokenContext);
+
+  useAutoNavigation('/', token, false);
 
   const toggleClass = () => {
     setIsChanged(!isChanged);
