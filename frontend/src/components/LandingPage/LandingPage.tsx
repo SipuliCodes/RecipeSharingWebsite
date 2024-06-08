@@ -13,7 +13,7 @@ const LandingPage = () => {
   const [leftContent, setLeftContent] = useState('buttons');
   const token = useContext(UserTokenContext);
 
-  useAutoNavigation('/home', token);
+  useAutoNavigation('/home', token, true);
 
   return (
     <div className="landingpage-grid-container background">
