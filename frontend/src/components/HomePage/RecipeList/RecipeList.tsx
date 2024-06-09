@@ -1,19 +1,22 @@
-import './RecipeList.css';
-import RecipeCard from './RecipeCard/RecipeCard';
-import { isString } from '../../../validations/signupValidation';
-import { useEffect, useState } from 'react';
-import { getAllRecipes } from '../../../services/recipeService';
-import { Recipe } from '../../../interfaces/recipeInterfaces';
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+
+import './RecipeList.css';
+import RecipeCard from './RecipeCard/RecipeCard';
+import { isString } from '../../../validations/signupValidation';
+import { getAllRecipes } from '../../../services/recipeService';
+import { Recipe } from '../../../interfaces/recipeInterfaces';
+import { UserTokenContext } from '../../../contexts/userContext';
 
 const RecipeList = () => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
   const navigate = useNavigate();
+  const token = useContext(UserTokenContext);
 
   useEffect(() => {
-    getAllRecipes()
+    getAllRecipes(token)
       .then(recipes => setRecipeData(recipes))
       .catch(error => console.log(error));
   }, []);

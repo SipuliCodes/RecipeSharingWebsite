@@ -3,9 +3,9 @@ import axios from 'axios';
 import { config } from '../utils/config';
 import { Recipe, RecipeFormData } from '../interfaces/recipeInterfaces';
 
-const getAllRecipes = async (): Promise<Recipe[]> => {
+const getAllRecipes = async (token: string): Promise<Recipe[]> => {
   try {
-    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes`);
+    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes`,{ headers: {'Authorization' : `Bearer ${token}`} });
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -16,7 +16,7 @@ const getAllRecipes = async (): Promise<Recipe[]> => {
   }
 };
 
-const addRecipe = async ( recipe: RecipeFormData): Promise<Recipe> => {
+const addRecipe = async ( recipe: RecipeFormData, token: string): Promise<Recipe> => {
   try {
     const newRecipe = {
       ...recipe,
@@ -25,7 +25,7 @@ const addRecipe = async ( recipe: RecipeFormData): Promise<Recipe> => {
       username: 'Bertil',
       date: (new Date().toISOString())
     };
-    const response = await axios.post<Recipe>(`${config.apiUrl}/recipes`, newRecipe);
+    const response = await axios.post<Recipe>(`${config.apiUrl}/recipes`, newRecipe, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';

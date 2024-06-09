@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -7,10 +7,12 @@ import { RecipeFormData } from '../../../interfaces/recipeInterfaces';
 import useAutosizeTextArea from '../../../hooks/useAutosizeTextarea';
 import { useNavigate } from 'react-router-dom';
 import { addRecipe } from '../../../services/recipeService';
+import { UserTokenContext } from '../../../contexts/userContext';
 
 const AddRecipeForm = () => {
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
+  const token = useContext(UserTokenContext); 
 
   const [formData, setFormData] = useState<RecipeFormData>({
     title: '',
@@ -55,7 +57,7 @@ const AddRecipeForm = () => {
     try {
       console.log('hi');
       if (formData.title && formData.image && formData.description && formData.ingredients && formData.steps) {
-        addRecipe(formData);
+        addRecipe(formData, token);
         navigate('/home');
       }
     } catch (error) {
