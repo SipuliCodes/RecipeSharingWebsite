@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 
 import recipeData from '../../recipe_data.json';
 import { toNewRecipe } from '../utils/requestValidations';
@@ -8,20 +8,26 @@ let recipes: Recipe[] = recipeData;
 
 const router: Router = Router();
 
-router.get('/', (_req, res) => {
-  res.json(recipes);
+router.get('/', (req: Request, res: Response) => {
+  if (req.decodedToken?.id) {
+    res.json(recipes);
+  }
+  res.status(401).end();
 });
 
 router.post('/', (req, res) => {
-  const newRecipe = toNewRecipe(req.body);
+  if (req.decodedToken?.id) {
+    const newRecipe = toNewRecipe(req.body);
 
-  const id: string = (recipeData.length + 1).toString();
-  const addedRecipe: Recipe = {
-    ...newRecipe,
-    id
-  };
-  recipes.push(addedRecipe);
-  res.json(addedRecipe);
+    const id: string = (recipeData.length + 1).toString();
+    const addedRecipe: Recipe = {
+      ...newRecipe,
+      id
+    };
+    recipes.push(addedRecipe);
+    res.json(addedRecipe);
+  }
+  res.status(401).end();
 });
 
 router.delete('/:id', (req, res) => {
