@@ -8,7 +8,7 @@ import { Token } from './interfaces/contextTypes.ts';
 import { getToken } from './utils/localStorage.ts';
 
 const App = () => {
-  const [token, setToken] = useState<Token>(null);
+  const [token, setToken] = useState<Token>('');
 
   useEffect(() => {
     const localStorageToken = getToken();

@@ -8,7 +8,7 @@ import AddRecipeForm from './AddRecipeForm/AddRecipeForm';
 import { UserTokenContext } from '../../contexts/userContext';
 
 const AddRecipe = () => {
-  const token = useContext(UserTokenContext)
+  const token = useContext(UserTokenContext);
 
   useAutoNavigation('/', token, false);
 
