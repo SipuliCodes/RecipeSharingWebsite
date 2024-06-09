@@ -7,6 +7,7 @@ import { MONGODB_URI, PORT } from './utils/config';
 import SignupRouter from './routes/signup';
 import LoginRouter from './routes/login';
 import RecipeRouter from './routes/recipes';
+import { extractToken } from './utils/middleware';
 
 mongoose.set('strictQuery', false);
 
@@ -27,6 +28,7 @@ if (MONGODB_URI) {
 const app = express();
 app.use(express.json());
 app.use(cors<Request>());
+app.use(extractToken);
 
 app.use('/api/signup', SignupRouter);
 app.use('/api/login', LoginRouter);
