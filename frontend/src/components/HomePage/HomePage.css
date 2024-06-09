@@ -68,7 +68,7 @@
   flex-direction: column;
   position: absolute;
   width: 0;
-  height: 90%;
+  height: 89%;
   background-color: transparent;
   overflow: hidden;
   transition: 0.4s;
