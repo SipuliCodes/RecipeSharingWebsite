@@ -3,8 +3,8 @@ import { useContext } from 'react';
 
 import Footer from '../Footer/Footer';
 import './LandingPage.css';
-import SignUpForm from '../SignUpForm/SignUpForm';
-import LoginForm from '../LoginForm/LoginForm';
+import SignUpForm from './SignUpForm/SignUpForm';
+import LoginForm from './LoginForm/LoginForm';
 import Logo from '../Logo/Logo';
 import { UserTokenContext} from '../../contexts/userContext';
 import useAutoNavigation from '../../hooks/useAutoNavigation';

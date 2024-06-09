@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { LoginFormData } from '../../interfaces/userInterfaces';
+import { LoginFormData } from '../../../interfaces/userInterfaces';
 import { useContext } from 'react';
 
 import './LoginForm.css';
-import { login } from '../../services/userService';
-import { LoginFormProps } from '../../interfaces/props';
-import { UserSetTokenContext } from '../../contexts/userContext';
-import { setToken } from '../../utils/localStorage';
+import { login } from '../../../services/userService';
+import { LoginFormProps } from '../../../interfaces/props';
+import { UserSetTokenContext } from '../../../contexts/userContext';
+import { setToken } from '../../../utils/localStorage';
 
 const LoginForm = ({setLeftContent}: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginFormData>({

@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useContext } from 'react';
 
 import './SignUpForm.css';
-import { SignupFormData } from '../../interfaces/userInterfaces';
-import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from '../../validations/signupValidation';
-import { signup } from '../../services/userService';
-import { SignUpFormProps } from '../../interfaces/props';
-import { UserSetTokenContext } from '../../contexts/userContext';
-import { setToken } from '../../utils/localStorage';
+import { SignupFormData } from '../../../interfaces/userInterfaces';
+import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from '../../../validations/signupValidation';
+import { signup } from '../../../services/userService';
+import { SignUpFormProps } from '../../../interfaces/props';
+import { UserSetTokenContext } from '../../../contexts/userContext';
+import { setToken } from '../../../utils/localStorage';
 
 const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
   const [formData, setFormData] = useState<SignupFormData>({
