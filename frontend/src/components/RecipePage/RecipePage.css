@@ -1,0 +1,113 @@
+.recipe-page-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.recipe-page-back-button {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  width: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.recipe-page-back-button:hover {
+  background-color: color-mix(in srgb, var(--secondary-background-color) 100%, black 70%);
+}
+
+.recipe-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin: 0;
+  width: 50%;
+}
+
+@media (max-width: 700px) {
+  .recipe-details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .recipe-details {
+    margin-top: 5rem;
+  }
+}
+
+.recipe-image-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--secondary-background-color);
+  border-radius: 1rem;
+  aspect-ratio: 1 / 1;
+  overflow: clip;
+  max-width: 60%;
+  min-width: 320px;
+  margin: 1rem;
+  margin-bottom: 0;
+}
+.recipe-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  font-family: var(--primary-font);
+  color: var(--primary-text-color);
+  background-color: color-mix(in srgb, var(--secondary-background-color) 80%, var(--primary-background-color) 90%);
+}
+
+.recipe-image {
+  display: block;
+  width: 100%;
+}
+
+.recipe-details-h3 {
+  font-family: var(--primary-font);
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.recipe-description {
+  font-family: var(--primary-font);
+  width: 80%;
+}
+
+.recipe-instructions {
+  margin: 0;
+  width: 50%;
+  height: 100vh;
+  overflow: auto;
+}
+
+@media (max-width: 400px) {
+  .recipe-instructions {
+    width: 100%;
+    height: auto;
+  }
+} 
+
+.recipe-instructions-h2 {
+  text-align: center;
+  font-family: var(--primary-font);
+}
+
+
+
+.recipe-page-footer {
+  height: fit-content;
+}

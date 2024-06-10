@@ -13,7 +13,7 @@ export interface Recipe {
   steps: string[];
   username: string;
   likes: number;
-  date: Date;
+  date: string;
   comments: Comment[];
 }
 

@@ -1,0 +1,28 @@
+.recipe-comments-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.recipe-comment-box {
+  width: 80%;
+  font-family: var(--primary-font);
+  color: var(--primary-text-color);
+  background-color: color-mix(in srgb, var(--secondary-background-color) 80%, var(--primary-background-color) 90%);
+  border: 2px solid var(--secondary-background-color);
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-comment-user, .recipe-comment-date {
+  width: 100%;
+  text-align: end;
+  margin: auto;
+}
+
+.recipe-comment-user {
+  font-family: var(--secondary-font);
+}

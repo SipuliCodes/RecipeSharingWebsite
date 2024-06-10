@@ -24,3 +24,18 @@ export interface LoginFormProps {
   setLeftContent: React.Dispatch<React.SetStateAction<string>>;
 }
 
+export interface IngredientListProps {
+  ingredients: string[];
+}
+
+export interface StepListProps {
+  steps: string[];
+}
+
+export interface StepProps {
+  step: string;
+}
+
+export interface CommentListProps {
+  comments: Comment[];
+}
