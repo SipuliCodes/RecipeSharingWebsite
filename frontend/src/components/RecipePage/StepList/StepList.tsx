@@ -5,7 +5,7 @@ const StepList = ({ steps }: StepListProps) => {
   return (<div className='recipe-steps-container'>
     <h2 className='recipe-instructions-h2'> Steps </h2>
     <ol className='recipe-steps-list'>
-      {steps.map((step) => <Step step={step} />)}
+      {steps.map((step, index) => <Step key={index} step={step} />)}
     </ol>
   </div>);
 };

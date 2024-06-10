@@ -6,7 +6,7 @@ const IngredientList = ({ ingredients }: IngredientListProps ) => {
     <div className='recipe-ingredients-container'>
       <h2 className='recipe-instructions-h2'> Ingredients </h2>
       <ul className='recipe-ingredients-list'>
-        {ingredients.map((ingredient) => <li className='recipe-ingredient'>{ingredient}</li>)}
+        {ingredients.map((ingredient, index) => <li key={index} className='recipe-ingredient'>{ingredient}</li>)}
       </ul>
     </div>
   );
