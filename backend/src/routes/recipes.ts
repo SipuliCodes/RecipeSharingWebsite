@@ -15,6 +15,14 @@ router.get('/', (req: Request, res: Response) => {
   res.status(401).end();
 });
 
+router.get('/:id', (req: Request, res: Response) => {
+  if (req.decodedToken?.id) {
+    const recipeId = req.params.id;
+    res.json(recipes.filter((recipe) => recipe.id === recipeId));
+  }
+  res.status(401).end();
+});
+
 router.post('/', (req, res) => {
   if (req.decodedToken?.id) {
     const newRecipe = toNewRecipe(req.body);
