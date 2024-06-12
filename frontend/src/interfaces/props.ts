@@ -7,13 +7,8 @@ export interface FooterProps {
 export interface RecipeCardProps {
   title: string;
   image: string;
-  description: string;
-  ingredients: string[];
-  steps: string[];
-  username: string;
   likes: number;
-  date: Date;
-  comments: Comment[];
+  id: string;
 }
 
 export interface SignUpFormProps {

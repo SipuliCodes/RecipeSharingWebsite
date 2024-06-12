@@ -5,7 +5,6 @@ import { useContext, useEffect, useState } from 'react';
 
 import './RecipeList.css';
 import RecipeCard from './RecipeCard/RecipeCard';
-import { isString } from '../../../validations/signupValidation';
 import { getAllRecipes } from '../../../services/recipeService';
 import { Recipe } from '../../../interfaces/recipeInterfaces';
 import { UserTokenContext } from '../../../contexts/userContext';
@@ -21,18 +20,6 @@ const RecipeList = () => {
       .catch(error => console.log(error));
   }, []);
 
-  const isIsoDateString = (value: unknown): boolean => {
-    const isoDateRegex = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/;
-    return isString(value) && isoDateRegex.test(value);
-  };
-
-  const parseDates = ( value: unknown) => {
-    if (isIsoDateString(value)) {
-      if(isString(value))
-        return new Date(value);
-    }
-    throw new Error('Invalid date');
-  };
 
   if (!recipeData) return <div></div>;
 
@@ -46,7 +33,7 @@ const RecipeList = () => {
             <h1 className='add-recipe-h1 recipe-h1'>Add recipe</h1>
           </div>
         </div>
-        {recipeData.map(recipe => <RecipeCard key={recipe.id} title={recipe.title} image={recipe.image} description={recipe.description} ingredients={recipe.ingredients} steps={recipe.steps} username={recipe.username} likes={recipe.likes} date={parseDates(recipe.date)} comments={recipe.comments} />)}
+        {recipeData.map(recipe => <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />)}
       </div>
     </div>
   );

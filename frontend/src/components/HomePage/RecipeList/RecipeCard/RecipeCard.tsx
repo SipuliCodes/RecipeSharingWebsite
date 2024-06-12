@@ -1,11 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import './RecipeCard.css';
 import { RecipeCardProps } from '../../../../interfaces/props';
+import { useNavigate } from 'react-router-dom';
 
-const RecipeCard = ({ title, image, description, steps, ingredients, username, likes, date, comments }: RecipeCardProps) => {
+const RecipeCard = ({ title, image, likes, id }: RecipeCardProps) => {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate(`/recipe/${id}`);
+  };
 
   return (
-    <div className='recipe-card recipe-grid'>
+    <div onClick={onClick} className='recipe-card recipe-grid'>
       <div className='recipe-pic-box'>
         <img className='recipe-pic' src={image} />
       </div>
