@@ -38,7 +38,7 @@ const RecipePage = () => {
         })
         .catch((error) => console.log(error));
     }
-  }, []);
+  }, [token, recipeId]);
 
   if (!recipeData.id) {
     return;

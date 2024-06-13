@@ -15,10 +15,12 @@ const RecipeList = () => {
   const token = useContext(UserTokenContext);
 
   useEffect(() => {
-    getAllRecipes(token)
-      .then(recipes => setRecipeData(recipes))
-      .catch(error => console.log(error));
-  }, []);
+    if (token) {
+      getAllRecipes(token)
+        .then(recipes => setRecipeData(recipes))
+        .catch(error => console.log(error));
+    }
+  }, [token]);
 
 
   if (!recipeData) return <div></div>;
