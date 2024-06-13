@@ -3,12 +3,20 @@ import { useEffect, useState } from 'react';
 
 import './App.css';
 import router from './Routes.tsx';
-import { UserTokenContext, UserSetTokenContext } from './contexts/userContext.ts';
+import { UserTokenContext, UserSetTokenContext, UserDetailsContext, UserSetDetailsContext } from './contexts/userContext.ts';
 import { Token } from './interfaces/contextTypes.ts';
 import { getToken } from './utils/localStorage.ts';
+import { LoggedInUser } from './interfaces/userInterfaces.ts';
 
 const App = () => {
   const [token, setToken] = useState<Token>('');
+  const [user, setUser] = useState<LoggedInUser>({
+    'firstName': '',
+    'lastName': '',
+    'username': '',
+    'email': '',
+    'friends': []
+  });
 
   useEffect(() => {
     const localStorageToken = getToken();
@@ -18,7 +26,11 @@ const App = () => {
   return (
     <UserTokenContext.Provider value={token} >
       <UserSetTokenContext.Provider value={setToken}>
-        <RouterProvider router={router} />
+        <UserDetailsContext.Provider value={user}>
+          <UserSetDetailsContext.Provider value={setUser}>
+            <RouterProvider router={router} />
+          </UserSetDetailsContext.Provider>
+        </UserDetailsContext.Provider>
       </UserSetTokenContext.Provider>
     </UserTokenContext.Provider>
   );

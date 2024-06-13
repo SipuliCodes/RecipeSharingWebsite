@@ -6,8 +6,8 @@ import { SignupFormData } from '../../../interfaces/userInterfaces';
 import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from '../../../validations/signupValidation';
 import { signup } from '../../../services/userService';
 import { SignUpFormProps } from '../../../interfaces/props';
-import { UserSetTokenContext } from '../../../contexts/userContext';
-import { setToken } from '../../../utils/localStorage';
+import { UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
+import { setToken, setUser } from '../../../utils/localStorage';
 
 const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -24,6 +24,7 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
   const [emailTouched, setEmailTouched] = useState(false);
 
   const setTokenContext = useContext(UserSetTokenContext);
+  const setUserContext = useContext(UserSetDetailsContext);
 
   const onSubmit = async ( event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,7 +32,8 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
       const { token, user } = await signup(formData);
       setTokenContext(token);
       setToken(token);
-      console.log(user);
+      setUserContext(user);
+      setUser(user);
     } catch (error) {
       console.log(error);
     }

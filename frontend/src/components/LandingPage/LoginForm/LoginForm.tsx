@@ -5,8 +5,8 @@ import { useContext } from 'react';
 import './LoginForm.css';
 import { login } from '../../../services/userService';
 import { LoginFormProps } from '../../../interfaces/props';
-import { UserSetTokenContext } from '../../../contexts/userContext';
-import { setToken } from '../../../utils/localStorage';
+import { UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
+import { setToken, setUser } from '../../../utils/localStorage';
 
 const LoginForm = ({setLeftContent}: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginFormData>({
@@ -15,6 +15,7 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
   });
 
   const setTokenContext = useContext(UserSetTokenContext);
+  const setUserContext = useContext(UserSetDetailsContext);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -30,7 +31,8 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
       const { token, user } = await login(formData);
       setTokenContext(token);
       setToken(token);
-      console.log(user);
+      setUserContext(user);
+      setUser(user);
     } catch (error) {
       console.log(error);
     }

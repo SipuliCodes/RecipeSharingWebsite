@@ -5,22 +5,32 @@ import {
 import { useContext } from 'react';
 
 import './Sidebar.css';
-import { removeToken } from '../../../utils/localStorage';
-import { UserSetTokenContext } from '../../../contexts/userContext';
+import { removeToken, removeUser} from '../../../utils/localStorage';
+import { UserDetailsContext, UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
 
 const Sidebar = () => {
   const setTokenContext = useContext(UserSetTokenContext);
+  const setUserContext = useContext(UserSetDetailsContext);
+  const userDetails = useContext(UserDetailsContext);
 
   const logout = () => {
     removeToken();
     setTokenContext('');
+    removeUser();
+    setUserContext({
+      'firstName': '',
+      'lastName': '',
+      'username': '',
+      'email': '',
+      'friends': []
+    });
   };
 
   return (
     <div className='sidebar'>
       <div className='profile-details'>
         <FontAwesomeIcon className='profilepic' icon={findIconDefinition({prefix: 'fas', iconName: 'user'})} />
-        <h4 className='username'>@username</h4>
+        <h4 className='username'>@{userDetails.username}</h4>
       </div>
       <div className='link-list'>
         <h3 className='sidebar-links'>Friends</h3>
