@@ -5,7 +5,7 @@ import './App.css';
 import router from './Routes.tsx';
 import { UserTokenContext, UserSetTokenContext, UserDetailsContext, UserSetDetailsContext } from './contexts/userContext.ts';
 import { Token } from './interfaces/contextTypes.ts';
-import { getToken } from './utils/localStorage.ts';
+import { getToken, getUser } from './utils/localStorage.ts';
 import { LoggedInUser } from './interfaces/userInterfaces.ts';
 
 const App = () => {
@@ -20,7 +20,9 @@ const App = () => {
 
   useEffect(() => {
     const localStorageToken = getToken();
+    const localStorageUser = getUser();
     if (localStorageToken) setToken(localStorageToken);
+    if (localStorageUser) setUser(localStorageUser);
   }, []);
 
   return (
