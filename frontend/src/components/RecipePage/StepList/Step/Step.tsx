@@ -7,7 +7,7 @@ const Step = ({ step }: StepProps) => {
   const [done, setDone] = useState(false);
 
   return (
-    <li onClick={() => setDone(!done)} className={done ? 'recipe-step-done recipe-step' : 'recipe-step'  }> <input onChange={() => setDone(!done)} checked={done ? true : false} type='checkbox'></input>{step}</li>
+    <li onClick={() => setDone(!done)} className={done ? 'recipe-step-done recipe-step' : 'recipe-step'  }> <input onChange={() => setDone(!done)} checked={done ? true : false} type='checkbox' className='step-checkbox'></input>{step}</li>
   );
 };
 

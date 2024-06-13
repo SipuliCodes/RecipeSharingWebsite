@@ -6,3 +6,7 @@
   text-decoration: line-through;
   color: var(--success-color);
 }
+
+.step-checkbox {
+  accent-color: var(--secondary-background-color);
+}
