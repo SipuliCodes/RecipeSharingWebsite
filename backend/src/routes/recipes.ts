@@ -2,17 +2,23 @@ import { Router, Request, Response } from 'express';
 
 import recipeData from '../../recipe_data.json';
 import { toNewRecipe } from '../utils/requestValidations';
-import { Recipe } from '../interfaces/recipeInterfaces';
+import { IRecipe } from '../interfaces/recipeInterfaces';
+import  recipeService from '../services/recipeService';
 
-let recipes: Recipe[] = recipeData;
+let recipes: IRecipe[] = recipeData;
 
 const router: Router = Router();
 
 router.get('/', (req: Request, res: Response) => {
-  if (req.decodedToken?.id) {
-    res.json(recipes);
+  try {
+    if (req.decodedToken?.id) {
+      recipeService.getAllRecipes()
+        .then((recipes) => res.json(recipes))
+        .catch((error) => console.log(error));
+    }
+  } catch (error) {
+    res.status(401).end();
   }
-  res.status(401).end();
 });
 
 router.get('/:id', (req: Request, res: Response) => {
@@ -28,7 +34,7 @@ router.post('/', (req, res) => {
     const newRecipe = toNewRecipe(req.body);
 
     const id: string = (recipeData.length + 1).toString();
-    const addedRecipe: Recipe = {
+    const addedRecipe: IRecipe = {
       ...newRecipe,
       id
     };

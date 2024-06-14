@@ -1,10 +1,12 @@
+import { Types } from "mongoose";
+
 export interface Comment {
   username: string;
   comment: string;
   date: string;
 }
 
-export interface Recipe {
+export interface IRecipe {
   id: string;
   title: string;
   image: string;
@@ -17,4 +19,9 @@ export interface Recipe {
   comments: Comment[];
 }
 
-export type NewRecipe = Omit<Recipe, 'id'>;
+export interface IRecipeDocument extends Document, Omit<IRecipe, "id"> {
+  _id: Types.ObjectId;
+  __v: string;
+}
+
+export type NewRecipe = Omit<IRecipe, 'id'>;
