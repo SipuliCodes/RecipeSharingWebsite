@@ -1,4 +1,4 @@
-import { IRecipe } from "../interfaces/recipeInterfaces";
+import { IRecipe, NewRecipe } from "../interfaces/recipeInterfaces";
 import Recipe from '../models/recipe';
 
 
@@ -14,7 +14,14 @@ const getOneRecipe = async (recipeId: string): Promise<IRecipe> => {
   throw new Error('Recipe was not found');
 };
 
+const addRecipe = async (recipe: NewRecipe): Promise<IRecipe> => {
+  const addedRecipe = new Recipe(recipe);
+  await addedRecipe.save();
+  return addedRecipe;
+};
+
 export default {
   getAllRecipes,
-  getOneRecipe
+  getOneRecipe,
+  addRecipe
 };

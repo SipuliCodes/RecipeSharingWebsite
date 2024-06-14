@@ -39,18 +39,18 @@ router.get('/:id', (req: Request, res: Response) => {
 });
 
 router.post('/', (req, res) => {
-  if (req.decodedToken?.id) {
-    const newRecipe = toNewRecipe(req.body);
-
-    const id: string = (recipeData.length + 1).toString();
-    const addedRecipe: IRecipe = {
-      ...newRecipe,
-      id
-    };
-    recipes.push(addedRecipe);
-    res.json(addedRecipe);
+  try {
+    if (req.decodedToken?.id) {
+      const newRecipe = toNewRecipe(req.body);
+      recipeService.addRecipe(newRecipe)
+        .then((addedRecipe) => res.json(addedRecipe))
+        .catch((error) => console.log(error));
+    } else {
+      res.status(401).end();
+    } 
+  } catch (error) {
+    res.status(401).end();
   }
-  res.status(401).end();
 });
 
 router.delete('/:id', (req, res) => {
