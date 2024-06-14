@@ -15,6 +15,8 @@ router.get('/', (req: Request, res: Response) => {
       recipeService.getAllRecipes()
         .then((recipes) => res.json(recipes))
         .catch((error) => console.log(error));
+    } else {
+      res.status(401).end();
     }
   } catch (error) {
     res.status(401).end();
@@ -22,11 +24,18 @@ router.get('/', (req: Request, res: Response) => {
 });
 
 router.get('/:id', (req: Request, res: Response) => {
-  if (req.decodedToken?.id) {
-    const recipeId = req.params.id;
-    res.json(recipes.find((recipe) => recipe.id === recipeId));
+  try {
+    if (req.decodedToken?.id) {
+      const recipeId = req.params.id;
+      recipeService.getOneRecipe(recipeId)
+        .then((recipe) => res.json(recipe))
+        .catch((error) => console.log(error));
+    } else {
+      res.status(401).end();
+    }
+  } catch (error) {
+    res.status(401).end();
   }
-  res.status(401).end();
 });
 
 router.post('/', (req, res) => {
