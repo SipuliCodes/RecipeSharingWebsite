@@ -15,7 +15,8 @@ const App = () => {
     'lastName': '',
     'username': '',
     'email': '',
-    'friends': []
+    'friends': [],
+    'id': 'id'
   });
 
   useEffect(() => {

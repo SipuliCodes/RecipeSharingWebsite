@@ -35,7 +35,7 @@ const RecipeList = () => {
             <h1 className='add-recipe-h1 recipe-h1'>Add recipe</h1>
           </div>
         </div>
-        {recipeData.map(recipe => <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} />)}
+        {recipeData.map(recipe => <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} likedBy={recipe.likedBy} />)}
       </div>
     </div>
   );

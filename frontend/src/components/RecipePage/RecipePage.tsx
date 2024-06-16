@@ -26,7 +26,8 @@ const RecipePage = () => {
       'username': '',
       'date': '',
       'likes': 0,
-      'comments': []
+      'comments': [],
+      'likedBy': []
     },
   );
 

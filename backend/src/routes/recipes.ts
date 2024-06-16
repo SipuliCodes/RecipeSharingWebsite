@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 
-import { toNewRecipe } from '../utils/requestValidations';
+import { toLikeRecipe, toNewRecipe } from '../utils/requestValidations';
 import  recipeService from '../services/recipeService';
 
 const router: Router = Router();
@@ -59,6 +59,21 @@ router.delete('/:id', (req, res) => {
     } else {
       res.status(401).end();
     }
+  } catch (error) {
+    res.status(401).end();
+  }
+});
+
+router.put('/like/:id', (req, res) => {
+  try {
+    if (req.decodedToken?.id) {
+      const recipeToLike = toLikeRecipe(req.body);
+      const id = req.params.id;
+      const { likes, likedBy } = recipeToLike;
+      recipeService.likeRecipe({ id, likes, likedBy })
+        .then((likedRecipe) => res.json(likedRecipe))
+        .catch((error) => (console.log(error)));
+    } else { res.status(401).end(); }
   } catch (error) {
     res.status(401).end();
   }

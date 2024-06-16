@@ -15,6 +15,7 @@ export interface Recipe {
   likes: number;
   date: string;
   comments: Comment[];
+  likedBy: string[];
 }
 
 export type NewRecipe = Omit<Recipe, 'id'>

@@ -10,6 +10,7 @@ export const UserDetailsContext = createContext<LoggedInUser>({
   lastName: '',
   username: '',
   email: '',
-  friends: []
+  friends: [],
+  id: ''
 });
 export const UserSetDetailsContext = createContext<Dispatch<SetStateAction<LoggedInUser>>>(() => { });

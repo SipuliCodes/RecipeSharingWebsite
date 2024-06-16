@@ -22,7 +22,8 @@ const Sidebar = () => {
       'lastName': '',
       'username': '',
       'email': '',
-      'friends': []
+      'friends': [],
+      'id': ''
     });
   };
 

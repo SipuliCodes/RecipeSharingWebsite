@@ -9,6 +9,7 @@ export interface RecipeCardProps {
   image: string;
   likes: number;
   id: string;
+  likedBy: string[];
 }
 
 export interface SignUpFormProps {

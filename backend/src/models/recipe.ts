@@ -18,7 +18,8 @@ const schema = new Schema<IRecipe>({
   username: { type: String },
   likes: { type: Number },
   date: { type: String },
-  comments: {type: [commentSchema]}
+  comments: { type: [commentSchema] },
+  likedBy: { type: [String]}
 });
 
 schema.set("toJSON", {

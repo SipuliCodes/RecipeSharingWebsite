@@ -9,7 +9,7 @@ export interface SignupFormData {
 
 export type User = Omit<SignupFormData, 'confirmPassword'>
 
-export type LoggedInUser = Omit<User, 'password'> & { friends: string[] }
+export type LoggedInUser = Omit<User, 'password'> & { friends: string[], id: string }
 
 export interface LoggedInUserWithToken {
   user: LoggedInUser,

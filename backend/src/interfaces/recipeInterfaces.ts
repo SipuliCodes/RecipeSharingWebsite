@@ -15,6 +15,7 @@ export interface IRecipe {
   steps: string[];
   username: string;
   likes: number;
+  likedBy: string[];
   date: string;
   comments: Comment[];
 }
@@ -25,3 +26,5 @@ export interface IRecipeDocument extends Document, Omit<IRecipe, "id"> {
 }
 
 export type NewRecipe = Omit<IRecipe, 'id'>;
+
+export type LikeRecipe = Pick<IRecipe, 'likes' | 'likedBy'>;

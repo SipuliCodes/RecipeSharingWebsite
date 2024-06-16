@@ -7,7 +7,6 @@ const getAllRecipes = async (): Promise<IRecipe[]> => {
 };
 
 const getOneRecipe = async (recipeId: string): Promise<IRecipe> => {
-  console.log(recipeId);
   const recipe = await Recipe.findById(recipeId);
   if (recipe) return recipe;
   console.log(recipe);
@@ -31,9 +30,20 @@ const deleteRecipe = async (id: string, username: string): Promise<boolean> => {
   return false;
 };
 
+const likeRecipe = async ({ id, likes, likedBy }: { id: string, likes: number, likedBy: string[] }): Promise<IRecipe> => {
+  console.log(likes);
+  console.log(likedBy);
+  const recipeToLike = await Recipe.findByIdAndUpdate(id, {likes: likes, likedBy: likedBy}, {new: true});
+  if (recipeToLike) {
+    return await recipeToLike.save();
+  }
+  throw new Error('Recipe to modify was not found');
+};
+
 export default {
   getAllRecipes,
   getOneRecipe,
   addRecipe,
-  deleteRecipe
+  deleteRecipe,
+  likeRecipe
 };

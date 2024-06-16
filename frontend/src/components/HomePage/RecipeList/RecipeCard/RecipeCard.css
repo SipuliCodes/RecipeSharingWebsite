@@ -68,6 +68,17 @@
   margin: 8px;
 }
 
+.recipe-like-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.recipe-like-heart {
+  color: var(--primary-background-color);
+  font-size: 2rem;
+}
+
 .recipe-likes {
   color: var(--primary-text-color);
   margin: 0;

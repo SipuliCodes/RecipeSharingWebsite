@@ -1,6 +1,14 @@
 import { isString, isDate, isNumber, isStringList, isCommentList } from "./parserHelpers";
 import { Comment } from "../interfaces/recipeInterfaces";
 
+export const parseId = (id: unknown): string => {
+  if (!isString(id)) {
+    throw new Error("Incorrect id");
+  }
+
+  return id;
+};
+
 export const parseTitle = (title: unknown): string => {
   if (!isString(title)) {
     throw new Error("Incorrect title");
@@ -75,4 +83,12 @@ export const parseComments = (comments: unknown): Comment[] => {
   }
 
   return comments;
+};
+
+export const parseLikedBy = (likedBy: unknown): string[] => {
+  if (!isStringList(likedBy)) {
+    throw new Error("Incorrect likers");
+  }
+
+  return likedBy;
 };
