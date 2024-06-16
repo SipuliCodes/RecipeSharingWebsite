@@ -20,8 +20,20 @@ const addRecipe = async (recipe: NewRecipe): Promise<IRecipe> => {
   return addedRecipe;
 };
 
+const deleteRecipe = async (id: string, username: string): Promise<boolean> => {
+  const recipeToDelete = await Recipe.findById(id);
+  console.log(recipeToDelete?.username);
+  console.log(username);
+  if (recipeToDelete?.username === username) {
+    await Recipe.findByIdAndDelete(recipeToDelete.id);
+    return true;
+  }
+  return false;
+};
+
 export default {
   getAllRecipes,
   getOneRecipe,
-  addRecipe
+  addRecipe,
+  deleteRecipe
 };

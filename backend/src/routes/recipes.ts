@@ -1,11 +1,7 @@
 import { Router, Request, Response } from 'express';
 
-import recipeData from '../../recipe_data.json';
 import { toNewRecipe } from '../utils/requestValidations';
-import { IRecipe } from '../interfaces/recipeInterfaces';
 import  recipeService from '../services/recipeService';
-
-let recipes: IRecipe[] = recipeData;
 
 const router: Router = Router();
 
@@ -54,12 +50,18 @@ router.post('/', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  const recipeToDeleteId = req.params.id;
-
-  console.log(recipeToDeleteId);
-  recipes = recipes.filter(recipe => recipe.id !== recipeToDeleteId);
-
-  res.status(404).end();
+  try {
+    if (req.decodedToken?.id) {
+      const recipeToDeleteId = req.params.id;
+      recipeService.deleteRecipe(recipeToDeleteId, req.decodedToken.username)
+        .then((response) => { if (response) { res.status(204).end(); } else { res.status(401).end(); } })
+        .catch((error) => console.log(error));
+    } else {
+      res.status(401).end();
+    }
+  } catch (error) {
+    res.status(401).end();
+  }
 });
 
 export default router;
