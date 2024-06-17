@@ -1,4 +1,4 @@
-import { isString, isDate, isNumber, isStringList, isCommentList } from "./parserHelpers";
+import { isString, isDate, isNumber, isStringList, isCommentList, isBoolean } from "./parserHelpers";
 import { Comment } from "../interfaces/recipeInterfaces";
 
 export const parseId = (id: unknown): string => {
@@ -91,4 +91,12 @@ export const parseLikedBy = (likedBy: unknown): string[] => {
   }
 
   return likedBy;
+};
+
+export const parseLiked = (liked: unknown): boolean => {
+  if (!isBoolean(liked)) {
+    throw new Error("Incorrect liked");
+  }
+
+  return liked;
 };

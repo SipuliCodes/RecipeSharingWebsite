@@ -30,14 +30,29 @@ const deleteRecipe = async (id: string, username: string): Promise<boolean> => {
   return false;
 };
 
-const likeRecipe = async ({ id, likes, likedBy }: { id: string, likes: number, likedBy: string[] }): Promise<IRecipe> => {
-  console.log(likes);
-  console.log(likedBy);
-  const recipeToLike = await Recipe.findByIdAndUpdate(id, {likes: likes, likedBy: likedBy}, {new: true});
-  if (recipeToLike) {
-    return await recipeToLike.save();
+const likeRecipe = async ({ id, liked, userId }: { id: string, liked: boolean, userId: string }): Promise<IRecipe> => {
+  const recipeToLike = await Recipe.findById(id);
+  if (!liked && recipeToLike?.likedBy.includes(userId)) {
+    const likedRecipe = await Recipe.findByIdAndUpdate(id, { likes: recipeToLike.likes - 1, likedBy: recipeToLike.likedBy.filter(id => id !== userId) }, { new: true });
+    if (likedRecipe) {
+      return await likedRecipe.save();
+    }
   }
-  throw new Error('Recipe to modify was not found');
+  if (liked && recipeToLike && !recipeToLike.likedBy.includes(userId)) {
+    const likedRecipe = await Recipe.findByIdAndUpdate(
+      id,
+      {
+        likes: recipeToLike.likes + 1,
+        likedBy: recipeToLike.likedBy.concat(userId),
+      },
+      { new: true }
+    );
+    if (likedRecipe) {
+      return await likedRecipe.save();
+    }
+  }
+  
+  throw new Error('Liking was not possible');
 };
 
 export default {

@@ -12,14 +12,13 @@ import { likeRecipe } from '../../../../services/recipeService';
 const RecipeCard = ({ title, image, likes, id, likedBy }: RecipeCardProps) => {
   const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
+  const [frontendLikes, setFrontendLikes] = useState(likes);
   const userDetails = useContext(UserDetailsContext);
   const token = useContext(UserTokenContext);
 
   useEffect(() => {
-    if (likedBy) {
-      if (likedBy.includes(userDetails.id)) {
-        setLiked(true);
-      }
+    if (likedBy.includes(userDetails.id)) {
+      setLiked(true);
     }
   }, [likedBy]);
 
@@ -30,13 +29,12 @@ const RecipeCard = ({ title, image, likes, id, likedBy }: RecipeCardProps) => {
   const onLikeClick = (event: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
     event.stopPropagation();
     setLiked(!liked);
-    if (!liked) {
-      const newLikedBy = likedBy.concat(userDetails.id);
-      return likeRecipe(id, likes + 1, newLikedBy, token);
-    }
+    likeRecipe(id, !liked, token);
     if (liked) {
-      const likeToRemove = likedBy.indexOf(userDetails.id);
-      return likeRecipe(id, likes, likedBy.splice(likeToRemove, 1), token);
+      setFrontendLikes(frontendLikes - 1);
+    }
+    if (!liked) {
+      setFrontendLikes(frontendLikes + 1);
     }
   };
 
@@ -51,7 +49,7 @@ const RecipeCard = ({ title, image, likes, id, likedBy }: RecipeCardProps) => {
         <h1 className='recipe-h1'>{title}</h1>
         <div className='recipe-like-box'>
           <FontAwesomeIcon onClick={onLikeClick} className='recipe-like-heart' icon={heartIcon}/>
-          <h3 className='recipe-likes'>{likes} likes</h3>
+          <h3 className='recipe-likes'>{frontendLikes} likes</h3>
         </div>
       </div>
     </div>

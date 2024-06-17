@@ -68,9 +68,10 @@ router.put('/like/:id', (req, res) => {
   try {
     if (req.decodedToken?.id) {
       const recipeToLike = toLikeRecipe(req.body);
+      const userId = req.decodedToken.id;
       const id = req.params.id;
-      const { likes, likedBy } = recipeToLike;
-      recipeService.likeRecipe({ id, likes, likedBy })
+      const { liked } = recipeToLike;
+      recipeService.likeRecipe({ id, liked, userId })
         .then((likedRecipe) => res.json(likedRecipe))
         .catch((error) => (console.log(error)));
     } else { res.status(401).end(); }

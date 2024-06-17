@@ -51,18 +51,16 @@ const addRecipe = async ( recipe: RecipeFormData, token: string): Promise<Recipe
   }
 };
 
-const likeRecipe = async (id: string, likes: number, likedBy: string[], token: string): Promise<Recipe> => {
+const likeRecipe = async (id: string, liked: boolean, token: string): Promise<Recipe> => {
   try {
     const recipeLikes = {
-      likes,
-      likedBy
+      liked
     };
     const response = await axios.put<Recipe>(
       `${config.apiUrl}/recipes/like/${id}`,
       recipeLikes,
       { headers: { Authorization: `Bearer ${token}` } }
     );
-    console.log(response.data);
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';

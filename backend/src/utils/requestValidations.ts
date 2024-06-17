@@ -1,6 +1,6 @@
 import { LikeRecipe, NewRecipe } from "../interfaces/recipeInterfaces";
 import { LoginUser, NewUser } from "../interfaces/userInterfaces";
-import { parseComments, parseDate, parseDescription, parseImage, parseIngredients, parseLikedBy, parseLikes, parseSteps, parseTitle } from "../parsers/recipeParsers";
+import { parseComments, parseDate, parseDescription, parseImage, parseIngredients, parseLikedBy, parseLikes, parseSteps, parseTitle, parseLiked } from "../parsers/recipeParsers";
 import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "../parsers/userParsers";
 
 export const toNewUser = (object: unknown): NewUser => {
@@ -72,12 +72,10 @@ export const toLikeRecipe = (object: unknown): LikeRecipe => {
   }
 
   if (
-    "likes" in object &&
-    "likedBy" in object
+    "liked" in object
   ) {
     const likeableRecipe: LikeRecipe = {
-      likes: parseLikes(object.likes),
-      likedBy: parseLikedBy(object.likedBy),
+      liked: parseLiked(object.liked),
     };
 
     return likeableRecipe;

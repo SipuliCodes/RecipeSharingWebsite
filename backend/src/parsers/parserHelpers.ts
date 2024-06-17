@@ -4,6 +4,10 @@ export const isString = (text: unknown): text is string => {
   return typeof text === "string" || text instanceof String;
 };
 
+export const isBoolean = (boolean: unknown): boolean is boolean => {
+  return typeof boolean === "boolean" || boolean instanceof Boolean;
+};
+
 export const isNumber = (number: unknown): number is number => {
   return typeof number === "number" && !isNaN(number);
 };
