@@ -20,7 +20,7 @@ const RecipeCard = ({ title, image, likes, id, likedBy }: RecipeCardProps) => {
     if (likedBy.includes(userDetails.id)) {
       setLiked(true);
     }
-  }, [likedBy]);
+  }, [likedBy, userDetails.id]);
 
   const onClick = () => {
     navigate(`/recipe/${id}`);
