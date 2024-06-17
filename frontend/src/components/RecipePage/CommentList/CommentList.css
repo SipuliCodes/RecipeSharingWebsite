@@ -26,3 +26,43 @@
 .recipe-comment-user {
   font-family: var(--secondary-font);
 }
+
+.recipe-add-comment-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.recipe-add-comment-textarea {
+  font-size: 1rem;
+  min-height: 4rem;
+  resize: none;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.recipe-add-comment-button-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-add-comment-button {
+  border-radius: 1rem;
+  width: 8rem;
+  padding: 1rem;
+  margin: 1rem;
+  margin-top: 0;
+  color: var(--primary-text-color);
+}
+
+.recipe-add-comment-add-button {
+  background-color: var(--success-color);
+}
+
+.recipe-add-comment-cancel-button {
+  background-color: var(--error-color);
+}
