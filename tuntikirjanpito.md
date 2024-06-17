@@ -26,4 +26,6 @@
 | 12.6.2024 | 1 | Koti sivulla reseptin klikkaamisen johtaminen reseptisivulle | 
 | 13.6.2024 | 3 | Käyttäjän tietojen säilyttäminen ja käyttäminen | 
 | 14.6.2024 | 2 | Reseptien ottaminen mongoDB | 
-| Yhteensä | 86 | tuntia |
+| 16.6.2024 | 3 | Tykkäysjärjestelmän tekeminen |
+| 17.6.2024 | 5 | Tykkäysjärjestelmän muuttaminen ja frontendin kommentointi "lomakkeen" teko |
+| Yhteensä | 94 | tuntia |
