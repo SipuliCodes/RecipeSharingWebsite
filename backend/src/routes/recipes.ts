@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 
-import { toLikeRecipe, toNewRecipe } from '../utils/requestValidations';
+import { toLiked, toNewRecipe } from '../utils/requestValidations';
 import  recipeService from '../services/recipeService';
 
 const router: Router = Router();
@@ -67,7 +67,7 @@ router.delete('/:id', (req, res) => {
 router.put('/like/:id', (req, res) => {
   try {
     if (req.decodedToken?.id) {
-      const recipeToLike = toLikeRecipe(req.body);
+      const recipeToLike = toLiked(req.body);
       const userId = req.decodedToken.id;
       const id = req.params.id;
       const { liked } = recipeToLike;

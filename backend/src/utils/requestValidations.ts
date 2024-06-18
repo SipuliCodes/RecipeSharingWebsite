@@ -66,7 +66,7 @@ export const toNewRecipe = (object: unknown): NewRecipe => {
   throw new Error('Incorrect data: some fields are missing');
 };
 
-export const toLikeRecipe = (object: unknown): LikeRecipe => {
+export const toLiked = (object: unknown): LikeRecipe => {
   if (!object || typeof object !== "object") {
     throw new Error("Incorrect or missing data");
   }
