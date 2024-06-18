@@ -1,7 +1,7 @@
-import { LikeRecipe, NewRecipe, NewComment } from "../interfaces/recipeInterfaces";
+import { LikeRecipe, NewRecipeRequest, NewComment } from "../interfaces/recipeInterfaces";
 import { LoginUser, NewUser } from "../interfaces/userInterfaces";
-import { parseComments, parseDate, parseDescription, parseImage, parseIngredients, parseLikedBy, parseLikes, parseSteps, parseTitle, parseLiked, parseComment } from "../parsers/recipeParsers";
-import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername, parseUser } from "../parsers/userParsers";
+import { parseDescription, parseImage, parseIngredients,  parseSteps, parseTitle, parseLiked, parseComment } from "../parsers/recipeParsers";
+import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "../parsers/userParsers";
 
 export const toNewUser = (object: unknown): NewUser => {
   if (!object || typeof object !== 'object') {
@@ -41,23 +41,18 @@ export const toLoginUser = (object: unknown): LoginUser => {
   throw new Error('Incorrect data: some fields are missing');
 };
 
-export const toNewRecipe = (object: unknown): NewRecipe => {
+export const toNewRecipe = (object: unknown): NewRecipeRequest => {
   if (!object || typeof object !== 'object') {
     throw new Error('Incorrect or missing data');
   }
 
-  if ('title' in object && 'image' in object && 'description' in object && 'ingredients' in object && 'steps' in object && 'user' in object && 'likes' in object && 'date' in object && 'comments' in object && 'likedBy' in object) {
-    const newRecipe: NewRecipe = {
+  if ('title' in object && 'image' in object && 'description' in object && 'ingredients' in object && 'steps' in object) {
+    const newRecipe: NewRecipeRequest = {
       title: parseTitle(object.title),
       image: parseImage(object.image),
       description: parseDescription(object.description),
       ingredients: parseIngredients(object.ingredients),
-      steps: parseSteps(object.steps),
-      user: parseUser(object.user),
-      likes: parseLikes(object.likes),
-      date: parseDate(object.date),
-      comments: parseComments(object.comments),
-      likedBy: parseLikedBy(object.likedBy)
+      steps: parseSteps(object.steps)
     };
 
     return newRecipe;

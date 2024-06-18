@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 
 import { toLiked, toNewRecipe, toComment } from '../utils/requestValidations';
 import  recipeService from '../services/recipeService';
+import mongoose from 'mongoose';
 
 const router: Router = Router();
 
@@ -28,7 +29,15 @@ router.get('/:id', (req: Request, res: Response) => {
 
 router.post('/', (req, res) => {
   try {
-    const newRecipe = toNewRecipe(req.body);
+    const newRecipeRequest = toNewRecipe(req.body);
+    const newRecipe = {
+      ...newRecipeRequest,
+      user: new mongoose.Schema.Types.ObjectId(req.decodedToken!.id),
+      comments: [],
+      likes: 0,
+      likedBy: [],
+      date: new Date().toISOString()
+    };
     recipeService.addRecipe(newRecipe)
       .then((addedRecipe) => res.json(addedRecipe))
       .catch((error) => console.log(error));

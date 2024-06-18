@@ -28,5 +28,6 @@ export interface IRecipeDocument extends Document, Omit<IRecipe, "id"> {
 }
 
 export type NewRecipe = Omit<IRecipe, 'id'>;
+export type NewRecipeRequest = Omit<NewRecipe, 'user' | 'likes' | 'likedBy' | 'date' | 'comments'>;
 
 export type LikeRecipe = { liked: boolean };
