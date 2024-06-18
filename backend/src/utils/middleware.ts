@@ -6,8 +6,15 @@ export const extractToken = (req: Request, _res: Response, next: NextFunction) =
   try {
     req.decodedToken = verifyToken(req);
   } catch (error) {
-    console.log(error );
+    console.error("Error verifying token:", error);
   }
-
   next();
+};
+
+export const checkAuthMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  if (req.decodedToken?.id) {
+    next();
+  } else {
+    res.status(401).end();
+  }
 };

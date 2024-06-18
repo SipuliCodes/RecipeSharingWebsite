@@ -5,15 +5,11 @@ import  recipeService from '../services/recipeService';
 
 const router: Router = Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', (_req: Request, res: Response) => {
   try {
-    if (req.decodedToken?.id) {
-      recipeService.getAllRecipes()
-        .then((recipes) => res.json(recipes))
-        .catch((error) => console.log(error));
-    } else {
-      res.status(401).end();
-    }
+    recipeService.getAllRecipes()
+      .then((recipes) => res.json(recipes))
+      .catch((error) => console.log(error));
   } catch (error) {
     res.status(401).end();
   }
@@ -21,14 +17,10 @@ router.get('/', (req: Request, res: Response) => {
 
 router.get('/:id', (req: Request, res: Response) => {
   try {
-    if (req.decodedToken?.id) {
-      const recipeId = req.params.id;
-      recipeService.getOneRecipe(recipeId)
-        .then((recipe) => res.json(recipe))
-        .catch((error) => console.log(error));
-    } else {
-      res.status(401).end();
-    }
+    const recipeId = req.params.id;
+    recipeService.getOneRecipe(recipeId)
+      .then((recipe) => res.json(recipe))
+      .catch((error) => console.log(error));
   } catch (error) {
     res.status(401).end();
   }
@@ -36,14 +28,10 @@ router.get('/:id', (req: Request, res: Response) => {
 
 router.post('/', (req, res) => {
   try {
-    if (req.decodedToken?.id) {
-      const newRecipe = toNewRecipe(req.body);
-      recipeService.addRecipe(newRecipe)
-        .then((addedRecipe) => res.json(addedRecipe))
-        .catch((error) => console.log(error));
-    } else {
-      res.status(401).end();
-    } 
+    const newRecipe = toNewRecipe(req.body);
+    recipeService.addRecipe(newRecipe)
+      .then((addedRecipe) => res.json(addedRecipe))
+      .catch((error) => console.log(error));
   } catch (error) {
     res.status(401).end();
   }
@@ -51,32 +39,26 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   try {
-    if (req.decodedToken?.id) {
       const recipeToDeleteId = req.params.id;
-      recipeService.deleteRecipe(recipeToDeleteId, req.decodedToken.username)
+      recipeService.deleteRecipe(recipeToDeleteId, req.decodedToken!.username)
         .then((response) => { if (response) { res.status(204).end(); } else { res.status(401).end(); } })
         .catch((error) => console.log(error));
-    } else {
-      res.status(401).end();
-    }
   } catch (error) {
-    res.status(401).end();
+    res.status(404).end();
   }
 });
 
 router.put('/like/:id', (req, res) => {
   try {
-    if (req.decodedToken?.id) {
       const recipeToLike = toLiked(req.body);
-      const userId = req.decodedToken.id;
+      const userId = req.decodedToken!.id;
       const id = req.params.id;
       const { liked } = recipeToLike;
       recipeService.likeRecipe({ id, liked, userId })
         .then((likedRecipe) => res.json(likedRecipe))
         .catch((error) => (console.log(error)));
-    } else { res.status(401).end(); }
   } catch (error) {
-    res.status(401).end();
+    res.status(404).end();
   }
 });
 

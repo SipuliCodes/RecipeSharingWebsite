@@ -7,7 +7,7 @@ import { MONGODB_URI, PORT } from './utils/config';
 import SignupRouter from './routes/signup';
 import LoginRouter from './routes/login';
 import RecipeRouter from './routes/recipes';
-import { extractToken } from './utils/middleware';
+import { checkAuthMiddleware, extractToken } from './utils/middleware';
 
 mongoose.set('strictQuery', false);
 
@@ -32,7 +32,7 @@ app.use(extractToken);
 
 app.use('/api/signup', SignupRouter);
 app.use('/api/login', LoginRouter);
-app.use('/api/recipes', RecipeRouter);
+app.use('/api/recipes', checkAuthMiddleware, RecipeRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
