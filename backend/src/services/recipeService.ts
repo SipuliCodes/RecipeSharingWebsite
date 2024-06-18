@@ -22,8 +22,7 @@ const addRecipe = async (recipe: NewRecipe): Promise<IRecipe> => {
 
 const deleteRecipe = async (id: string, userId: string): Promise<boolean> => {
   const recipeToDelete = await Recipe.findById(id);
-  console.log(recipeToDelete?.user);
-  if (recipeToDelete?.user === new mongoose.Schema.Types.ObjectId(userId)) {
+  if (recipeToDelete?.user.equals(new mongoose.Types.ObjectId(userId))) {
     await Recipe.findByIdAndDelete(recipeToDelete.id);
     return true;
   }
@@ -59,7 +58,7 @@ const commentRecipe = async ({id, comment, userId }: { id: string, comment: stri
   const date: string = new Date().toISOString();
   const newComment: Comment = {
     comment,
-    user: new mongoose.Schema.Types.ObjectId(userId),
+    user: new mongoose.Types.ObjectId(userId),
     date
   };
   const recipeToComment = await Recipe.findById(id);

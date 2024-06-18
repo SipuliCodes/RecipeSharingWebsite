@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export interface Comment {
-  user: mongoose.Schema.Types.ObjectId
+  user: mongoose.Types.ObjectId
   comment: string;
   date: string;
 }
@@ -15,7 +15,7 @@ export interface IRecipe {
   description: string;
   ingredients: string[];
   steps: string[];
-  user: mongoose.Schema.Types.ObjectId;
+  user: mongoose.Types.ObjectId;
   likes: number;
   likedBy: string[];
   date: string;

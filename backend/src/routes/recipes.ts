@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     const newRecipeRequest = toNewRecipe(req.body);
     const newRecipe = {
       ...newRecipeRequest,
-      user: new mongoose.Schema.Types.ObjectId(req.decodedToken!.id),
+      user: new mongoose.Types.ObjectId(req.decodedToken!.id),
       comments: [],
       likes: 0,
       likedBy: [],
