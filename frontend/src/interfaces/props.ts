@@ -33,5 +33,6 @@ export interface StepProps {
 }
 
 export interface CommentListProps {
+  id: string;
   comments: Comment[];
 }

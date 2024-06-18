@@ -61,7 +61,7 @@ const RecipePage = () => {
       <div className='recipe-instructions'>
         <IngredientList ingredients={recipeData.ingredients} />
         <StepList steps={recipeData.steps} />
-        <CommentList comments={recipeData.comments} />
+        <CommentList id={recipeData.id} comments={recipeData.comments} />
       </div>
     </div>
   );

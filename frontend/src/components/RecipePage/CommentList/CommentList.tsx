@@ -1,13 +1,17 @@
-import { useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 
 import useAutosizeTextArea from '../../../hooks/useAutosizeTextarea';
 import { CommentListProps } from '../../../interfaces/props';
 import { formatDate } from '../../../utils/helpers';
 import './CommentList.css';
+import { commentRecipe } from '../../../services/recipeService';
+import { UserTokenContext } from '../../../contexts/userContext';
 
-const CommentList = ({ comments }: CommentListProps) => {
+const CommentList = ({ id, comments }: CommentListProps) => {
   const [comment, setComment] = useState('');
   const [wantToComment, setWantToComment] = useState(false);
+
+  const token = useContext(UserTokenContext);
   
   const commentRef = useRef<HTMLTextAreaElement>(null);
 
@@ -16,6 +20,13 @@ const CommentList = ({ comments }: CommentListProps) => {
   const handleTextAreaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { value } = event.target;
     setComment(value);
+  };
+
+  const handleAddClick = async () => {
+    const newComment = await commentRecipe(id, comment, token);
+    comments.push(newComment);
+    setComment('');
+    setWantToComment(!wantToComment);
   };
 
   const handleClick = () => {
@@ -50,7 +61,7 @@ const CommentList = ({ comments }: CommentListProps) => {
           />
           <div className='recipe-add-comment-button-box'>
             <button className='recipe-add-comment-cancel-button recipe-add-comment-button' onClick={handleClick}>Cancel</button>
-            <button className='recipe-add-comment-add-button recipe-add-comment-button'>Add</button>
+            <button onClick={handleAddClick} className='recipe-add-comment-add-button recipe-add-comment-button'>Add</button>
           </div>
         </div>
       }
