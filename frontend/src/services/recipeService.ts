@@ -33,14 +33,7 @@ const getOneRecipe = async (token: string, id: string): Promise<Recipe> => {
 
 const addRecipe = async ( recipe: RecipeFormData, token: string): Promise<Recipe> => {
   try {
-    const newRecipe = {
-      ...recipe,
-      likes: 0,
-      comments: [],
-      username: 'Bertil',
-      date: (new Date().toISOString())
-    };
-    const response = await axios.post<Recipe>(`${config.apiUrl}/recipes`, newRecipe, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.post<Recipe>(`${config.apiUrl}/recipes`, recipe, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
