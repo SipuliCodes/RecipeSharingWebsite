@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
   try {
       const recipeToDeleteId = req.params.id;
-      recipeService.deleteRecipe(recipeToDeleteId, req.decodedToken!.username)
+      recipeService.deleteRecipe(recipeToDeleteId, req.decodedToken!.id)
         .then((response) => { if (response) { res.status(204).end(); } else { res.status(401).end(); } })
         .catch((error) => console.log(error));
   } catch (error) {
@@ -66,8 +66,8 @@ router.put('/comment/:id', (req, res) => {
   try {
     const { comment } = toComment(req.body);
     const id = req.params.id;
-    const username = req.decodedToken!.username;
-    recipeService.commentRecipe({ id, comment, username })
+    const userId = req.decodedToken!.id;
+    recipeService.commentRecipe({ id, comment, userId })
       .then((newComment) => res.json(newComment))
       .catch((error) => console.log(error));
   } catch (error) {

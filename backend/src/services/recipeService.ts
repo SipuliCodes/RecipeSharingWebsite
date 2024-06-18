@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { IRecipe, NewRecipe, Comment } from "../interfaces/recipeInterfaces";
 import Recipe from '../models/recipe';
 
@@ -19,11 +20,10 @@ const addRecipe = async (recipe: NewRecipe): Promise<IRecipe> => {
   return addedRecipe;
 };
 
-const deleteRecipe = async (id: string, username: string): Promise<boolean> => {
+const deleteRecipe = async (id: string, userId: string): Promise<boolean> => {
   const recipeToDelete = await Recipe.findById(id);
-  console.log(recipeToDelete?.username);
-  console.log(username);
-  if (recipeToDelete?.username === username) {
+  console.log(recipeToDelete?.user);
+  if (recipeToDelete?.user === new mongoose.Schema.Types.ObjectId(userId)) {
     await Recipe.findByIdAndDelete(recipeToDelete.id);
     return true;
   }
@@ -55,11 +55,11 @@ const likeRecipe = async ({ id, liked, userId }: { id: string, liked: boolean, u
   throw new Error('Liking was not possible');
 };
 
-const commentRecipe = async ({id, comment, username }: { id: string, comment: string, username: string }): Promise<Comment> => {
+const commentRecipe = async ({id, comment, userId }: { id: string, comment: string, userId: string}): Promise<Comment> => {
   const date: string = new Date().toISOString();
   const newComment: Comment = {
     comment,
-    username,
+    user: new mongoose.Schema.Types.ObjectId(userId),
     date
   };
   const recipeToComment = await Recipe.findById(id);

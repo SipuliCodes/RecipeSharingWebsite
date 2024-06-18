@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { isString } from "./parserHelpers";
 
 export const parseFirstName = (firstName: unknown): string => {
@@ -22,6 +23,14 @@ export const parseUsername = (username: unknown): string => {
   }
 
   return username;
+};
+
+export const parseUser = (user: unknown): mongoose.Schema.Types.ObjectId => {
+  if (!user || !isString(user)) {
+    throw new Error("Incorrect or missing username");
+  }
+
+  return new mongoose.Schema.Types.ObjectId(user);
 };
 
 export const parseEmail = (email: unknown): string => {
