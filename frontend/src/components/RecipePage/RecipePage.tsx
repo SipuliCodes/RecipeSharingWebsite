@@ -32,7 +32,7 @@ const RecipePage = () => {
   );
 
   useEffect(() => {
-    if (isString(recipeId)) {
+    if (isString(recipeId) && token) {
       getOneRecipe(token, recipeId)
         .then((recipe) => {
           setRecipeData(recipe);
