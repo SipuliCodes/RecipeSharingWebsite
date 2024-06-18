@@ -28,4 +28,5 @@
 | 14.6.2024 | 2 | Reseptien ottaminen mongoDB | 
 | 16.6.2024 | 3 | Tykkäysjärjestelmän tekeminen |
 | 17.6.2024 | 5 | Tykkäysjärjestelmän muuttaminen ja frontendin kommentointi "lomakkeen" teko |
-| Yhteensä | 94 | tuntia |
+| 18.6.2024 | 5 | Kommentointi backend toiminnallisuus, muutoksia reseptin lisäykseen ja username muuttaminen user ja vaihto säilyttämään käyttäjän id:tä nimen sijaan, myös autentikoinnin siirto middlewareen |
+| Yhteensä | 99 | tuntia |
