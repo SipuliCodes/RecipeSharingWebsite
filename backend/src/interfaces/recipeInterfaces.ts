@@ -6,6 +6,8 @@ export interface Comment {
   date: string;
 }
 
+export type NewComment = Pick<Comment, 'comment'>;
+
 export interface IRecipe {
   id: string;
   title: string;

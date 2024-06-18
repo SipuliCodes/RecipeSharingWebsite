@@ -77,6 +77,13 @@ export const parseDate = (date: unknown): string => {
   return date;
 };
 
+export const parseComment = (comment: unknown): string => {
+  if (!isString(comment)) {
+    throw new Error('Incorrect comment');
+  }
+  return comment;
+};
+
 export const parseComments = (comments: unknown): Comment[] => {
   if (!isCommentList(comments)) {
     throw new Error("Incorrect comments");

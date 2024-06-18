@@ -1,4 +1,4 @@
-import { IRecipe, NewRecipe } from "../interfaces/recipeInterfaces";
+import { IRecipe, NewRecipe, Comment } from "../interfaces/recipeInterfaces";
 import Recipe from '../models/recipe';
 
 
@@ -55,10 +55,27 @@ const likeRecipe = async ({ id, liked, userId }: { id: string, liked: boolean, u
   throw new Error('Liking was not possible');
 };
 
+const commentRecipe = async ({id, comment, username }: { id: string, comment: string, username: string }): Promise<Comment> => {
+  const date: string = new Date().toISOString();
+  const newComment: Comment = {
+    comment,
+    username,
+    date
+  };
+  const recipeToComment = await Recipe.findById(id);
+  const commentedRecipe = await Recipe.findByIdAndUpdate(id, { comments: recipeToComment?.comments.concat(newComment) }, {new: true});
+  if (commentedRecipe) {
+    await commentedRecipe.save();
+    return newComment;
+  }
+  throw new Error('Commenting was not possible');
+};
+
 export default {
   getAllRecipes,
   getOneRecipe,
   addRecipe,
   deleteRecipe,
-  likeRecipe
+  likeRecipe,
+  commentRecipe
 };

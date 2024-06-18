@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 
-import { toLiked, toNewRecipe } from '../utils/requestValidations';
+import { toLiked, toNewRecipe, toComment } from '../utils/requestValidations';
 import  recipeService from '../services/recipeService';
 
 const router: Router = Router();
@@ -11,7 +11,7 @@ router.get('/', (_req: Request, res: Response) => {
       .then((recipes) => res.json(recipes))
       .catch((error) => console.log(error));
   } catch (error) {
-    res.status(401).end();
+    res.status(404).end();
   }
 });
 
@@ -22,7 +22,7 @@ router.get('/:id', (req: Request, res: Response) => {
       .then((recipe) => res.json(recipe))
       .catch((error) => console.log(error));
   } catch (error) {
-    res.status(401).end();
+    res.status(404).end();
   }
 });
 
@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
       .then((addedRecipe) => res.json(addedRecipe))
       .catch((error) => console.log(error));
   } catch (error) {
-    res.status(401).end();
+    res.status(404).end();
   }
 });
 
@@ -60,6 +60,20 @@ router.put('/like/:id', (req, res) => {
   } catch (error) {
     res.status(404).end();
   }
+});
+
+router.put('/comment/:id', (req, res) => {
+  try {
+    const { comment } = toComment(req.body);
+    const id = req.params.id;
+    const username = req.decodedToken!.username;
+    recipeService.commentRecipe({ id, comment, username })
+      .then((newComment) => res.json(newComment))
+      .catch((error) => console.log(error));
+  } catch (error) {
+    res.status(404).end();
+  }
+
 });
 
 export default router;

@@ -1,6 +1,6 @@
-import { LikeRecipe, NewRecipe } from "../interfaces/recipeInterfaces";
+import { LikeRecipe, NewRecipe, NewComment } from "../interfaces/recipeInterfaces";
 import { LoginUser, NewUser } from "../interfaces/userInterfaces";
-import { parseComments, parseDate, parseDescription, parseImage, parseIngredients, parseLikedBy, parseLikes, parseSteps, parseTitle, parseLiked } from "../parsers/recipeParsers";
+import { parseComments, parseDate, parseDescription, parseImage, parseIngredients, parseLikedBy, parseLikes, parseSteps, parseTitle, parseLiked, parseComment } from "../parsers/recipeParsers";
 import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "../parsers/userParsers";
 
 export const toNewUser = (object: unknown): NewUser => {
@@ -79,6 +79,22 @@ export const toLiked = (object: unknown): LikeRecipe => {
     };
 
     return likeableRecipe;
+  }
+
+  throw new Error("Incorrect data: some fields are missing");
+};
+
+export const toComment = (object: unknown): NewComment => {
+  if (!object || typeof object !== "object") {
+    throw new Error("Incorrect or missing data");
+  }
+
+  if ("comment" in object) {
+    const newComment: NewComment = {
+      comment: parseComment(object.comment),
+    };
+
+    return newComment;
   }
 
   throw new Error("Incorrect data: some fields are missing");
