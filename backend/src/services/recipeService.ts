@@ -61,8 +61,11 @@ const commentRecipe = async ({id, comment, userId }: { id: string, comment: stri
     user: new mongoose.Types.ObjectId(userId),
     date
   };
-  const recipeToComment = await Recipe.findById(id);
-  const commentedRecipe = await Recipe.findByIdAndUpdate(id, { comments: recipeToComment?.comments.concat(newComment) }, {new: true});
+  const commentedRecipe = await Recipe.findByIdAndUpdate(
+    id,
+    { $push: { comments: newComment } },
+    { new: true }
+  );
   if (commentedRecipe) {
     await commentedRecipe.save();
     return newComment;
