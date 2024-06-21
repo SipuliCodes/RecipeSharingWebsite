@@ -1,7 +1,8 @@
-import mongoose from "mongoose";
+import { Types } from "mongoose";
+
 
 export interface Comment {
-  user: mongoose.Types.ObjectId
+  user: Types.ObjectId
   comment: string;
   date: string;
 }
@@ -15,7 +16,7 @@ export interface IRecipe {
   description: string;
   ingredients: string[];
   steps: string[];
-  user: mongoose.Types.ObjectId;
+  user: Types.ObjectId;
   likes: number;
   likedBy: string[];
   date: string;
@@ -23,7 +24,7 @@ export interface IRecipe {
 }
 
 export interface IRecipeDocument extends Document, Omit<IRecipe, "id"> {
-  _id: mongoose.Schema.Types.ObjectId;
+  _id: Types.ObjectId;
   __v: string;
 }
 
