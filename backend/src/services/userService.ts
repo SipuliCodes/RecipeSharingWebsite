@@ -16,9 +16,13 @@ const addUser = async (user: NewUser): Promise<IUser> => {
     email,
     password: passwordHash,
   });
-  await addedUser.save();
+  
+  if (addedUser) {
+    console.log(1, addedUser);
+    return await addedUser.save();
+  }
 
-  return addedUser;
+  throw new Error('Signup failed');
 };
 
 const loginUser = async (user: LoginUser): Promise<IUser> => {
