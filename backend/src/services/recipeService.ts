@@ -14,8 +14,9 @@ const getOneRecipe = async (recipeId: string): Promise<IRecipe> => {
   throw new Error('Recipe was not found');
 };
 
-const addRecipe = async (recipe: NewRecipe): Promise<IRecipe> => {
+const addRecipe = async (recipe: NewRecipe, userId: string): Promise<IRecipe> => {
   const addedRecipe = new Recipe(recipe);
+  await User.findByIdAndUpdate(userId, { $push: { recipes: addedRecipe._id } });
   await addedRecipe.save();
   return addedRecipe;
 };
@@ -23,6 +24,7 @@ const addRecipe = async (recipe: NewRecipe): Promise<IRecipe> => {
 const deleteRecipe = async (id: string, userId: string): Promise<boolean> => {
   const recipeToDelete = await Recipe.findById(id);
   if (recipeToDelete?.user.equals(new mongoose.Types.ObjectId(userId))) {
+    await User.findByIdAndUpdate(userId, { $pull: { recipes: id } });
     await Recipe.findByIdAndDelete(recipeToDelete.id);
     return true;
   }

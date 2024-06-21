@@ -38,7 +38,8 @@ router.post('/', (req, res) => {
       likedBy: [],
       date: new Date().toISOString()
     };
-    recipeService.addRecipe(newRecipe)
+    const userId = req.decodedToken!.id;
+    recipeService.addRecipe(newRecipe, userId)
       .then((addedRecipe) => res.json(addedRecipe))
       .catch((error) => console.log(error));
   } catch (error) {
