@@ -7,7 +7,9 @@ export interface IUser {
   username: string;
   email: string;
   password: string;
-  friends?: string[];
+  friends?: Types.ObjectId[];
+  recipes?: Types.ObjectId[];
+  likedRecipes: Types.ObjectId[];
 }
 
 export type LoginUser = Pick<IUser, 'username' | 'password'>;
