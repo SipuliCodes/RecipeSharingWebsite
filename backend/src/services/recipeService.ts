@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { IRecipe, NewRecipe, Comment } from "../interfaces/recipeInterfaces";
-import Recipe from '../models/recipe';
+import { Recipe, User } from '../models';
 
 
 const getAllRecipes = async (): Promise<IRecipe[]> => {
@@ -32,12 +32,14 @@ const deleteRecipe = async (id: string, userId: string): Promise<boolean> => {
 const likeRecipe = async ({ id, liked, userId }: { id: string, liked: boolean, userId: string }): Promise<IRecipe> => {
   const recipeToLike = await Recipe.findById(id);
   if (!liked && recipeToLike?.likedBy.includes(userId)) {
+    await User.findByIdAndUpdate(userId, { $pull: { likedRecipes: id } });
     const likedRecipe = await Recipe.findByIdAndUpdate(id, { likes: recipeToLike.likes - 1, likedBy: recipeToLike.likedBy.filter(id => id !== userId) }, { new: true });
     if (likedRecipe) {
       return await likedRecipe.save();
     }
   }
   if (liked && recipeToLike && !recipeToLike.likedBy.includes(userId)) {
+    await User.findByIdAndUpdate(userId, { $push: { likedRecipes: id } });
     const likedRecipe = await Recipe.findByIdAndUpdate(
       id,
       {
