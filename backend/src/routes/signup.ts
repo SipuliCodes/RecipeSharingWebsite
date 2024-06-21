@@ -18,9 +18,9 @@ router.post("/", (req, res) => {
 
     userService
       .addUser(newUser)
-      .then((addedUser: IUser) => {
-        const token = createToken(addedUser.username, addedUser.id);
-        res.json({ addedUser, token });
+      .then((user: IUser) => {
+        const token = createToken(user.username, user.id);
+        res.json({ user, token });
       })
       .catch((error: unknown) => {
         let errorMessage = "Something went wrong.";
