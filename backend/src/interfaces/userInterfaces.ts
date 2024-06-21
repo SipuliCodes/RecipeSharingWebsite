@@ -9,7 +9,7 @@ export interface IUser {
   password: string;
   friends?: Types.ObjectId[];
   recipes?: Types.ObjectId[];
-  likedRecipes: Types.ObjectId[];
+  likedRecipes?: Types.ObjectId[];
 }
 
 export type LoginUser = Pick<IUser, 'username' | 'password'>;
