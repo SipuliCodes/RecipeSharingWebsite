@@ -1,22 +1,28 @@
-export interface SignupFormData {
+import { Recipe } from './recipeInterfaces';
+
+export interface BasicUser {
   firstName: string;
   lastName: string;
   username: string;
   email: string;
   password: string;
-  confirmPassword: string;
 }
 
-export type User = Omit<SignupFormData, 'confirmPassword'>
+export type SignupFormData = BasicUser & { confirmPassword: string }
 
-export type LoggedInUser = Omit<User, 'password'> & { friends: string[], id: string }
+export type LoggedInUser = Omit<BasicUser, 'password'> & {
+  friends: LoggedInUser[];
+  recipes: Recipe[];
+  likedRecipes: Recipe[];
+  id: string;
+};
 
 export interface LoggedInUserWithToken {
-  user: LoggedInUser,
-  token: string
+  user: LoggedInUser;
+  token: string;
 }
 
-export interface LoginFormData {
-  username: string,
-  password: string
-}
+export type LoginFormData = Pick<BasicUser, 'username' | 'password'>
+
+export type UserInRecipe = Pick<BasicUser, 'username'>
+

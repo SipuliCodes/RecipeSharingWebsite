@@ -1,5 +1,7 @@
+import { LoggedInUser, UserInRecipe } from './userInterfaces';
+
 export type Comment = {
-  username: string;
+  user: LoggedInUser;
   comment: string;
   date: string;
 };
@@ -11,7 +13,7 @@ export interface Recipe {
   description: string;
   ingredients: string[];
   steps: string[];
-  username: string;
+  user: UserInRecipe;
   likes: number;
   date: string;
   comments: Comment[];

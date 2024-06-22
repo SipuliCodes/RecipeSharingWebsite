@@ -23,7 +23,7 @@ const RecipePage = () => {
       'description': '',
       'ingredients': [],
       'steps': [],
-      'username': '',
+      'user': {'username': ''},
       'date': '',
       'likes': 0,
       'comments': [],
@@ -53,7 +53,7 @@ const RecipePage = () => {
           <h1 className='recipe-title'>{recipeData.title}</h1>
           <img className='recipe-image' src={recipeData.image} />
         </div>
-        <h3 className='recipe-details-h3'>Published by {recipeData.username} {formatDate(recipeData.date) }</h3>
+        <h3 className='recipe-details-h3'>Published by {recipeData.user.username} {formatDate(recipeData.date) }</h3>
         <div className='recipe-description'>
           {recipeData.description}
         </div>
