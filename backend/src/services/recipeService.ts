@@ -8,9 +8,11 @@ const getAllRecipes = async (): Promise<IRecipe[]> => {
 };
 
 const getOneRecipe = async (recipeId: string): Promise<IRecipe> => {
-  const recipe = await Recipe.findById(recipeId);
+  const recipe = await Recipe.findById(recipeId).populate({
+    path: "user",
+    select: "username",
+  });
   if (recipe) return recipe;
-  console.log(recipe);
   throw new Error('Recipe was not found');
 };
 
