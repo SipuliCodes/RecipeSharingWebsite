@@ -1,16 +1,11 @@
-import { Comment } from './recipeInterfaces';
+import { Comment, Recipe } from './recipeInterfaces';
 
 export interface FooterProps {
   greenBackground: boolean;
 }
 
-export interface RecipeCardProps {
-  title: string;
-  image: string;
-  likes: number;
-  id: string;
-  likedBy: string[];
-}
+export type RecipeCardProps = Pick<Recipe, 'title' | 'image' | 'likes' | 'id' | 'likedBy'>
+
 
 export interface SignUpFormProps {
    setLeftContent: React.Dispatch<React.SetStateAction<string>>
