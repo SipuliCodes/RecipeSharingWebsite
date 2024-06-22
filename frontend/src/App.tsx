@@ -16,7 +16,9 @@ const App = () => {
     'username': '',
     'email': '',
     'friends': [],
-    'id': 'id'
+    'id': 'id',
+    'recipes': [],
+    'likedRecipes': []
   });
 
   useEffect(() => {
