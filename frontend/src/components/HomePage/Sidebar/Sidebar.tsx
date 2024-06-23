@@ -43,6 +43,7 @@ const Sidebar = () => {
         <h4 className='username'>@{userDetails.username}</h4>
       </div>
       <div className='link-list'>
+        <h3 onClick={handleClick} id='home' className='sidebar-links'>Home</h3>
         <h3 onClick={handleClick} id='friends' className='sidebar-links'>Friends</h3>
         <h3 id='settings' className='sidebar-links'>Settings</h3>
       </div>
