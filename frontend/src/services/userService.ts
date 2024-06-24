@@ -29,4 +29,20 @@ const login = async (user: LoginFormData): Promise<LoggedInUserWithToken> => {
   }
 };
 
-export { signup, login };
+const searchForUsers = async (searchWord: string, token: string): Promise<BasicUser[]> => {
+  try {
+    const response = await axios.get(
+      `${config.apiUrl}/users?searchword=${searchWord}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export { signup, login, searchForUsers };
