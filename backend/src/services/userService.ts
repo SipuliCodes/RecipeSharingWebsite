@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import { Types } from 'mongoose';
 
 import { IUser, NewUser, LoginUser } from '../interfaces/userInterfaces';
 import User from '../models/user';
@@ -38,7 +39,34 @@ const loginUser = async (user: LoginUser): Promise<IUser> => {
   throw new Error('Login failed');
 };
 
+const getAllUsersWithWord = async (word: string, userId: string): Promise<IUser[]> => {
+  const startRegex = new RegExp(`^${word}`, "i");
+  const containRegex = new RegExp(`${word}`, "i");
+  const excludeUserObjectId = new Types.ObjectId(userId);
+
+  const users = await User.find({
+    username: { $regex: containRegex },
+    _id: { $ne: excludeUserObjectId }
+  });
+
+  if (!users) {
+    return [];
+  }
+
+  users.sort((a, b) => {
+    const aStartsWith = startRegex.test(a.username);
+    const bStartsWith = startRegex.test(b.username);
+
+    if (aStartsWith && !bStartsWith) return -1;
+    if (!aStartsWith && bStartsWith) return 1;
+    return 0;
+  });
+
+  return users;
+};
+
 export default {
   addUser,
-  loginUser
+  loginUser,
+  getAllUsersWithWord
 };
