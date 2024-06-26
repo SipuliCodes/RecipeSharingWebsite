@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         .then((users) => res.json(users))
         .catch(error => console.log(error));
     } else {
-      res.status(404).end();
+      res.json([]);
     }
   } catch (error) {
     res.status(404).end();
