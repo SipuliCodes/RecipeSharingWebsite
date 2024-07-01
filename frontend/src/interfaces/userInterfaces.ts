@@ -26,3 +26,5 @@ export type LoginFormData = Pick<BasicUser, 'username' | 'password'>
 
 export type UserInRecipe = Pick<BasicUser, 'username'>
 
+export type Friend = Omit<LoggedInUser, 'email' | 'friends' | 'likedRecipes' | 'recipes'>
+

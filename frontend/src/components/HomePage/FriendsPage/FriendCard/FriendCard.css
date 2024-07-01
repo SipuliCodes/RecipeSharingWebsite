@@ -1,0 +1,59 @@
+.friend-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--tertiary-background-color);
+  border-radius: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.friend-card-h1 {
+  font-family: var(--secondary-font);
+  margin: 0;
+}
+
+.friend-card-h4 {
+  font-family: var(--primary-font);
+  margin: 0;
+}
+
+.friend-card-button-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+}
+
+.friend-request-card {
+  height: 6rem;
+}
+
+.friend-request-card-button-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-card-button {
+  color: var(--primary-text-color);
+  border: var(--primary-background-color) 1px solid;
+  border-radius: 1rem;
+  margin: 0.1rem 0.5rem;
+}
+
+.remove {
+  background-color: var(--error-color);
+}
+
+.show {
+  background-color: var(--secondary-background-color);
+}
+
+.show:hover {
+  background-color: color-mix(in srgb, var(--secondary-background-color) 100%, black 70%);
+}
+
+.remove:hover {
+  background-color: color-mix(in srgb, var(--error-color) 100%, black 70%);
+}
