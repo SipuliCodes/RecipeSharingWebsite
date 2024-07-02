@@ -37,6 +37,10 @@
   align-items: center;
 }
 
+.friends-page-h1 {
+  font-family: var(--primary-font);
+}
+
 .friends-page-h2 {
   margin: 0;
   font-family: var(--primary-font);
