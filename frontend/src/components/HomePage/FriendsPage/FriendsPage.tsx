@@ -113,6 +113,7 @@ const FriendsPage = () => {
             <h2 className='friends-page-h2'>Received</h2>
             {friendFriends.map(friend => <FriendCard key={friend.id} friend={friend} requestType='incoming' />)}
           </div>
+          <div></div>
           <div className='friends-page-friends-request-list'>
             <h2 className='friends-page-h2'>Sent</h2>
             {friendFriends.map(friend => <FriendCard key={friend.id} friend={friend} requestType='pending' />)}
