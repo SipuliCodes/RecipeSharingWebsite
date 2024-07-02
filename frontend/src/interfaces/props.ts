@@ -1,5 +1,5 @@
 import { Comment, Recipe } from './recipeInterfaces';
-import { Friend } from './userInterfaces';
+import { BasicUser, Friend } from './userInterfaces';
 
 export interface FooterProps {
   greenBackground: boolean;
@@ -38,4 +38,8 @@ type RequestType = 'none' | 'incoming' | 'pending'
 export interface FriendCardProps {
   friend: Friend;
   requestType: RequestType;
+}
+
+export interface UserResultProps {
+  user: BasicUser;
 }

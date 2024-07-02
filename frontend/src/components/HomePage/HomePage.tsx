@@ -11,6 +11,7 @@ import FriendsPage from './FriendsPage/FriendsPage';
 import { searchForUsers } from '../../services/userService';
 import { BasicUser } from '../../interfaces/userInterfaces';
 import useDebounce from '../../hooks/useDebounce';
+import UserResult from './UserResult/UserResult';
 
 const HomePage = () => {
   const [isChanged, setIsChanged] = useState(false);
@@ -51,7 +52,7 @@ const HomePage = () => {
           <input onChange={handleChange} className='searchbar' placeholder='search'></input>
           {users.length !== 0 &&
           <div className='homepage-search-results'>
-            {users.map(user => <h6 key={user.username}>{user.username}</h6>)}
+            {users.map(user => <UserResult user={user} />)}
           </div>}
         </div>
       </div>

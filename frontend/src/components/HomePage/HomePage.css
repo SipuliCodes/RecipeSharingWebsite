@@ -37,6 +37,7 @@
   border: 0.1rem solid var(--secondary-background-color);
   align-self: stretch;
   z-index: 2;
+  overflow: auto;
 }
 
 .home-h1 {
