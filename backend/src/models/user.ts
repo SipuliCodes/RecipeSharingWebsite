@@ -15,7 +15,9 @@ const schema = new Schema<IUser>({
     validate: emailValidator
   },
   password: { type: String, required: true},
-  friends: { type: [Schema.Types.ObjectId], ref:'User' },
+  friends: { type: [Schema.Types.ObjectId], ref: 'User' },
+  sentRequests: { type: [Schema.Types.ObjectId], ref: 'User' },
+  receivedRequests: { type: [Schema.Types.ObjectId], ref: 'User'},
   recipes: { type: [Schema.Types.ObjectId], ref: 'Recipe' },
   likedRecipes: { type: [Schema.Types.ObjectId], ref:'Recipe'}
 });

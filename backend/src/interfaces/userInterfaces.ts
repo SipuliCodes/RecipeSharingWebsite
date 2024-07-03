@@ -8,6 +8,8 @@ export interface IUser {
   email: string;
   password: string;
   friends?: Types.ObjectId[];
+  sentRequests?: Types.ObjectId[];
+  receivedRequests?: Types.ObjectId[];
   recipes?: Types.ObjectId[];
   likedRecipes?: Types.ObjectId[];
 }

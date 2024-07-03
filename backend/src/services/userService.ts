@@ -65,8 +65,32 @@ const getAllUsersWithWord = async (word: string, userId: string): Promise<IUser[
   return users;
 };
 
+const handleFriendRequest = async (isAccepted: boolean, userId: string, requestUsername: string):Promise<string> => {
+  const newFriend = await User.findOne({ username: requestUsername });
+  const newFriendId = new Types.ObjectId(newFriend!._id);
+  const userIdAsId = new Types.ObjectId(userId);
+  await User.findByIdAndUpdate(newFriendId, {
+    $pull: { sentRequests: userIdAsId },
+  });
+  await User.findByIdAndUpdate(userId, {
+    $pull: { receivedRequests: newFriendId },
+  });
+
+  console.log(newFriend);
+
+  if (isAccepted && newFriend?.sentRequests?.includes(userIdAsId)) {
+    console.log('added friend');
+    await User.findByIdAndUpdate(userId, { $push: { friends: newFriendId } });
+    await User.findByIdAndUpdate(newFriendId, { $push: { friends: userId } });
+    return 'added friend';
+  }
+
+  return 'friend request declined';
+};
+
 export default {
   addUser,
   loginUser,
-  getAllUsersWithWord
+  getAllUsersWithWord,
+  handleFriendRequest
 };
