@@ -61,4 +61,36 @@ const sendFriendRequest = async (username: string, token: string) => {
   }
 };
 
-export { signup, login, searchForUsers, sendFriendRequest };
+const removeFriend = async (username: string, token: string) => {
+  try {
+    await axios.post(
+      `${config.apiUrl}/users/remove-friend`,
+      { username },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+const handleFriendRequest = async (isAccepted: boolean, username: string, token: string) => {
+  try {
+    await axios.post(
+      `${config.apiUrl}/users/requests`,
+      { isAccepted, username },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export { signup, login, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend };

@@ -8,8 +8,6 @@ import FriendCard from './FriendCard/FriendCard';
 const FriendsPage = () => {
   const user = useContext(UserDetailsContext);
   const token = useContext(UserTokenContext);
-
-  console.log(user);
   
   useAutoNavigation('/', token, false);
 
