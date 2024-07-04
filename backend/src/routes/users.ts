@@ -20,6 +20,19 @@ router.get('/', (req, res) => {
   }
 });
 
+router.post('/send-request', (req, res) => {
+  try {
+    const userId = req.decodedToken!.id;
+    const requestUsername: string = req.body.username as string;
+
+    userService.sendFriendRequest(userId, requestUsername)
+      .then(() => res.status(204).end())
+      .catch((error) => console.log(error));
+  } catch (error) {
+    res.status(404).end();
+  }
+});
+
 router.post('/requests', (req, res) => {
   try {
     const userId = req.decodedToken!.id;

@@ -65,6 +65,13 @@ const getAllUsersWithWord = async (word: string, userId: string): Promise<IUser[
   return users;
 };
 
+const sendFriendRequest = async (userId: string, requestUsername: string) => {
+  const newFriend = await User.findOne({ username: requestUsername });
+
+  await User.findByIdAndUpdate(newFriend!._id, { $push: { receivedRequests: userId } });
+  await User.findByIdAndUpdate(userId, { $push: { sentRequests: newFriend!._id } });
+};
+
 const handleFriendRequest = async (isAccepted: boolean, userId: string, requestUsername: string):Promise<string> => {
   const newFriend = await User.findOne({ username: requestUsername });
   const newFriendId = new Types.ObjectId(newFriend!._id);
@@ -92,5 +99,6 @@ export default {
   addUser,
   loginUser,
   getAllUsersWithWord,
-  handleFriendRequest
+  handleFriendRequest,
+  sendFriendRequest
 };
