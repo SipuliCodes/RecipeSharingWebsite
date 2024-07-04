@@ -12,8 +12,8 @@ export interface BasicUser {
 export type SignupFormData = Omit<BasicUser, 'id'> & { confirmPassword: string }
 
 export type LoggedInUser = Omit<BasicUser, 'password'> & {
-  sentRequests?: string[];
-  receivedRequests?: string[];
+  sentRequests?: BasicUser[];
+  receivedRequests?: BasicUser[];
   friends: LoggedInUser[];
   recipes: Recipe[];
   likedRecipes?: Recipe[];
