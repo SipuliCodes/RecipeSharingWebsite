@@ -45,4 +45,20 @@ const searchForUsers = async (searchWord: string, token: string): Promise<BasicU
   }
 };
 
-export { signup, login, searchForUsers };
+const sendFriendRequest = async (username: string, token: string) => {
+  try {
+    await axios.post(
+      `${config.apiUrl}/users/send-request`,
+      { username },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export { signup, login, searchForUsers, sendFriendRequest };
