@@ -14,7 +14,7 @@ export type SignupFormData = Omit<BasicUser, 'id'> & { confirmPassword: string }
 export type LoggedInUser = Omit<BasicUser, 'password'> & {
   sentRequests?: BasicUser[];
   receivedRequests?: BasicUser[];
-  friends: LoggedInUser[];
+  friends: Friend[];
   recipes: Recipe[];
   likedRecipes?: Recipe[];
 };
