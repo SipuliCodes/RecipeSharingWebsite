@@ -33,6 +33,20 @@ router.post('/send-request', (req, res) => {
   }
 });
 
+router.post('/remove-friend', (req, res) => {
+  try {
+    const userId = req.decodedToken!.id;
+    const username: string = req.body.username as string;
+
+    userService
+      .removeFriend( username, userId)
+      .then(() => res.status(204).end())
+      .catch((error) => console.log(error));
+  } catch (error) {
+    res.status(404).end();
+  }
+});
+
 router.post('/requests', (req, res) => {
   try {
     const userId = req.decodedToken!.id;

@@ -95,10 +95,21 @@ const handleFriendRequest = async (isAccepted: boolean, userId: string, requestU
   return 'friend request declined';
 };
 
+const removeFriend = async (username: string, userId: string) => {
+  const friendToRemove = await User.findOne({ username });
+  await User.findByIdAndUpdate(friendToRemove!._id, {
+    $pull: { friends: userId },
+  });
+  await User.findByIdAndUpdate(userId, {
+    $pull: { friends: friendToRemove!._id},
+  });
+};
+
 export default {
   addUser,
   loginUser,
   getAllUsersWithWord,
   handleFriendRequest,
-  sendFriendRequest
+  sendFriendRequest,
+  removeFriend
 };
