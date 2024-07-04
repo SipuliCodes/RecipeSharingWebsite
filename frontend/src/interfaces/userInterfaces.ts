@@ -1,6 +1,7 @@
 import { Recipe } from './recipeInterfaces';
 
 export interface BasicUser {
+  id: string;
   firstName: string;
   lastName: string;
   username: string;
@@ -8,13 +9,14 @@ export interface BasicUser {
   password: string;
 }
 
-export type SignupFormData = BasicUser & { confirmPassword: string }
+export type SignupFormData = Omit<BasicUser, 'id'> & { confirmPassword: string }
 
 export type LoggedInUser = Omit<BasicUser, 'password'> & {
+  sentRequests?: string[];
+  receivedRequests?: string[];
   friends: LoggedInUser[];
   recipes: Recipe[];
-  likedRecipes: Recipe[];
-  id: string;
+  likedRecipes?: Recipe[];
 };
 
 export interface LoggedInUserWithToken {
