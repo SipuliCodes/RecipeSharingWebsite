@@ -68,8 +68,8 @@ const getAllUsersWithWord = async (word: string, userId: string): Promise<IUser[
 const sendFriendRequest = async (userId: string, requestUsername: string) => {
   const newFriend = await User.findOne({ username: requestUsername });
 
-  await User.findByIdAndUpdate(newFriend!._id, { $push: { receivedRequests: userId } });
-  await User.findByIdAndUpdate(userId, { $push: { sentRequests: newFriend!._id } });
+  await User.findByIdAndUpdate(newFriend!._id, { $addToSet: { receivedRequests: userId } });
+  await User.findByIdAndUpdate(userId, { $addToSet: { sentRequests: newFriend!._id } });
 };
 
 const handleFriendRequest = async (isAccepted: boolean, userId: string, requestUsername: string):Promise<string> => {
@@ -87,8 +87,8 @@ const handleFriendRequest = async (isAccepted: boolean, userId: string, requestU
 
   if (isAccepted && newFriend?.sentRequests?.includes(userIdAsId)) {
     console.log('added friend');
-    await User.findByIdAndUpdate(userId, { $push: { friends: newFriendId } });
-    await User.findByIdAndUpdate(newFriendId, { $push: { friends: userId } });
+    await User.findByIdAndUpdate(userId, { $addToSet: { friends: newFriendId } });
+    await User.findByIdAndUpdate(newFriendId, { $addToSet: { friends: userId } });
     return 'added friend';
   }
 
