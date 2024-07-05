@@ -8,15 +8,17 @@ import { UserDetailsContext, UserSetDetailsContext, UserTokenContext } from '../
 
 const FriendCard = ({ friend, requestType }: FriendCardProps) => {
   const user = useContext(UserDetailsContext);
-  const setUser = useContext(UserSetDetailsContext);
+  const setUserContext = useContext(UserSetDetailsContext);
   const token = useContext(UserTokenContext);
   
   const handleRequest = (isAccepted: boolean) => {
     handleFriendRequest(isAccepted, friend.username, token);
     if (isAccepted) {
-      setUser({ ...user, friends: user.friends.concat(friend), receivedRequests: user.receivedRequests?.filter((request) => request.username !== friend.username) });
+      const refreshedUser = { ...user, friends: user.friends.concat(friend), receivedRequests: user.receivedRequests?.filter((request) => request.username !== friend.username) };
+      setUserContext(refreshedUser);
     } else {
-      setUser({ ...user, receivedRequests: user.receivedRequests?.filter((request) => request.username !== friend.username) });
+      const refreshedUser = { ...user, receivedRequests: user.receivedRequests?.filter((request) => request.username !== friend.username) };
+      setUserContext(refreshedUser);
     }
   };
 
@@ -26,7 +28,8 @@ const FriendCard = ({ friend, requestType }: FriendCardProps) => {
 
   const deleteFriend = () => {
     removeFriend(friend.username, token);
-    setUser({ ...user, friends: user.friends?.filter((request) => request.username !== friend.username) });
+    const refreshedUser = { ...user, friends: user.friends?.filter((request) => request.username !== friend.username) };
+    setUserContext(refreshedUser);
   };
 
   return (

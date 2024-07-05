@@ -11,7 +11,8 @@ const UserResult = ({ user }: UserResultProps) => {
 
   const sendRequest = () => {
     sendFriendRequest(user.username, token);
-    setMeUser({ ...meUser, sentRequests: meUser.sentRequests?.concat(user) });
+    const refreshedUser = { ...meUser, sentRequests: meUser.sentRequests?.concat(user) };
+    setMeUser(refreshedUser);
   };
 
   return (
