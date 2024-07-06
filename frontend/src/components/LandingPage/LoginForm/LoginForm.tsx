@@ -6,7 +6,7 @@ import './LoginForm.css';
 import { login } from '../../../services/userService';
 import { LoginFormProps } from '../../../interfaces/props';
 import { UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
-import { setToken, setUser } from '../../../utils/localStorage';
+import { setToken} from '../../../utils/localStorage';
 
 const LoginForm = ({setLeftContent}: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginFormData>({
@@ -32,7 +32,6 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
       setTokenContext(token);
       setToken(token);
       setUserContext(user);
-      setUser(user);
     } catch (error) {
       console.log(error);
     }

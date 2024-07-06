@@ -7,7 +7,7 @@ import { arePasswordsSame, isEmailValid, isPasswordValid, isUsernameValid } from
 import { signup } from '../../../services/userService';
 import { SignUpFormProps } from '../../../interfaces/props';
 import { UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
-import { setToken, setUser } from '../../../utils/localStorage';
+import { setToken } from '../../../utils/localStorage';
 
 const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
   const [formData, setFormData] = useState<SignupFormData>({
@@ -33,7 +33,6 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
       setTokenContext(token);
       setToken(token);
       setUserContext(user);
-      setUser(user);
     } catch (error) {
       console.log(error);
     }
