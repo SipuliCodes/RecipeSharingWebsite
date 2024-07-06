@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 import { config } from '../utils/config';
-import { LoggedInUserWithToken, LoginFormData, BasicUser, LoggedInUser } from '../interfaces/userInterfaces';
+import { LoggedInUserWithToken, LoginFormData, BasicUser, LoggedInUser, SignupFormData } from '../interfaces/userInterfaces';
 
-const signup = async (user: BasicUser): Promise<LoggedInUserWithToken> => {
+const signup = async (user: SignupFormData): Promise<LoggedInUserWithToken> => {
   try {
     const response = await axios.post(`${config.apiUrl}/signup`, user);
     return response.data;
