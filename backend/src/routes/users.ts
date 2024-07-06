@@ -20,6 +20,17 @@ router.get('/', (req, res) => {
   }
 });
 
+router.get('/me', (req, res) => {
+  try {
+    const userId = req.decodedToken!.id;
+    userService.getUser(userId)
+      .then((user) => res.json(user))
+      .catch((error) => console.log(error));
+  } catch (error) {
+    res.status(404).end();
+  }
+});
+
 router.post('/send-request', (req, res) => {
   try {
     const userId = req.decodedToken!.id;

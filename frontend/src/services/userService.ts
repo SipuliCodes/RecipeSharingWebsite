@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { config } from '../utils/config';
-import { LoggedInUserWithToken, LoginFormData, BasicUser } from '../interfaces/userInterfaces';
+import { LoggedInUserWithToken, LoginFormData, BasicUser, LoggedInUser } from '../interfaces/userInterfaces';
 
 const signup = async (user: BasicUser): Promise<LoggedInUserWithToken> => {
   try {
@@ -19,6 +19,22 @@ const signup = async (user: BasicUser): Promise<LoggedInUserWithToken> => {
 const login = async (user: LoginFormData): Promise<LoggedInUserWithToken> => {
   try {
     const response = await axios.post(`${config.apiUrl}/login`, user);
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+const getUserData = async (token: string): Promise<LoggedInUser> => {
+  try {
+    const response = await axios.get(
+      `${config.apiUrl}/users/me`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -93,4 +109,4 @@ const handleFriendRequest = async (isAccepted: boolean, username: string, token:
   }
 };
 
-export { signup, login, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend };
+export { signup, login, getUserData, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend };

@@ -39,6 +39,16 @@ const loginUser = async (user: LoginUser): Promise<IUser> => {
   throw new Error('Login failed');
 };
 
+const getUser = async (userId: string): Promise<IUser> => {
+  const user = await User.findById(userId).populate('friends').populate('sentRequests').populate('receivedRequests');
+
+  if (user) {
+    return user;
+  }
+
+  throw new Error('User was not found');
+};
+
 const getAllUsersWithWord = async (word: string, userId: string): Promise<IUser[]> => {
   const startRegex = new RegExp(`^${word}`, "i");
   const containRegex = new RegExp(`${word}`, "i");
@@ -108,6 +118,7 @@ const removeFriend = async (username: string, userId: string) => {
 export default {
   addUser,
   loginUser,
+  getUser,
   getAllUsersWithWord,
   handleFriendRequest,
   sendFriendRequest,

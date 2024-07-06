@@ -34,7 +34,7 @@ app.use(extractToken);
 app.use('/api/signup', SignupRouter);
 app.use('/api/login', LoginRouter);
 app.use('/api/recipes', checkAuthMiddleware, RecipeRouter);
-app.use('/api/users', UserRouter);
+app.use('/api/users', checkAuthMiddleware, UserRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
