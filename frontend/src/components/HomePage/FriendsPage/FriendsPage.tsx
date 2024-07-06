@@ -1,15 +1,11 @@
 import { useContext } from 'react';
 
-import useAutoNavigation from '../../../hooks/useAutoNavigation';
-import { UserDetailsContext, UserTokenContext } from '../../../contexts/userContext';
+import { UserDetailsContext} from '../../../contexts/userContext';
 import './FriendsPage.css';
 import FriendCard from './FriendCard/FriendCard';
 
 const FriendsPage = () => {
   const user = useContext(UserDetailsContext);
-  const token = useContext(UserTokenContext);
-  
-  useAutoNavigation('/', token, false);
 
   return (
     <div className='friends-page'>

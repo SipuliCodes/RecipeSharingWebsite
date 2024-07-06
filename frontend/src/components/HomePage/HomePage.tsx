@@ -5,7 +5,7 @@ import './HomePage.css';
 import Sidebar from './Sidebar/Sidebar';
 import RecipeList from './RecipeList/RecipeList';
 import { UserTokenContext } from '../../contexts/userContext';
-import useAutoNavigation from '../../hooks/useAutoNavigation';
+
 import { useLocation } from 'react-router-dom';
 import FriendsPage from './FriendsPage/FriendsPage';
 import { searchForUsers } from '../../services/userService';
@@ -20,7 +20,6 @@ const HomePage = () => {
   const [search, setSearch] = useState('');
   const [users, setUsers] = useState<BasicUser[]>([]);
 
-  useAutoNavigation('/', token, false);
   const debounceSearch = useDebounce(search, 300);
 
   const toggleClass = () => {
