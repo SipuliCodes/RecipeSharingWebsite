@@ -5,7 +5,7 @@ import {
 import { useContext } from 'react';
 
 import './Sidebar.css';
-import { removeToken, removeUser} from '../../../utils/localStorage';
+import { removeToken} from '../../../utils/localStorage';
 import { UserDetailsContext, UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -18,7 +18,6 @@ const Sidebar = () => {
   const logout = () => {
     removeToken();
     setTokenContext('');
-    removeUser();
     setUserContext({
       'firstName': '',
       'lastName': '',
@@ -27,7 +26,7 @@ const Sidebar = () => {
       'friends': [],
       'id': '',
       'recipes': [],
-      likedRecipes: []
+      'likedRecipes': []
     });
   };
 
