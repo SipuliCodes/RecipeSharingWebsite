@@ -29,4 +29,15 @@
 | 16.6.2024 | 3 | Tykkäysjärjestelmän tekeminen |
 | 17.6.2024 | 5 | Tykkäysjärjestelmän muuttaminen ja frontendin kommentointi "lomakkeen" teko |
 | 18.6.2024 | 5 | Kommentointi backend toiminnallisuus, muutoksia reseptin lisäykseen ja username muuttaminen user ja vaihto säilyttämään käyttäjän id:tä nimen sijaan, myös autentikoinnin siirto middlewareen |
-| Yhteensä | 99 | tuntia |
+| 21.6.2024 | 2 | Muutoksia käyttäjä malliin ja reseptin lisäys ja poisto backendiin |
+| 22.6.2024 | 1 | Populaatiota, navigaatiota ja muutoksia interface |
+| 24.6.2024 | 1 | Käyttäjien haku ominaisuus backendiin ja myös alku frontendiin |
+| 26.6.2024 | 1 | Hookki, jotta etsintä tapahtuu vasta kirjoittamisen loputtua ja pieni muutos backendiin |
+| 30.6.2024 | 2 | Kaverisivun luonti |
+| 01.7.2024 | 1 | Muutoksia kaverisivun designiin |
+| 02.7.2024 | 1 | Käyttäjien hakutuloksien teko ja pieniä design muutoksia |
+| 03.7.2024 | 1 | Kaveripyynnön hylkäys/hyväksyminen backendiin |
+| 04.7.2024 | 3 | Kaveripyynnön lähettäminen backendiin ja frontendiin, kaverin poistaminen backendiin, kaverinpyynnön käsittely ja kaverin poistaminen frontendiin ja muutokisa interfaceihin |
+| 05.7.2024 | 1 | Kaveri juttujen käsittely niin, että ne päivittyvät stateen | 
+| 06.7.2024 | 5 | Poistin käyttäjätietojen tallentamisen localStorageen ja vaihdoin, että ne haetaan joka refreshillä backendistä, routinging uusiminen, koodin poistamista ja korjauksia kaveripyynnön lähettämiseen |
+| Yhteensä | 121 | tuntia |
