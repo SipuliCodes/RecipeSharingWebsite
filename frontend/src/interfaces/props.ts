@@ -43,3 +43,13 @@ export interface FriendCardProps {
 export interface UserResultProps {
   user: BasicUser;
 }
+
+export interface OpenRouteProps {
+  element: React.ReactElement;
+  token: string;
+}
+
+export interface PrivateRouteProps {
+  element: React.ReactNode;
+  token: string;
+}
