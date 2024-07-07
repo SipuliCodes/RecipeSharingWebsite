@@ -55,6 +55,7 @@ const App = () => {
                 <Route path="/add-recipe" element={<PrivateRoute element={<AddRecipe />} token={token} />} />
                 <Route path="/recipe/:id" element={<PrivateRoute element={<RecipePage />} token={token} />} />
                 <Route path="/friends" element={<PrivateRoute element={<HomePage />} token={token} />} />
+                <Route path="/:id/recipes" element={<PrivateRoute element={<HomePage />} token={token} />} />
               </Routes>
             </Router>
           </UserSetDetailsContext.Provider>

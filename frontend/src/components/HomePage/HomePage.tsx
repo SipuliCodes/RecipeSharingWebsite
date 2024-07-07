@@ -6,7 +6,7 @@ import Sidebar from './Sidebar/Sidebar';
 import RecipeList from './RecipeList/RecipeList';
 import { UserTokenContext } from '../../contexts/userContext';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import FriendsPage from './FriendsPage/FriendsPage';
 import { searchForUsers } from '../../services/userService';
 import { BasicUser } from '../../interfaces/userInterfaces';
@@ -17,6 +17,7 @@ const HomePage = () => {
   const [isChanged, setIsChanged] = useState(false);
   const token = useContext(UserTokenContext);
   const path = useLocation().pathname;
+  const { id: userId } = useParams<{ id: string }>();
   const [search, setSearch] = useState('');
   const [users, setUsers] = useState<BasicUser[]>([]);
 
@@ -60,8 +61,9 @@ const HomePage = () => {
           <Sidebar />
         </div>
         <div className='home-content-center'>
-          {path === '/home' && <RecipeList />}
+          {path === '/home' && <RecipeList userId=''/>}
           {path === '/friends' && <FriendsPage />}
+          {path.endsWith('/recipes') && <RecipeList userId={userId} />}
         </div>
       </div>
       <Footer greenBackground={true} />
