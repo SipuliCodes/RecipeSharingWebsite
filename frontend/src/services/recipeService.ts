@@ -16,6 +16,22 @@ const getAllRecipes = async (token: string): Promise<Recipe[]> => {
   }
 };
 
+const getAllRecipesFromUser = async (user: string, token: string): Promise<Recipe[]> => {
+  try {
+    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes?user=${user}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+
 const getOneRecipe = async (token: string, id: string): Promise<Recipe> => {
   try {
     const response = await axios.get<Recipe>(`${config.apiUrl}/recipes/${id}`, {
@@ -84,4 +100,4 @@ const commentRecipe = async (id: string, comment: string, token: string): Promis
   }
 };
 
-export {getAllRecipes, getOneRecipe, addRecipe, likeRecipe, commentRecipe};
+export {getAllRecipes, getAllRecipesFromUser, getOneRecipe, addRecipe, likeRecipe, commentRecipe};
