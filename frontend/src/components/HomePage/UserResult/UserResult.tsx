@@ -3,8 +3,11 @@ import './UserResult.css';
 import { sendFriendRequest } from '../../../services/userService';
 import { useContext } from 'react';
 import { UserDetailsContext, UserSetDetailsContext, UserTokenContext } from '../../../contexts/userContext';
+import { useNavigate } from 'react-router-dom';
 
-const UserResult = ({ user }: UserResultProps) => {
+const UserResult = ({ setSearch, setUsers, user }: UserResultProps) => {
+  const navigate = useNavigate();
+
   const meUser = useContext(UserDetailsContext);
   const setMeUser = useContext(UserSetDetailsContext);
   const token = useContext(UserTokenContext);
@@ -13,6 +16,12 @@ const UserResult = ({ user }: UserResultProps) => {
     sendFriendRequest(user.username, token);
     const refreshedUser = { ...meUser, sentRequests: meUser.sentRequests?.concat(user) };
     setMeUser(refreshedUser);
+  };
+
+  const showRecipes = () => {
+    navigate(`/${user.id}/recipes`);
+    setUsers([]);
+    setSearch('');
   };
 
   return (
@@ -27,7 +36,7 @@ const UserResult = ({ user }: UserResultProps) => {
       {(meUser.sentRequests?.map(user => user.id).includes(user.id)) && !(meUser.friends?.map(user => user.id).includes(user.id)) &&
         <h4 className='user-result-request-sent'>Request sent!</h4>}
       {(meUser.friends?.map(user => user.id).includes(user.id)) && 
-      <button onClick={() => console.log('recipes')} className="user-result-send-request"> Show recipes</button>}
+      <button onClick={showRecipes} className="user-result-send-request"> Show recipes</button>}
     </div>
   );
 };

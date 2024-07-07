@@ -5,8 +5,11 @@ import { FriendCardProps } from '../../../../interfaces/props';
 import { handleFriendRequest, removeFriend } from '../../../../services/userService';
 import './FriendCard.css';
 import { UserDetailsContext, UserSetDetailsContext, UserTokenContext } from '../../../../contexts/userContext';
+import { useNavigate } from 'react-router-dom';
 
 const FriendCard = ({ friend, requestType }: FriendCardProps) => {
+  const navigate = useNavigate();
+
   const user = useContext(UserDetailsContext);
   const setUserContext = useContext(UserSetDetailsContext);
   const token = useContext(UserTokenContext);
@@ -23,7 +26,7 @@ const FriendCard = ({ friend, requestType }: FriendCardProps) => {
   };
 
   const showRecipes = () => {
-    console.log('recipes');
+    navigate(`/${friend.id}/recipes`);
   };
 
   const deleteFriend = () => {

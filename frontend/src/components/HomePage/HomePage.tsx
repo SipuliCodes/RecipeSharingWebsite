@@ -49,10 +49,10 @@ const HomePage = () => {
           <div className="bar3"></div>
         </button>
         <div className='homepage-search-box'>
-          <input onChange={handleChange} className='searchbar' placeholder='search'></input>
+          <input onChange={handleChange} value={search} className='searchbar' placeholder='search'></input>
           {users.length !== 0 &&
           <div className='homepage-search-results'>
-            {users.map(user => <UserResult user={user} />)}
+            {users.map(user => <UserResult setSearch={setSearch} setUsers={setUsers} user={user} />)}
           </div>}
         </div>
       </div>

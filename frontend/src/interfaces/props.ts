@@ -41,6 +41,8 @@ export interface FriendCardProps {
 }
 
 export interface UserResultProps {
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setUsers: React.Dispatch<React.SetStateAction<BasicUser[]>>;
   user: BasicUser;
 }
 
