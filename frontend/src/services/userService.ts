@@ -45,6 +45,21 @@ const getUserData = async (token: string): Promise<LoggedInUser> => {
   }
 };
 
+const getOneUser = async (userId:string, token: string): Promise<LoggedInUser> => {
+  try {
+    const response = await axios.get(`${config.apiUrl}/users/user?userId=${userId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
 const searchForUsers = async (searchWord: string, token: string): Promise<BasicUser[]> => {
   try {
     const response = await axios.get(
@@ -109,4 +124,4 @@ const handleFriendRequest = async (isAccepted: boolean, username: string, token:
   }
 };
 
-export { signup, login, getUserData, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend };
+export { signup, login, getUserData, getOneUser, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend };
