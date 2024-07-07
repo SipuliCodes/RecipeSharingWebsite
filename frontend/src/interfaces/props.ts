@@ -55,3 +55,7 @@ export interface PrivateRouteProps {
   element: React.ReactNode;
   token: string;
 }
+
+export interface RecipeListProps {
+  userId: string | undefined;
+}

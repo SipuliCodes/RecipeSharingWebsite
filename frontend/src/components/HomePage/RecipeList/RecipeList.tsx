@@ -8,10 +8,8 @@ import RecipeCard from './RecipeCard/RecipeCard';
 import { getAllRecipes, getAllRecipesFromUser } from '../../../services/recipeService';
 import { Recipe } from '../../../interfaces/recipeInterfaces';
 import { UserTokenContext } from '../../../contexts/userContext';
+import { RecipeListProps } from '../../../interfaces/props';
 
-interface RecipeListProps {
-  userId: string | undefined;
-}
 
 const RecipeList = ({userId}: RecipeListProps) => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
