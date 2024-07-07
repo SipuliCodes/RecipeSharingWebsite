@@ -40,4 +40,5 @@
 | 04.7.2024 | 3 | Kaveripyynnön lähettäminen backendiin ja frontendiin, kaverin poistaminen backendiin, kaverinpyynnön käsittely ja kaverin poistaminen frontendiin ja muutokisa interfaceihin |
 | 05.7.2024 | 1 | Kaveri juttujen käsittely niin, että ne päivittyvät stateen | 
 | 06.7.2024 | 5 | Poistin käyttäjätietojen tallentamisen localStorageen ja vaihdoin, että ne haetaan joka refreshillä backendistä, routinging uusiminen, koodin poistamista ja korjauksia kaveripyynnön lähettämiseen |
-| Yhteensä | 121 | tuntia |
+| 07.7.2024 | 5 | Lisäsin tietyn käyttäjän reseptien katsomisen, pieniä visuaalisia muutoksia, sivupalkin poisutminen linkin painalluksesta, reseptin poisto sen lisänneelle käyttäjälle ja asetus sivun aloittaminen
+| Yhteensä | 126 | tuntia |
