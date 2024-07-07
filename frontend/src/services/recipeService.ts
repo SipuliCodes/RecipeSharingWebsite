@@ -100,4 +100,17 @@ const commentRecipe = async (id: string, comment: string, token: string): Promis
   }
 };
 
-export {getAllRecipes, getAllRecipesFromUser, getOneRecipe, addRecipe, likeRecipe, commentRecipe};
+const deleteRecipe = async (recipeId: string, token: string) => {
+  try {
+    await axios.delete(`${config.apiUrl}/recipes/${recipeId}`, { headers: { Authorization: `Bearer ${token}` } });
+  }
+  catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export {getAllRecipes, getAllRecipesFromUser, getOneRecipe, addRecipe, likeRecipe, commentRecipe, deleteRecipe};

@@ -87,6 +87,14 @@
   width: 80%;
 }
 
+.recipe-delete-button {
+  background-color: var(--error-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: auto;
+  color: var(--primary-text-color);
+}
+
 .recipe-instructions {
   margin: 0;
   width: 50%;

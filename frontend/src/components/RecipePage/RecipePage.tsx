@@ -7,11 +7,12 @@ import StepList from './StepList/StepList';
 import CommentList from './CommentList/CommentList';
 import { formatDate } from '../../utils/helpers';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getOneRecipe } from '../../services/recipeService';
-import { UserTokenContext } from '../../contexts/userContext';
+import { getOneRecipe, deleteRecipe } from '../../services/recipeService';
+import { UserDetailsContext, UserTokenContext } from '../../contexts/userContext';
 import { isString } from '../../validations/signupValidation';
 
 const RecipePage = () => {
+  const user = useContext(UserDetailsContext);
   const token = useContext(UserTokenContext);
   const recipeId = useParams().id;
   const navigate = useNavigate();
@@ -45,6 +46,11 @@ const RecipePage = () => {
     return;
   }
 
+  const recipeDeletion = () => {
+    deleteRecipe(recipeData.id, token);
+    navigate('/home');
+  };
+
   return (
     <div className='recipe-page-content'>
       <div className='recipe-page-back-button' onClick={() => navigate(-1)}> Back </div>
@@ -57,6 +63,7 @@ const RecipePage = () => {
         <div className='recipe-description'>
           {recipeData.description}
         </div>
+        {user.username === recipeData.user.username && <button onClick={recipeDeletion} className='recipe-delete-button'> Delete recipe</button>}
       </div>
       <div className='recipe-instructions'>
         <IngredientList ingredients={recipeData.ingredients} />
