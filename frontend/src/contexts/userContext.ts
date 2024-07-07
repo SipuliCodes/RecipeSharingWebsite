@@ -10,6 +10,7 @@ export const UserDetailsContext = createContext<LoggedInUser>({
   lastName: '',
   username: '',
   email: '',
+  recipes: [],
   friends: [],
   id: ''
 });
