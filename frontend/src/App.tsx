@@ -13,6 +13,7 @@ import HomePage from './components/HomePage/HomePage.tsx';
 import LandingPage from './components/LandingPage/LandingPage.tsx';
 import AddRecipe from './components/AddRecipe/AddRecipe.tsx';
 import RecipePage from './components/RecipePage/RecipePage.tsx';
+import SettingsPage from './components/SettingsPage/SettingsPage.tsx';
 
 const App = () => {
   const [token, setToken] = useState<Token>('');
@@ -56,6 +57,7 @@ const App = () => {
                 <Route path="/recipe/:id" element={<PrivateRoute element={<RecipePage />} token={token} />} />
                 <Route path="/friends" element={<PrivateRoute element={<HomePage />} token={token} />} />
                 <Route path="/:id/recipes" element={<PrivateRoute element={<HomePage />} token={token} />} />
+                <Route path="/settings" element={<PrivateRoute element={<SettingsPage />} token={token} />} />
               </Routes>
             </Router>
           </UserSetDetailsContext.Provider>
