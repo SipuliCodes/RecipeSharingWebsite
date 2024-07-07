@@ -30,9 +30,12 @@ const FriendCard = ({ friend, requestType }: FriendCardProps) => {
   };
 
   const deleteFriend = () => {
-    removeFriend(friend.username, token);
-    const refreshedUser = { ...user, friends: user.friends?.filter((request) => request.username !== friend.username) };
-    setUserContext(refreshedUser);
+    const confirmed = window.confirm(`Are you sure you want to remove ${friend.username} from your friends?`);
+    if (confirmed) {
+      removeFriend(friend.username, token);
+      const refreshedUser = { ...user, friends: user.friends?.filter((request) => request.username !== friend.username) };
+      setUserContext(refreshedUser);
+    }
   };
 
   return (

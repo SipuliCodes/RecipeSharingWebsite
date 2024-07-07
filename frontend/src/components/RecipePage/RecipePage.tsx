@@ -46,9 +46,17 @@ const RecipePage = () => {
     return;
   }
 
-  const recipeDeletion = () => {
-    deleteRecipe(recipeData.id, token);
-    navigate('/home');
+  const recipeDeletion = async () => {
+    try {
+      const confirmed = window.confirm('Are you sure you want to delete? The recipe will disappear forever');
+    
+      if (confirmed) {
+        await deleteRecipe(recipeData.id, token);
+        navigate('/home');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
