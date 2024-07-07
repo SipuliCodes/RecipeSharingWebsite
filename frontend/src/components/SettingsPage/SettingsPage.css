@@ -1,0 +1,71 @@
+.settings-page-container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary-background-color);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.settings-page-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-background-color);
+  margin: 2rem;
+  border-radius: 1rem;
+  width: 40vw;
+  min-width: 20rem;
+}
+
+.settings-page-user-details-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+}
+
+.settings-page-current-and-input {
+  width: 50%;
+  margin: 0.5rem;
+}
+
+.settings-page-h5, .settings-page-h3 {
+  margin: 0;
+}
+
+.settings-page-input {
+  width: 100%;
+  border-radius: 1rem;
+  height: 1.5rem;
+}
+
+.settings-page-user-name-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.settings-page-password-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.settings-page-password-input {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.settings-page-button {
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  border-radius: 1rem;
+}
+
+.settings-page-button:hover {
+  background-color: color-mix(in srgb, var(--secondary-background-color) 100%, black 70%);
+}
