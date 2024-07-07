@@ -6,11 +6,19 @@ import mongoose from 'mongoose';
 
 const router: Router = Router();
 
-router.get('/', (_req: Request, res: Response) => {
+router.get('/', (req: Request, res: Response) => {
   try {
-    recipeService.getAllRecipes()
-      .then((recipes) => res.json(recipes))
-      .catch((error) => console.log(error));
+    const user: string = req.query.user as string;
+
+    if (!user) {
+      recipeService.getAllRecipes()
+        .then((recipes) => res.json(recipes))
+        .catch((error) => console.log(error));
+    } else {
+      recipeService.getAllRecipesFromUser(user)
+        .then((recipes) => res.json(recipes))
+        .catch((error) => console.log(error));
+    }
   } catch (error) {
     res.status(404).end();
   }

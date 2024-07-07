@@ -7,6 +7,11 @@ const getAllRecipes = async (): Promise<IRecipe[]> => {
   return await Recipe.find({});
 };
 
+const getAllRecipesFromUser = async (user: string): Promise<IRecipe[]> => {
+  const userId = new mongoose.Types.ObjectId(user);
+  return await Recipe.find({ user: userId });
+};
+
 const getOneRecipe = async (recipeId: string): Promise<IRecipe> => {
   const recipe = await Recipe.findById(recipeId).populate({
     path: "user",
@@ -81,6 +86,7 @@ const commentRecipe = async ({id, comment, userId }: { id: string, comment: stri
 
 export default {
   getAllRecipes,
+  getAllRecipesFromUser,
   getOneRecipe,
   addRecipe,
   deleteRecipe,
