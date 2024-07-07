@@ -58,7 +58,7 @@ const HomePage = () => {
       </div>
       <div className={ isChanged ? 'change home-content' : 'home-content' }>
         <div className='home-sidebar'>
-          <Sidebar />
+          <Sidebar toggleClass={toggleClass} />
         </div>
         <div className='home-content-center'>
           {path === '/home' && <RecipeList userId=''/>}

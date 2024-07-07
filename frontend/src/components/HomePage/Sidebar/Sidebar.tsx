@@ -8,8 +8,9 @@ import './Sidebar.css';
 import { removeToken} from '../../../utils/localStorage';
 import { UserDetailsContext, UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
+import { SidebarProps } from '../../../interfaces/props';
 
-const Sidebar = () => {
+const Sidebar = ({toggleClass}: SidebarProps ) => {
   const navigate = useNavigate();
   const setTokenContext = useContext(UserSetTokenContext);
   const setUserContext = useContext(UserSetDetailsContext);
@@ -32,6 +33,7 @@ const Sidebar = () => {
 
   const handleClick = (event: React.MouseEvent<HTMLHeadingElement>) => {
     const id = event.currentTarget.id;
+    toggleClass();
     navigate(`/${id}`);
   };
 

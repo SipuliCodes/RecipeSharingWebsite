@@ -59,3 +59,7 @@ export interface PrivateRouteProps {
 export interface RecipeListProps {
   userId: string | undefined;
 }
+
+export interface SidebarProps {
+  toggleClass: () => void;
+}
