@@ -124,4 +124,20 @@ const handleFriendRequest = async (isAccepted: boolean, username: string, token:
   }
 };
 
-export { signup, login, getUserData, getOneUser, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend };
+const changeUserDetails = async (firstName: string, lastName: string, email: string, token: string): Promise<LoggedInUser> => {
+  try {
+    return await axios.post(
+      `${config.apiUrl}/users/change-user-details`,
+      { firstName, lastName, email },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export { signup, login, getUserData, getOneUser, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend, changeUserDetails };
