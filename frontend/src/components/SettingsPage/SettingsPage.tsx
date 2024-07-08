@@ -2,14 +2,22 @@ import { useContext } from 'react';
 
 import './SettingsPage.css';
 import { UserDetailsContext } from '../../contexts/userContext';
+import { useNavigate } from 'react-router-dom';
 
 const SettingsPage = () => {
+  const navigate = useNavigate();
   const user = useContext(UserDetailsContext);
+
+  const onBackClick = () => {
+    navigate(-1);
+  };
 
   return (
     <div className='settings-page-container'>
+      <button onClick={onBackClick} className='settings-page-back-button'>Back</button>
       <div className='settings-page-form'>
         <h1 className='settings-page-h1'>Settings</h1>
+        <h3 className='settings-page-h3'>Username: {user.username}</h3>
         <div className='settings-page-user-details-box'>
           <div className='settings-page-user-name-box'>
             <h3 className='settings-page-h3'> Change user details</h3>
