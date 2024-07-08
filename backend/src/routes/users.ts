@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import userService from "../services/userService";
+import { toNewUserDetails } from "../utils/requestValidations";
 
 const router = Router();
 
@@ -42,6 +43,20 @@ router.get('/me', (req, res) => {
     res.status(404).end();
   }
 });
+
+router.put('/change-user-details', (req, res) => {
+  try {
+    const userId = req.decodedToken!.id;
+    const newUserDetails = toNewUserDetails(req.body);
+
+    userService.changeUserDetails(newUserDetails, userId)
+      .then(user => res.json(user))
+      .catch(error => console.log(error));
+  } catch (error) {
+    res.status(404).end();
+  }
+});
+
 
 router.post('/send-request', (req, res) => {
   try {

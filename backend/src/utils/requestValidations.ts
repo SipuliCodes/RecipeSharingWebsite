@@ -1,7 +1,29 @@
 import { LikeRecipe, NewRecipeRequest, NewComment } from "../interfaces/recipeInterfaces";
-import { LoginUser, NewUser } from "../interfaces/userInterfaces";
+import { LoginUser, NewUser, NewUserDetails } from "../interfaces/userInterfaces";
 import { parseDescription, parseImage, parseIngredients,  parseSteps, parseTitle, parseLiked, parseComment } from "../parsers/recipeParsers";
 import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "../parsers/userParsers";
+
+export const toNewUserDetails = (object: unknown): NewUserDetails => {
+  if (!object || typeof object !== "object") {
+    throw new Error("Incorrect or missing data");
+  }
+
+  if (
+    "firstName" in object &&
+    "lastName" in object &&
+    "email" in object
+  ) {
+    const newUserDetails: NewUserDetails = {
+      firstName: parseFirstName(object.firstName),
+      lastName: parseLastName(object.lastName),
+      email: parseEmail(object.email),
+    };
+
+    return newUserDetails;
+  }
+
+  throw new Error("Incorrect data: some fields are missing");
+};
 
 export const toNewUser = (object: unknown): NewUser => {
   if (!object || typeof object !== 'object') {

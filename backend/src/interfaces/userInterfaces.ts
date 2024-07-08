@@ -18,6 +18,8 @@ export type LoginUser = Pick<IUser, 'username' | 'password'>;
 
 export type NewUser = Omit<IUser, 'id'>;
 
+export type NewUserDetails = Pick<NewUser, 'firstName' | 'lastName' | 'email'>;
+
 export interface IUserDocument extends Document, Omit<IUser, 'id'> {
   _id: Types.ObjectId;
   __v: string;
