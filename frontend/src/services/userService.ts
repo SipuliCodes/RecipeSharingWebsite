@@ -66,6 +66,7 @@ const searchForUsers = async (searchWord: string, token: string): Promise<BasicU
       `${config.apiUrl}/users?searchword=${searchWord}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -126,11 +127,12 @@ const handleFriendRequest = async (isAccepted: boolean, username: string, token:
 
 const changeUserDetails = async (firstName: string, lastName: string, email: string, token: string): Promise<LoggedInUser> => {
   try {
-    return await axios.post(
+    const response = await axios.put<LoggedInUser>(
       `${config.apiUrl}/users/change-user-details`,
       { firstName, lastName, email },
       { headers: { Authorization: `Bearer ${token}` } }
     );
+    return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
     if (error instanceof Error) {
