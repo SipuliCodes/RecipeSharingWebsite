@@ -53,6 +53,13 @@
   margin: 0.5rem;
 }
 
+.settings-page-error-text{
+  margin: 0 10px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--error-color);
+}
+
 .settings-page-h5, .settings-page-h3, .settings-page-h1 {
   margin: 0;
 }

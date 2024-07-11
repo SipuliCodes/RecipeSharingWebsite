@@ -11,6 +11,8 @@ export interface BasicUser {
 
 export type SignupFormData = Omit<BasicUser, 'id'> & { confirmPassword: string }
 
+export type ChangeUserDetails = Pick<BasicUser, 'firstName' | 'lastName' | 'email'>
+
 export type LoggedInUser = Omit<BasicUser, 'password'> & {
   sentRequests?: BasicUser[];
   receivedRequests?: BasicUser[];
