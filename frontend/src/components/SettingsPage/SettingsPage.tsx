@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import './SettingsPage.css';
 import { UserDetailsContext, UserSetDetailsContext, UserTokenContext } from '../../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
-import { changeUserDetails } from '../../services/userService';
-import { ChangeUserDetails } from '../../interfaces/userInterfaces';
-import { isEmailValid } from '../../validations/signupValidation';
+import { changePassword, changeUserDetails } from '../../services/userService';
+import { ChangePassword, ChangeUserDetails } from '../../interfaces/userInterfaces';
+import { isEmailValid, isPasswordValid, arePasswordsSame } from '../../validations/signupValidation';
 
 const SettingsPage = () => {
   const navigate = useNavigate();
@@ -19,8 +19,21 @@ const SettingsPage = () => {
     email: ''
   });
 
+  const [passwordChangeForm, setPasswordChangeForm] = useState<ChangePassword>({
+    password: '',
+    confirmPassword: '',
+    oldPassword: ''
+  });
+
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const [passwordTouched, setPasswordTouched] = useState(false);
+  const [confirmPasswordTouched, setConfirmPasswordTouched] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
 
+
+  const passwordError = isPasswordValid(passwordChangeForm.password);
+  const confirmPasswordError = !arePasswordsSame(passwordChangeForm.password, passwordChangeForm.confirmPassword) && confirmPasswordTouched;
   const emailError = !isEmailValid(userDetailsForm.email) && emailTouched;
 
   const onClickUserDetails = () => {
@@ -40,6 +53,21 @@ const SettingsPage = () => {
       .catch(error => console.log(error));
   };
 
+  const onClickPassword = () => {
+    if (passwordChangeForm.password === passwordChangeForm.confirmPassword) {
+      changePassword(passwordChangeForm.oldPassword, passwordChangeForm.password, token)
+        .then(success => {
+          setSuccessMessage(success);
+          setTimeout(() => setSuccessMessage(''), 10000);
+          setPasswordChangeForm({
+            password: '',
+            confirmPassword: '',
+            oldPassword: ''
+          });
+        });
+    }
+  };
+
   const handleUserDetailsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setUserDetailsForm({
@@ -48,10 +76,19 @@ const SettingsPage = () => {
     });
   };
 
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setPasswordChangeForm({
+      ...passwordChangeForm,
+      [name]: value
+    });
+  };
+
   const onBackClick = () => {
     navigate(-1);
   };
 
+  console.log(passwordChangeForm);
   return (
     <div className='settings-page-container'>
       <button onClick={onBackClick} className='settings-page-back-button'>Back</button>
@@ -71,17 +108,54 @@ const SettingsPage = () => {
             </div>
             <div className='settings-page-current-and-input'>
               <h5 className='settings-page-h5'>Current email: {user.email}</h5>
-              <input className='settings-page-input' onChange={handleUserDetailsChange} onFocus={() => setEmailTouched(true)} onBlur={() => setEmailTouched(false)} value={userDetailsForm.email} name='email' type='text' placeholder='New first name'></input>
+              <input
+                className='settings-page-input'
+                onChange={handleUserDetailsChange}
+                onFocus={() => setEmailTouched(true)}
+                onBlur={() => setEmailTouched(false)}
+                value={userDetailsForm.email}
+                name='email'
+                type='text'
+                placeholder='New first name'>
+              </input>
               {emailError && <p className='settings-page-error-text'>Not a valid email</p>}
             </div>
             <button onClick={onClickUserDetails} className='settings-page-button'>Confirm changes</button>
           </div>
           <div className='settings-page-password-box'>
             <h3 className='settings-page-h3'> Change password</h3>
-            <input className='settings-page-input settings-page-password-input' type='password' placeholder='Current password'></input>
-            <input className='settings-page-input settings-page-password-input' type='password' placeholder='New password'></input>
-            <input className='settings-page-input settings-page-password-input' type='password' placeholder='New password again'></input>
-            <button className='settings-page-button'>Confirm new password</button>
+            <h3 className='settings-page-h3'>{successMessage}</h3>
+            <input
+              className='settings-page-input settings-page-password-input'
+              onChange={handlePasswordChange}
+              value={passwordChangeForm.oldPassword}
+              name='oldPassword'
+              type='password'
+              placeholder='Current password'>
+            </input>
+            <input
+              className='settings-page-input settings-page-password-input'
+              onChange={handlePasswordChange}
+              onFocus={() => setPasswordTouched(true)}
+              onBlur={() => setPasswordTouched(false)}
+              value={passwordChangeForm.password}
+              name='password'
+              type='password'
+              placeholder='New password'>
+            </input>
+            {(passwordTouched && passwordError ) && <p className='settings-page-error-text'>{passwordError}</p>}
+            <input
+              className='settings-page-input settings-page-password-input'
+              onChange={handlePasswordChange}
+              onFocus={() => setConfirmPasswordTouched(true)}
+              onBlur={() => setConfirmPasswordTouched(false)}
+              value={passwordChangeForm.confirmPassword}
+              name='confirmPassword'
+              type='password'
+              placeholder='New password again'>  
+            </input>
+            {confirmPasswordError && <p className='settings-page-error-text'>Passwords must be same</p>}
+            <button className='settings-page-button' onClick={onClickPassword}>Confirm new password</button>
           </div>
         </div>
       </div>

@@ -142,4 +142,21 @@ const changeUserDetails = async (firstName: string, lastName: string, email: str
   }
 };
 
-export { signup, login, getUserData, getOneUser, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend, changeUserDetails };
+const changePassword = async (oldPassword: string, newPassword: string, token: string): Promise<string> => {
+  try {
+    const response = await axios.put(
+      `${config.apiUrl}/users/change-password`,
+      {newPassword, oldPassword },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export { signup, login, getUserData, getOneUser, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend, changeUserDetails, changePassword };

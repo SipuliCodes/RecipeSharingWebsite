@@ -13,6 +13,8 @@ export type SignupFormData = Omit<BasicUser, 'id'> & { confirmPassword: string }
 
 export type ChangeUserDetails = Pick<BasicUser, 'firstName' | 'lastName' | 'email'>
 
+export type ChangePassword = Pick<SignupFormData, 'password' | 'confirmPassword'> & { oldPassword: string }
+
 export type LoggedInUser = Omit<BasicUser, 'password'> & {
   sentRequests?: BasicUser[];
   receivedRequests?: BasicUser[];
