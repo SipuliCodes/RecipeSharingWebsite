@@ -20,6 +20,11 @@ export type NewUser = Omit<IUser, 'id'>;
 
 export type NewUserDetails = Pick<NewUser, 'firstName' | 'lastName' | 'email'>;
 
+export interface NewAndOldPassword {
+  newPassword: string;
+  oldPassword: string;
+}
+
 export interface IUserDocument extends Document, Omit<IUser, 'id'> {
   _id: Types.ObjectId;
   __v: string;

@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { Types } from 'mongoose';
 
-import { IUser, NewUser, LoginUser, NewUserDetails } from '../interfaces/userInterfaces';
+import { IUser, NewUser, LoginUser, NewUserDetails, NewAndOldPassword } from '../interfaces/userInterfaces';
 import User from '../models/user';
 
 const addUser = async (user: NewUser): Promise<IUser> => {
@@ -125,6 +125,22 @@ const changeUserDetails = async (newUserDetails: NewUserDetails, userId: string)
   return userWithNewDetails;
 };
 
+const changePassword = async (newAndOldPassword: NewAndOldPassword, userId: string): Promise<string> => {
+  const user = await User.findById(userId);
+  const { newPassword, oldPassword } = newAndOldPassword;
+  if (user) {
+    if (await bcrypt.compare(oldPassword, user.password)) {
+      const saltRounds = 10;
+      const passwordHash: string = await bcrypt.hash(newPassword, saltRounds);
+
+      await User.findByIdAndUpdate(userId, { password: passwordHash });
+      return 'Password changed';
+    }
+  }
+
+  return 'Password was not changed';
+};
+
 export default {
   addUser,
   loginUser,
@@ -133,5 +149,6 @@ export default {
   handleFriendRequest,
   sendFriendRequest,
   removeFriend,
-  changeUserDetails
+  changeUserDetails,
+  changePassword
 };

@@ -1,5 +1,5 @@
 import { LikeRecipe, NewRecipeRequest, NewComment } from "../interfaces/recipeInterfaces";
-import { LoginUser, NewUser, NewUserDetails } from "../interfaces/userInterfaces";
+import { LoginUser, NewAndOldPassword, NewUser, NewUserDetails } from "../interfaces/userInterfaces";
 import { parseDescription, parseImage, parseIngredients,  parseSteps, parseTitle, parseLiked, parseComment } from "../parsers/recipeParsers";
 import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "../parsers/userParsers";
 
@@ -20,6 +20,26 @@ export const toNewUserDetails = (object: unknown): NewUserDetails => {
     };
 
     return newUserDetails;
+  }
+
+  throw new Error("Incorrect data: some fields are missing");
+};
+
+export const toNewAndOldPassword = (object: unknown): NewAndOldPassword => {
+  if (!object || typeof object !== "object") {
+    throw new Error("Incorrect or missing data");
+  }
+
+  if (
+    "newPassword" in object &&
+    "oldPassword" in object
+  ) {
+    const newAndOldPassword: NewAndOldPassword = {
+      newPassword: parsePassword(object.newPassword),
+      oldPassword: parsePassword(object.oldPassword)
+    };
+
+    return newAndOldPassword;
   }
 
   throw new Error("Incorrect data: some fields are missing");

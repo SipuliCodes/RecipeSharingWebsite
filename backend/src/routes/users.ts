@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import userService from "../services/userService";
-import { toNewUserDetails } from "../utils/requestValidations";
+import { toNewUserDetails, toNewAndOldPassword } from "../utils/requestValidations";
 
 const router = Router();
 
@@ -52,6 +52,19 @@ router.put('/change-user-details', (req, res) => {
     userService.changeUserDetails(newUserDetails, userId)
       .then(user => res.json(user))
       .catch(error => console.log(error));
+  } catch (error) {
+    res.status(404).end();
+  }
+});
+
+router.put('/change-password', (req, res) => {
+  try {
+    const userId = req.decodedToken!.id;
+    const newAndOldPassword = toNewAndOldPassword(req.body);
+    userService.changePassword(newAndOldPassword, userId)
+      .then(success => res.json(success))
+      .catch(error => console.log(error));
+
   } catch (error) {
     res.status(404).end();
   }
