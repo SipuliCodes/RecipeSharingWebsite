@@ -65,6 +65,20 @@
   margin: 0;
 }
 
+.settings-page-succesful, .settings-page-error {
+  color: var(--primary-text-color);
+  width: 100%;
+  text-align: center;
+}
+
+.settings-page-succesful {
+  background-color: var(--success-color);
+}
+
+.settings-page-error {
+  background-color: var(--error-color);
+}
+
 .settings-page-input {
   width: 100%;
   border-radius: 1rem;

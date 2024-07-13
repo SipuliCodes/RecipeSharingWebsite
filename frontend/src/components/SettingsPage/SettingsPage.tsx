@@ -25,7 +25,8 @@ const SettingsPage = () => {
     oldPassword: ''
   });
 
-  const [successMessage, setSuccessMessage] = useState('');
+  const [passwordChangeSuccesful, setPasswordChangeSuccesful] = useState<boolean | undefined>(undefined);
+  const passwordChangeMessage = passwordChangeSuccesful ? 'Password changed' : passwordChangeSuccesful === false ? 'Failed to change password' : '';
 
   const [passwordTouched, setPasswordTouched] = useState(false);
   const [confirmPasswordTouched, setConfirmPasswordTouched] = useState(false);
@@ -57,8 +58,8 @@ const SettingsPage = () => {
     if (passwordChangeForm.password === passwordChangeForm.confirmPassword) {
       changePassword(passwordChangeForm.oldPassword, passwordChangeForm.password, token)
         .then(success => {
-          setSuccessMessage(success);
-          setTimeout(() => setSuccessMessage(''), 10000);
+          setPasswordChangeSuccesful(success);
+          setTimeout(() => setPasswordChangeSuccesful(undefined), 5000);
           setPasswordChangeForm({
             password: '',
             confirmPassword: '',
@@ -88,7 +89,7 @@ const SettingsPage = () => {
     navigate(-1);
   };
 
-  console.log(passwordChangeForm);
+  console.log(passwordChangeSuccesful);
   return (
     <div className='settings-page-container'>
       <button onClick={onBackClick} className='settings-page-back-button'>Back</button>
@@ -124,7 +125,7 @@ const SettingsPage = () => {
           </div>
           <div className='settings-page-password-box'>
             <h3 className='settings-page-h3'> Change password</h3>
-            <h3 className='settings-page-h3'>{successMessage}</h3>
+            {passwordChangeMessage && <h3 className={passwordChangeSuccesful ? 'settings-page-succesful settings-page-h3' : 'settings-page-error settings-page-h3'}>{passwordChangeMessage}</h3>}
             <input
               className='settings-page-input settings-page-password-input'
               onChange={handlePasswordChange}

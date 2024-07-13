@@ -142,7 +142,7 @@ const changeUserDetails = async (firstName: string, lastName: string, email: str
   }
 };
 
-const changePassword = async (oldPassword: string, newPassword: string, token: string): Promise<string> => {
+const changePassword = async (oldPassword: string, newPassword: string, token: string): Promise<boolean> => {
   try {
     const response = await axios.put(
       `${config.apiUrl}/users/change-password`,
