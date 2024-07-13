@@ -125,7 +125,7 @@ const changeUserDetails = async (newUserDetails: NewUserDetails, userId: string)
   return userWithNewDetails;
 };
 
-const changePassword = async (newAndOldPassword: NewAndOldPassword, userId: string): Promise<string> => {
+const changePassword = async (newAndOldPassword: NewAndOldPassword, userId: string): Promise<boolean> => {
   const user = await User.findById(userId);
   const { newPassword, oldPassword } = newAndOldPassword;
   if (user) {
@@ -134,11 +134,11 @@ const changePassword = async (newAndOldPassword: NewAndOldPassword, userId: stri
       const passwordHash: string = await bcrypt.hash(newPassword, saltRounds);
 
       await User.findByIdAndUpdate(userId, { password: passwordHash });
-      return 'Password changed';
+      return true;
     }
   }
 
-  return 'Password was not changed';
+  return false;
 };
 
 export default {
