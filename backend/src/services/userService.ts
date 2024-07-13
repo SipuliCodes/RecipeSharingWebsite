@@ -40,7 +40,7 @@ const loginUser = async (user: LoginUser): Promise<IUser> => {
 };
 
 const getUser = async (userId: string): Promise<IUser> => {
-  const user = await User.findById(userId).populate('friends').populate('sentRequests').populate('receivedRequests');
+  const user = await User.findById(userId).populate('friends').populate('sentRequests').populate('receivedRequests').populate('likedRecipes');
 
   if (user) {
     return user;
