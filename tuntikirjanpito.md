@@ -41,4 +41,8 @@
 | 05.7.2024 | 1 | Kaveri juttujen käsittely niin, että ne päivittyvät stateen | 
 | 06.7.2024 | 5 | Poistin käyttäjätietojen tallentamisen localStorageen ja vaihdoin, että ne haetaan joka refreshillä backendistä, routinging uusiminen, koodin poistamista ja korjauksia kaveripyynnön lähettämiseen |
 | 07.7.2024 | 5 | Lisäsin tietyn käyttäjän reseptien katsomisen, pieniä visuaalisia muutoksia, sivupalkin poisutminen linkin painalluksesta, reseptin poisto sen lisänneelle käyttäjälle ja asetus sivun aloittaminen
-| Yhteensä | 126 | tuntia |
+| 08.7.2024 | 2 | Käyttäjätietojen muokkaamisen lisäys |
+| 11.7.2024 | 1 | Käyttäjätietojen muokkaamisen lisäys frontendiin |
+| 12.7.2024 | 2 | Salasanan vaihto |
+| 13.7.2024 | 1 | Salasanan vaihto ja tykättyjen reseptien oma sivu |
+| Yhteensä | 132 | tuntia |
