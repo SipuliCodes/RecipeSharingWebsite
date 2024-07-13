@@ -7,26 +7,27 @@ import './RecipeList.css';
 import RecipeCard from './RecipeCard/RecipeCard';
 import { getAllRecipes, getAllRecipesFromUser } from '../../../services/recipeService';
 import { Recipe } from '../../../interfaces/recipeInterfaces';
-import { UserTokenContext } from '../../../contexts/userContext';
+import { UserDetailsContext, UserTokenContext } from '../../../contexts/userContext';
 import { RecipeListProps } from '../../../interfaces/props';
 import { LoggedInUser } from '../../../interfaces/userInterfaces';
 import { getOneUser } from '../../../services/userService';
 
 
-const RecipeList = ({userId}: RecipeListProps) => {
+const RecipeList = ({userId, liked}: RecipeListProps) => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
   const [user, setUser] = useState<LoggedInUser>();
 
   const navigate = useNavigate();
   const token = useContext(UserTokenContext);
+  const currentUser = useContext(UserDetailsContext);
 
   useEffect(() => {
-    if (token && !userId) {
+    if (token && !userId && !liked) {
       getAllRecipes(token)
         .then(recipes => setRecipeData(recipes))
         .catch(error => console.log(error));
     }
-    if (token && userId) {
+    if (token && userId && !liked) {
       getAllRecipesFromUser(userId, token)
         .then(recipes => setRecipeData(recipes))
         .catch(error => console.log(error));
@@ -34,16 +35,20 @@ const RecipeList = ({userId}: RecipeListProps) => {
         .then(user => setUser(user))
         .catch(error => console.log(error));
     }
-  }, [token, userId]);
+    if (liked) {
+      setRecipeData(currentUser.likedRecipes);
+    }
+
+  }, [token, userId, liked, currentUser]);
 
 
   if (!recipeData) return <div></div>;
 
   return (
     <div className='recipe-list-flex'>
-      <h1 className='recipes-h1'>{user ? `${user.username}'s recipes` : 'Recipes'}</h1>
+      <h1 className='recipes-h1'>{user ? `${user.username}'s recipes` : liked ? 'Liked recipes' : 'Recipes'}</h1>
       <div className='recipe-list'>
-        {!userId &&
+        {!userId && !liked &&
           <div onClick={() => navigate('/add-recipe')} className='recipe-card recipe-grid'>
             <FontAwesomeIcon className='add-recipe-icon' icon={findIconDefinition({ prefix: 'fas', iconName: 'image' })} />
             <div className='recipe-details-box'>

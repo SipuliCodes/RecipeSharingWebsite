@@ -58,6 +58,7 @@ export interface PrivateRouteProps {
 
 export interface RecipeListProps {
   userId: string | undefined;
+  liked: boolean
 }
 
 export interface SidebarProps {

@@ -61,9 +61,10 @@ const HomePage = () => {
           <Sidebar toggleClass={toggleClass} />
         </div>
         <div className='home-content-center'>
-          {path === '/home' && <RecipeList userId=''/>}
+          {path === '/home' && <RecipeList userId='' liked={false} />}
           {path === '/friends' && <FriendsPage />}
-          {path.endsWith('/recipes') && <RecipeList userId={userId} />}
+          {path.endsWith('/recipes') && <RecipeList userId={userId} liked={false} />}
+          {path === '/liked-recipes' && <RecipeList userId='' liked={true} />}
         </div>
       </div>
       <Footer greenBackground={true} />

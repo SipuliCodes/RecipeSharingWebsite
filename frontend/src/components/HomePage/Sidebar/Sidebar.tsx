@@ -47,6 +47,7 @@ const Sidebar = ({toggleClass}: SidebarProps ) => {
         <h3 onClick={handleClick} id='home' className='sidebar-links'>Home</h3>
         <h3 onClick={handleClick} id='friends' className='sidebar-links'>Friends</h3>
         <h3 onClick={handleClick} id='settings' className='sidebar-links'>Settings</h3>
+        <h3 onClick={handleClick} id='liked-recipes' className='sidebar-links'>Liked recipes</h3>
       </div>
       <button onClick={logout} className='logout-button'>Log out</button>
     </div>
