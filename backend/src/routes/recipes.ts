@@ -9,9 +9,10 @@ const router: Router = Router();
 router.get('/', (req: Request, res: Response) => {
   try {
     const user: string = req.query.user as string;
+    const filter: string = req.query.filter as string;
 
     if (!user) {
-      recipeService.getAllRecipes()
+      recipeService.getAllRecipes(filter)
         .then((recipes) => res.json(recipes))
         .catch((error) => console.log(error));
     } else {

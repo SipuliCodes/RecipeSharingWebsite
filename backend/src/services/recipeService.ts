@@ -3,7 +3,11 @@ import { IRecipe, NewRecipe, Comment } from "../interfaces/recipeInterfaces";
 import { Recipe, User } from '../models';
 
 
-const getAllRecipes = async (): Promise<IRecipe[]> => {
+const getAllRecipes = async (filter: string): Promise<IRecipe[]> => {
+  if (filter) {
+    return await Recipe.find({ mealCategory: { $in: [filter] } });
+  }
+
   return await Recipe.find({});
 };
 
