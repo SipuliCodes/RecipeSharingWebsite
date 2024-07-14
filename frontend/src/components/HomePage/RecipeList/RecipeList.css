@@ -18,19 +18,6 @@
   display: none;
 }
 
-.recipes-h1 {
-  color: var(--primary-text-color);
-  margin-top: 0;
-  margin-bottom: 0;
-  font-family: var(--primary-font);
-  font-size: 2rem;
-  position: absolute;
-  background-color: var(--secondary-background-color);
-  border-radius: 0 0 15px 15px;
-  padding: 5px;
-  padding-top: 0;
-}
-
 .add-recipe-icon {
   width: 100%;
   height: 100%;

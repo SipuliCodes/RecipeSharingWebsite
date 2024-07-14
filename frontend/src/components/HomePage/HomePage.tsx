@@ -9,9 +9,10 @@ import { UserTokenContext } from '../../contexts/userContext';
 import { useLocation, useParams } from 'react-router-dom';
 import FriendsPage from './FriendsPage/FriendsPage';
 import { searchForUsers } from '../../services/userService';
-import { BasicUser } from '../../interfaces/userInterfaces';
+import { BasicUser, LoggedInUser } from '../../interfaces/userInterfaces';
 import useDebounce from '../../hooks/useDebounce';
 import UserResult from './UserResult/UserResult';
+import { getOneUser } from '../../services/userService';
 
 const HomePage = () => {
   const [isChanged, setIsChanged] = useState(false);
@@ -20,6 +21,7 @@ const HomePage = () => {
   const { id: userId } = useParams<{ id: string }>();
   const [search, setSearch] = useState('');
   const [users, setUsers] = useState<BasicUser[]>([]);
+  const [user, setUser] = useState<LoggedInUser | null>();
 
   const debounceSearch = useDebounce(search, 300);
 
@@ -37,8 +39,14 @@ const HomePage = () => {
       searchForUsers(debounceSearch, token)
         .then((users) => setUsers(users))
         .catch((error) => console.log(error));
+      setUser(null);
     }
-  }, [debounceSearch, token, path]);
+    if (path.endsWith('/recipes') && userId) {
+      getOneUser(userId, token)
+        .then(user => setUser(user))
+        .catch(error => console.log(error));
+    }
+  }, [debounceSearch, token, path, userId]);
 
   return (
     <div className='homepage-container'>
@@ -47,6 +55,12 @@ const HomePage = () => {
           <div className="bar1"></div>
           <div className="bar2"></div>
           <div className="bar3"></div>
+        </button>
+        <h1 className='home-h1'>{user ? `${user.username}'s recipes` : path === '/liked-recipes' ? 'Liked recipes' : path==='/home' ? 'Recipes': ''}</h1>
+        <button className='menu-button invisible'>
+          <div className="bar1 invisible"></div>
+          <div className="bar2 invisible"></div>
+          <div className="bar3 invisible"></div>
         </button>
         <div className='homepage-search-box'>
           <input onChange={handleChange} value={search} className='searchbar' placeholder='search'></input>

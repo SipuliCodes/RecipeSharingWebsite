@@ -9,13 +9,9 @@ import { getAllRecipes, getAllRecipesFromUser } from '../../../services/recipeSe
 import { Recipe } from '../../../interfaces/recipeInterfaces';
 import { UserDetailsContext, UserTokenContext } from '../../../contexts/userContext';
 import { RecipeListProps } from '../../../interfaces/props';
-import { LoggedInUser } from '../../../interfaces/userInterfaces';
-import { getOneUser } from '../../../services/userService';
-
 
 const RecipeList = ({userId, liked}: RecipeListProps) => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
-  const [user, setUser] = useState<LoggedInUser>();
 
   const navigate = useNavigate();
   const token = useContext(UserTokenContext);
@@ -31,9 +27,6 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
       getAllRecipesFromUser(userId, token)
         .then(recipes => setRecipeData(recipes))
         .catch(error => console.log(error));
-      getOneUser(userId, token)
-        .then(user => setUser(user))
-        .catch(error => console.log(error));
     }
     if (liked) {
       setRecipeData(currentUser.likedRecipes);
@@ -46,7 +39,6 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
 
   return (
     <div className='recipe-list-flex'>
-      <h1 className='recipes-h1'>{user ? `${user.username}'s recipes` : liked ? 'Liked recipes' : 'Recipes'}</h1>
       <div className='recipe-list'>
         {!userId && !liked &&
           <div onClick={() => navigate('/add-recipe')} className='recipe-card recipe-grid'>

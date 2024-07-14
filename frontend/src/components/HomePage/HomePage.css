@@ -62,6 +62,10 @@
   transition: 0.4s;
 }
 
+.invisible {
+  background-color: transparent;
+}
+
 .change .bar1 {
   transform: translate(0, 11px) rotate(-45deg);
 }
