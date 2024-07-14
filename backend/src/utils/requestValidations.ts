@@ -1,6 +1,6 @@
 import { LikeRecipe, NewRecipeRequest, NewComment } from "../interfaces/recipeInterfaces";
 import { LoginUser, NewAndOldPassword, NewUser, NewUserDetails } from "../interfaces/userInterfaces";
-import { parseDescription, parseImage, parseIngredients,  parseSteps, parseTitle, parseLiked, parseComment } from "../parsers/recipeParsers";
+import { parseDescription, parseImage, parseIngredients,  parseSteps, parseTitle, parseLiked, parseComment, parseMealCategory } from "../parsers/recipeParsers";
 import { parseEmail, parseFirstName, parseLastName, parsePassword, parseUsername } from "../parsers/userParsers";
 
 export const toNewUserDetails = (object: unknown): NewUserDetails => {
@@ -88,13 +88,14 @@ export const toNewRecipe = (object: unknown): NewRecipeRequest => {
     throw new Error('Incorrect or missing data');
   }
 
-  if ('title' in object && 'image' in object && 'description' in object && 'ingredients' in object && 'steps' in object) {
+  if ('title' in object && 'image' in object && 'description' in object && 'ingredients' in object && 'steps' in object && 'mealCategory' in object) {
     const newRecipe: NewRecipeRequest = {
       title: parseTitle(object.title),
       image: parseImage(object.image),
       description: parseDescription(object.description),
       ingredients: parseIngredients(object.ingredients),
-      steps: parseSteps(object.steps)
+      steps: parseSteps(object.steps),
+      mealCategory: parseMealCategory(object.mealCategory)
     };
 
     return newRecipe;

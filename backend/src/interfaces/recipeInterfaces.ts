@@ -16,6 +16,7 @@ export interface IRecipe {
   description: string;
   ingredients: string[];
   steps: string[];
+  mealCategory: string[];
   user: Types.ObjectId;
   likes: number;
   likedBy: string[];

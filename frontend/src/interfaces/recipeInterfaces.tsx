@@ -13,6 +13,7 @@ export interface Recipe {
   description: string;
   ingredients: string[];
   steps: string[];
+  mealCategory: string[];
   user: UserInRecipe;
   likes: number;
   date: string;

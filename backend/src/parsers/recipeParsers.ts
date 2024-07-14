@@ -49,6 +49,14 @@ export const parseSteps = (steps: unknown): string[] => {
   return steps;
 };
 
+export const parseMealCategory = (mealCategory: unknown): string[] => {
+  if (!isStringList(mealCategory)) {
+    throw new Error("Incorrect steps");
+  }
+
+  return mealCategory;
+};
+
 export const parseUsername = (username: unknown): string => {
   if (!isString(username)) {
     throw new Error("Incorrect username");

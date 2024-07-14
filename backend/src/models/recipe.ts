@@ -15,6 +15,7 @@ const schema = new Schema<IRecipe>({
   description: { type: String },
   ingredients: { type: [String], required: true },
   steps: { type: [String], required: true },
+  mealCategory: {type: [String], required: true},
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   likes: { type: Number, required: true },
   date: { type: String, required: true},
