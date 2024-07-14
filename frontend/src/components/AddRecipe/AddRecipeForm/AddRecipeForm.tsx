@@ -1,6 +1,7 @@
 import { useRef, useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
+import Select from 'react-select';
 
 import './AddRecipeForm.css';
 import { RecipeFormData } from '../../../interfaces/recipeInterfaces';
@@ -19,8 +20,18 @@ const AddRecipeForm = () => {
     image: '',
     description: '',
     ingredients: [],
+    mealCategory: [],
     steps: []
   });
+
+  const categoryOptions = [
+    { value: 'breakfast', label: 'breakfast' },
+    { value: 'lunch', label: 'lunch' },
+    { value: 'dinner', label: 'dinner' },
+    { value: 'snack', label: 'snack' },
+    { value: 'dessert', label: 'dessert'}
+  ];
+
   const [addIngredient, setAddIngredient] = useState('');
   const [addStep, setAddStep] = useState('');
 
@@ -31,6 +42,13 @@ const AddRecipeForm = () => {
     setFormData({
       ...formData,
       [name]: value,
+    });
+  };
+
+  const handleCategoryChange = (selectedOptions:string[]) => {
+    setFormData({
+      ...formData,
+      ['mealCategory']: selectedOptions,
     });
   };
 
@@ -61,7 +79,7 @@ const AddRecipeForm = () => {
         navigate('/home');
       }
     } catch (error) {
-      console.error;
+      console.log(error);
     }
   };
 
@@ -72,6 +90,8 @@ const AddRecipeForm = () => {
   const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') { event.preventDefault(), handleClick(event);}
   };
+
+  console.log(formData);
 
   return (
     <div className='add-recipe-flex add-recipe-container'>
@@ -91,17 +111,6 @@ const AddRecipeForm = () => {
               <label className='input-placeholder'>Title</label>
             </p>
             <p className='input-box'>
-              <input
-                onKeyDown={preventEnter}
-                placeholder=""
-                value={formData.image}
-                onChange={handleFormDataChange }
-                name='image'
-                className='add-recipe-input'
-              />
-              <label className='input-placeholder'>Image url</label>
-            </p>
-            <p className='input-box'>
               <textarea 
                 placeholder=""
                 value={formData.description}
@@ -113,6 +122,24 @@ const AddRecipeForm = () => {
               />
               <label className='input-placeholder'>Description</label>
             </p>
+            <Select
+              onChange={(selected) => handleCategoryChange(selected.map(select => select.value))}
+              styles={{
+                control: (base, state) => ({
+                  ...base,
+                  border: state.isFocused ? '2px solid black' : '1px solid #ccc',
+                  boxShadow: 'none',
+                  '&:hover': {
+                    border: state.isFocused ? '2px solid black' : '1px solid #ccc',
+                  }
+                })
+              }}
+              placeholder="Category"
+              isMulti
+              name="mealCategory"
+              options={categoryOptions}
+              className='input-category-selection add-recipe-input'
+            />
             <p className='input-box'>
               <input
                 onKeyDown={handleEnter}
@@ -151,13 +178,26 @@ const AddRecipeForm = () => {
             </div>
           </form>
         </div>
-        <div className='image-box'>
-          {formData.image &&
+        <div className='image-flex-container'>
+          <div className='image-box'>
+            {formData.image &&
           <img className='add-recipe-pic' src={formData.image} alt='Picture of the food' />
-          }
-          {!formData.image && 
+            }
+            {!formData.image && 
             <FontAwesomeIcon className='add-recipe-icon add-recipe-default-pic' icon={findIconDefinition({ prefix: 'fas', iconName: 'image' })} />
-          }
+            }
+          </div>
+          <p className='input-box'>
+            <input
+              onKeyDown={preventEnter}
+              placeholder=""
+              value={formData.image}
+              onChange={handleFormDataChange }
+              name='image'
+              className='add-recipe-input'
+            />
+            <label className='input-placeholder'>Image url</label>
+          </p>
         </div>
       </div>
     </div>
