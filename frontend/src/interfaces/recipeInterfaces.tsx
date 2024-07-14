@@ -23,4 +23,4 @@ export interface Recipe {
 
 export type NewRecipe = Omit<Recipe, 'id'>
 
-export type RecipeFormData = Pick<Recipe, 'title' | 'image' | 'description' | 'ingredients' | 'steps' >
+export type RecipeFormData = Pick<Recipe, 'title' | 'image' | 'description' | 'ingredients' | 'steps' | 'mealCategory' >
