@@ -3,9 +3,10 @@ import axios from 'axios';
 import { config } from '../utils/config';
 import { Recipe, RecipeFormData, Comment } from '../interfaces/recipeInterfaces';
 
-const getAllRecipes = async (token: string): Promise<Recipe[]> => {
+const getAllRecipes = async (token: string, filter: string): Promise<Recipe[]> => {
   try {
-    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes`,{ headers: {'Authorization' : `Bearer ${token}`} });
+    const filterRegex = filter ? `?filter=${filter}` : '';
+    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes${filterRegex}`,{ headers: {'Authorization' : `Bearer ${token}`} });
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';

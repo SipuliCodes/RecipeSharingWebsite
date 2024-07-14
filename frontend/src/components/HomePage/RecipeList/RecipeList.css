@@ -5,6 +5,17 @@
   align-items: center;
 }
 
+.recipe-list-category-filter-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+.recipe-list-category-filter {
+  width: 10rem;
+}
+
 .recipe-list {
   display: flex;
   justify-content: center;

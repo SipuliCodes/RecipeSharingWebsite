@@ -2,6 +2,7 @@ import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
+import Select from 'react-select';
 
 import './RecipeList.css';
 import RecipeCard from './RecipeCard/RecipeCard';
@@ -17,9 +18,23 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
   const token = useContext(UserTokenContext);
   const currentUser = useContext(UserDetailsContext);
 
+  const [currentFilter, setCurrentFilter] = useState('');
+  const filterOptions = [
+    { value: '', label: 'All recipes' },
+    { value: 'breakfast', label: 'Breakfast' },
+    { value: 'lunch', label: 'Lunch' },
+    { value: 'dinner', label: 'Dinner' },
+    { value: 'snack', label: 'Snack' },
+    { value: 'dessert', label: 'Dessert' }
+  ];
+
+  const handleFilterChange = (filterValue: string) => {
+    setCurrentFilter(filterValue);
+  };
+
   useEffect(() => {
     if (token && !userId && !liked) {
-      getAllRecipes(token)
+      getAllRecipes(token, currentFilter)
         .then(recipes => setRecipeData(recipes))
         .catch(error => console.log(error));
     }
@@ -32,13 +47,29 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
       setRecipeData(currentUser.likedRecipes);
     }
 
-  }, [token, userId, liked, currentUser]);
+  }, [token, userId, liked, currentUser, currentFilter]);
 
 
   if (!recipeData) return <div></div>;
 
   return (
     <div className='recipe-list-flex'>
+      <div className='recipe-list-category-filter-box'>
+        <Select
+          theme={(theme) => ({
+            ...theme,
+            colors: {
+              ...theme.colors,
+              primary25: '#c9c9c9',
+              primary: '#006909',
+            },
+          })}
+          onChange={filter => handleFilterChange(filter!.value)}
+          options={filterOptions}
+          defaultValue={filterOptions[0]}
+          className='recipe-list-category-filter'
+        />
+      </div>
       <div className='recipe-list'>
         {!userId && !liked &&
           <div onClick={() => navigate('/add-recipe')} className='recipe-card recipe-grid'>
