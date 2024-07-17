@@ -159,4 +159,28 @@ const changePassword = async (oldPassword: string, newPassword: string, token: s
   }
 };
 
-export { signup, login, getUserData, getOneUser, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend, changeUserDetails, changePassword };
+const changeProfilePic = async (file: File, token: string): Promise<boolean> => {
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const response = await axios.put(`${config.apiUrl}/users/change-profilepic`,
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export { signup, login, getUserData, getOneUser, searchForUsers, sendFriendRequest, handleFriendRequest, removeFriend, changeUserDetails, changePassword, changeProfilePic };

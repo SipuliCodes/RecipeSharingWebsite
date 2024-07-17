@@ -2,19 +2,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   findIconDefinition
 } from '@fortawesome/fontawesome-svg-core';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import './Sidebar.css';
 import { removeToken} from '../../../utils/localStorage';
 import { UserDetailsContext, UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
 import { SidebarProps } from '../../../interfaces/props';
+import AddProfilePic from './AddProfilePic/AddProfilePic';
 
-const Sidebar = ({toggleClass}: SidebarProps ) => {
+const Sidebar = ({ toggleClass }: SidebarProps) => {
+  const [profilePic, setProfilePic] = useState('');
   const navigate = useNavigate();
   const setTokenContext = useContext(UserSetTokenContext);
   const setUserContext = useContext(UserSetDetailsContext);
   const userDetails = useContext(UserDetailsContext);
+
+  useEffect(() => {
+    if (userDetails.profilePicUrl) {
+      setProfilePic(userDetails.profilePicUrl);
+    }
+  }, [userDetails.profilePicUrl]);
 
   const logout = () => {
     removeToken();
@@ -40,7 +48,8 @@ const Sidebar = ({toggleClass}: SidebarProps ) => {
   return (
     <div className='sidebar'>
       <div className='profile-details'>
-        <FontAwesomeIcon className='profilepic' icon={findIconDefinition({prefix: 'fas', iconName: 'user'})} />
+        {profilePic ? <img src={profilePic} className='profilepic'/> : <FontAwesomeIcon className='profilepic' icon={findIconDefinition({ prefix: 'fas', iconName: 'user' })} />}
+        <AddProfilePic setProfilePic={setProfilePic} />
         <h4 className='username'>@{userDetails.username}</h4>
       </div>
       <div className='link-list'>

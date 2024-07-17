@@ -1,0 +1,26 @@
+.add-profile-pic-success, .add-profile-pic-error {
+  margin: 0.5rem;
+  margin-top: 0;
+  width: 9rem;
+  padding: 0 0.5rem;
+}
+
+.add-profile-pic-success {
+  background-color: var(--success-color);
+}
+
+.add-profile-pic-error {
+  background-color: var(--error-color);
+}
+
+.add-profile-pic {
+  margin: 0.5rem;
+  margin-top: 0;
+  width: 9rem;
+  background-color: var(--primary-background-color);
+  padding: 0 0.5rem;
+}
+
+.add-profile-pic:hover {
+  background-color: color-mix(in srgb, var(--primary-background-color) 100%, black 70%);
+}

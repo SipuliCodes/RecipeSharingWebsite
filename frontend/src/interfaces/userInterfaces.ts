@@ -21,6 +21,7 @@ export type LoggedInUser = Omit<BasicUser, 'password'> & {
   friends: Friend[];
   recipes: Recipe[];
   likedRecipes?: Recipe[];
+  profilePicUrl?: string
 };
 
 export interface LoggedInUserWithToken {

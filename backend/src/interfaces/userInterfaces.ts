@@ -12,6 +12,7 @@ export interface IUser {
   receivedRequests?: Types.ObjectId[];
   recipes?: Types.ObjectId[];
   likedRecipes?: Types.ObjectId[];
+  profilePicUrl?: string
 }
 
 export type LoginUser = Pick<IUser, 'username' | 'password'>;

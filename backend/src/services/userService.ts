@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import { Types } from 'mongoose';
+import { BlobServiceClient } from "@azure/storage-blob";
 
 import { IUser, NewUser, LoginUser, NewUserDetails, NewAndOldPassword } from '../interfaces/userInterfaces';
 import User from '../models/user';
@@ -141,6 +142,43 @@ const changePassword = async (newAndOldPassword: NewAndOldPassword, userId: stri
   return false;
 };
 
+
+const uploadPicture = async (userId: string, fileContent: Express.Multer.File): Promise<boolean> => {
+  const connectionString = process.env.CONNECTIONSTRING;
+  const containerName = process.env.CONTAINERNAME;
+  const user = await User.findById(userId);
+  const fileName = `${user!.username}-profilepic`;
+
+  if (!connectionString || !containerName) {
+    throw new Error("Connection string or container name is missing");
+  }
+
+  try {
+    const blobServiceClient =
+      BlobServiceClient.fromConnectionString(connectionString);
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const blockBlobClient = containerClient.getBlockBlobClient(fileName);
+
+     const buffer = fileContent.buffer;
+    await blockBlobClient.upload(
+       buffer,
+       buffer.length
+     );
+    
+    const fileUrl = blockBlobClient.url;
+    user!.profilePicUrl = fileUrl;
+    await user!.save();
+
+    if (fileUrl) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    throw new Error("Upload was not successful" + error);
+  }
+};
+
+
 export default {
   addUser,
   loginUser,
@@ -150,5 +188,6 @@ export default {
   sendFriendRequest,
   removeFriend,
   changeUserDetails,
-  changePassword
+  changePassword,
+  uploadPicture
 };

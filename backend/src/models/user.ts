@@ -19,7 +19,8 @@ const schema = new Schema<IUser>({
   sentRequests: { type: [Schema.Types.ObjectId], ref: 'User' },
   receivedRequests: { type: [Schema.Types.ObjectId], ref: 'User'},
   recipes: { type: [Schema.Types.ObjectId], ref: 'Recipe' },
-  likedRecipes: { type: [Schema.Types.ObjectId], ref:'Recipe'}
+  likedRecipes: { type: [Schema.Types.ObjectId], ref: 'Recipe' },
+  profilePicUrl: { type: String }
 });
 
 schema.set('toJSON', {

@@ -1,9 +1,11 @@
 import { Router } from "express";
+import multer from "multer";
 
 import userService from "../services/userService";
 import { toNewUserDetails, toNewAndOldPassword } from "../utils/requestValidations";
 
 const router = Router();
+const upload = multer({ storage: multer.memoryStorage() });
 
 router.get('/', (req, res) => {
   try {
@@ -64,6 +66,22 @@ router.put('/change-password', (req, res) => {
     userService.changePassword(newAndOldPassword, userId)
       .then(success => res.json(success))
       .catch(error => console.log(error));
+
+  } catch (error) {
+    res.status(404).end();
+  }
+});
+
+router.put('/change-profilepic', upload.single('file'), (req, res) => {
+  try {
+    const userId = req.decodedToken!.id;
+    const fileContent = req.file;
+
+    if (fileContent) {
+      userService.uploadPicture(userId, fileContent)
+        .then(response => res.json(response))
+        .catch(error => console.log(error));
+    }
 
   } catch (error) {
     res.status(404).end();
