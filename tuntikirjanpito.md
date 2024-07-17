@@ -45,4 +45,6 @@
 | 11.7.2024 | 1 | Käyttäjätietojen muokkaamisen lisäys frontendiin |
 | 12.7.2024 | 2 | Salasanan vaihto |
 | 13.7.2024 | 1 | Salasanan vaihto ja tykättyjen reseptien oma sivu |
-| Yhteensä | 132 | tuntia |
+| 14.7.2024 | 6 | reseptin filtteröinti ja pieniä visuaalisia muutoksia |
+| 17.7.2024 | 8 | profiilikuvan lisääminen, tähän liittyen azuren opettelua
+| Yhteensä | 146 | tuntia |
