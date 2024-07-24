@@ -1,15 +1,26 @@
 import { Schema, model } from "mongoose";
 
 import { IUser, IUserDocument } from "../interfaces/userInterfaces";
+import { emailValidator } from "../utils/validators";
 
 
 const schema = new Schema<IUser>({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  friends: { type: [Schema.Types.ObjectId]}
+  username: { type: String, required: true, unique: true, minlength: 3 },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    validate: emailValidator
+  },
+  password: { type: String, required: true},
+  friends: { type: [Schema.Types.ObjectId], ref: 'User' },
+  sentRequests: { type: [Schema.Types.ObjectId], ref: 'User' },
+  receivedRequests: { type: [Schema.Types.ObjectId], ref: 'User'},
+  recipes: { type: [Schema.Types.ObjectId], ref: 'Recipe' },
+  likedRecipes: { type: [Schema.Types.ObjectId], ref: 'Recipe' },
+  profilePicUrl: { type: String }
 });
 
 schema.set('toJSON', {

@@ -1,0 +1,123 @@
+.homepage-container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 10% 80% 10%;
+  background-color: var(--primary-background-color);
+}
+
+.home-header {
+  background-color: var(--secondary-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.homepage-search-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  width: 30vw;
+  min-width: 14rem;
+}
+
+.searchbar {
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  width: 25%;
+  min-width: 13rem;
+}
+
+.homepage-search-results {
+  height: fit-content;
+  max-height: 40vh;
+  background-color: var(--primary-background-color);
+  border: 0.1rem solid var(--secondary-background-color);
+  align-self: stretch;
+  z-index: 2;
+  overflow: auto;
+}
+
+.home-h1 {
+  font-family: var(--primary-font);
+  color: var(--primary-text-color);
+}
+
+
+.menu-button {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: var(--primary-background-color);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.invisible {
+  background-color: transparent;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.home-content {
+  display: flex;
+}
+
+.home-content-center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.home-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 0;
+  height: 89%;
+  background-color: transparent;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.change .home-sidebar {
+  width: 20vw;
+  min-width: 300px;
+}
+
+.home-sidebar::before {
+  content: '';
+  position: absolute;
+  width: 20vw;
+  right: 100%;
+  width: 100%;
+  height: 90%;
+  background-color: var(--secondary-background-color);
+  transition: right 0.5s;
+  z-index: 1;
+}
+
+.change .home-sidebar::before {
+  right: 0;
+}
+

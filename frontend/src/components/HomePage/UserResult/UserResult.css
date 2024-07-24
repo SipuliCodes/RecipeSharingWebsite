@@ -1,0 +1,43 @@
+.user-result-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  border-bottom: 0.5rem solid var(--secondary-background-color);
+}
+
+.user-result-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin: 0 1rem;
+}
+
+.user-result-username {
+  margin: 0.5rem;
+  font-family: var(--secondary-font);
+}
+
+.user-result-name {
+  margin: 0.5rem;
+  font-family: var(--primary-font);
+}
+
+.user-result-request-sent {
+  margin: auto;
+  font-family: var(--primary-font);
+}
+
+.user-result-send-request {
+  background-color: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  font-family: var(--primary-font);
+  border-radius: 1rem;
+  width: 80%;
+  height: 50%;
+  align-self: center;
+  justify-self: center;
+}
+
+.user-result-send-request:hover {
+  background-color: color-mix(in srgb, var(--secondary-background-color) 100%, black 70%);
+}

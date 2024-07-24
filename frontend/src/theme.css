@@ -5,7 +5,7 @@
   --tertiary-text-color: #c9c9c9;
   --primary-background-color: #fff;
   --secondary-background-color: #006909;
-  --secondary-background-color-rgb: 0, 105, 9;
+  --tertiary-background-color: #b9b9b9;
   --success-color: #28a745;
   --error-color: #dc3545;
   --warning-color: #ffc107;
@@ -17,5 +17,5 @@
 /* font styles */
 :root {
   --primary-font: 'Arial', sans-serif;
-  --secondary-font: 'Roboto', sans-serif;
+  --secondary-font: 'Courier New', Courier, monospace;
 }

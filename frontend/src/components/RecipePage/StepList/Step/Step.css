@@ -1,0 +1,12 @@
+.recipe-step {
+  margin: 0.5rem;
+}
+
+.recipe-step-done {
+  text-decoration: line-through;
+  color: var(--success-color);
+}
+
+.step-checkbox {
+  accent-color: var(--secondary-background-color);
+}

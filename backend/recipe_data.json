@@ -1,0 +1,687 @@
+[
+  {
+    "id": "1",
+    "title": "Spaghetti Carbonara",
+    "image": "https://www.spendwithpennies.com/wp-content/uploads/2023/04/1200-Spaghetti-Carbonara-2-SpendWithPennies.jpg",
+    "description": "Spaghetti Carbonara is a classic Italian pasta dish made with simple, high-quality ingredients. It's a creamy, savory delight that combines al dente spaghetti with crispy pancetta, rich eggs, and a blend of Pecorino and Parmesan cheeses. This dish is quick and easy to prepare, making it perfect for a weeknight dinner or a special occasion. Its velvety texture and rich flavors make it a perennial favorite.",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 large eggs",
+      "50g Pecorino cheese",
+      "50g Parmesan cheese",
+      "Freshly ground black pepper",
+      "Salt",
+      "2 cloves of garlic",
+      "Extra virgin olive oil"
+    ],
+    "steps": [
+      "Put a large saucepan of water on to boil.",
+      "Finely chop the pancetta, having first removed any rind.",
+      "Beat the eggs in a medium bowl, season with a little freshly grated black pepper and set everything aside.",
+      "Add the spaghetti to the water and cook according to the pack instructions.",
+      "Squash the garlic with the blade of a knife, just to bruise it.",
+      "While the spaghetti is cooking, fry the pancetta with the garlic.",
+      "Keep the heat hot enough for the pancetta to crisp up, but don't allow the garlic to burn.",
+      "Remove from the heat and discard the garlic.",
+      "Mix most of the cheese in with the eggs, keeping a small handful back for sprinkling over later.",
+      "Drain the spaghetti and add it to the pancetta.",
+      "Take the pan off the heat and quickly pour in the eggs and cheese. Stir everything together.",
+      "Serve immediately with a little sprinkling of the remaining cheese and a grating of black pepper."
+    ],
+    "username": "chefjohn",
+    "date": "2024-05-25T18:30:00.000Z",
+    "likes": 150,
+    "comments": [
+      {
+        "username": "foodie123",
+        "comment": "Absolutely delicious! A hit with the whole family.",
+        "date": "2024-05-25T19:00:00.000Z"
+      },
+      {
+        "username": "pastalover",
+        "comment": "Simple and easy to follow. Loved it!",
+        "date": "2024-05-26T10:15:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Chocolate Chip Cookies",
+    "image": "https://cookiesfordays.com/wp-content/uploads/2024/01/chocolate-chip-cookie-recipe-ft.jpg",
+    "description": "These Chocolate Chip Cookies are the ultimate comfort food. Soft and chewy with a slight crunch on the edges, they are packed with gooey semisweet chocolate chips that melt in your mouth. The combination of brown sugar and vanilla gives them a rich, caramel-like flavor. Perfect for an afternoon snack or a sweet treat after dinner, these cookies are sure to bring a smile to anyone's face.",
+    "ingredients": [
+      "225g all-purpose flour",
+      "1/2 tsp baking soda",
+      "1/2 tsp salt",
+      "170g unsalted butter",
+      "200g packed brown sugar",
+      "100g granulated sugar",
+      "1 tbsp vanilla extract",
+      "1 large egg",
+      "1 large egg yolk",
+      "325g semisweet chocolate chips"
+    ],
+    "steps": [
+      "Preheat the oven to 165°C.",
+      "Line baking sheets with parchment paper.",
+      "Sift together the flour, baking soda, and salt; set aside.",
+      "In a medium bowl, melt the butter. Add the brown sugar and white sugar; beat until well blended.",
+      "Beat in the vanilla, egg, and egg yolk until light and creamy.",
+      "Mix in the sifted ingredients until just blended.",
+      "Stir in the chocolate chips by hand using a wooden spoon.",
+      "Drop cookie dough 1/4 cup at a time onto the prepared cookie sheets. Cookies should be about 3 inches apart.",
+      "Bake for 15 to 17 minutes in the preheated oven, or until the edges are lightly toasted.",
+      "Cool on baking sheets for a few minutes before transferring to wire racks to cool completely."
+    ],
+    "username": "bakerbeth",
+    "date": "2024-05-24T15:01:00.000Z",
+    "likes": 220,
+    "comments": [
+      {
+        "username": "sweetsfan",
+        "comment": "These cookies are amazing! Perfectly chewy.",
+        "date": "2024-05-24T16:30:00.000Z"
+      },
+      {
+        "username": "cookiemaster",
+        "comment": "The best chocolate chip cookies I've ever made.",
+        "date": "2024-05-25T09:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Classic Margherita Pizza",
+    "image": "https://static.toiimg.com/thumb/56868564.cms?imgsize=1948751&width=800&height=800",
+    "description": "The Classic Margherita Pizza is a timeless favorite that showcases the beauty of simple, fresh ingredients. With a thin and crispy crust, this pizza is topped with a tangy tomato sauce, creamy mozzarella cheese, and fragrant fresh basil leaves. A drizzle of extra virgin olive oil and a sprinkle of salt and pepper complete this masterpiece. It's the perfect meal for pizza lovers who appreciate tradition and quality.",
+    "ingredients": [
+      "250g pizza dough",
+      "200ml tomato sauce",
+      "200g mozzarella cheese",
+      "Fresh basil leaves",
+      "2 tbsp extra virgin olive oil",
+      "Salt",
+      "Freshly ground black pepper"
+    ],
+    "steps": [
+      "Preheat the oven to 220°C.",
+      "Roll out the pizza dough on a floured surface to your desired thickness.",
+      "Spread the tomato sauce evenly over the dough.",
+      "Tear the mozzarella cheese into pieces and scatter over the pizza.",
+      "Add a few fresh basil leaves.",
+      "Drizzle with extra virgin olive oil.",
+      "Season with salt and freshly ground black pepper.",
+      "Bake in the preheated oven for 10-12 minutes, or until the crust is golden and the cheese is bubbling.",
+      "Serve immediately, garnished with a few more fresh basil leaves."
+    ],
+    "username": "pizzalover",
+    "date": "2024-05-23T12:00:00.000Z",
+    "likes": 180,
+    "comments": [
+      {
+        "username": "italianchef",
+        "comment": "Simple yet delicious! Reminds me of Italy.",
+        "date": "2024-05-23T12:45:00.000Z"
+      },
+      {
+        "username": "cheesyfan",
+        "comment": "The basil adds a perfect touch to this classic pizza.",
+        "date": "2024-05-24T14:20:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Chicken Caesar Salad",
+    "image": "https://reciperunner.com/wp-content/uploads/2017/07/Grilled-Chicken-Caesar-Salad-Photograph.jpg",
+    "description": "The Chicken Caesar Salad is a hearty and satisfying dish that's both nutritious and delicious. Crisp romaine lettuce is tossed with crunchy croutons and grated Parmesan cheese, then topped with juicy, perfectly cooked chicken breast slices. The creamy Caesar dressing ties everything together, creating a balanced and flavorful salad that's perfect for a light lunch or a starter. This classic salad is a staple for healthy eating without sacrificing taste.",
+    "ingredients": [
+      "2 chicken breasts",
+      "1 romaine lettuce",
+      "100g croutons",
+      "50g grated Parmesan cheese",
+      "Caesar dressing",
+      "Salt",
+      "Freshly ground black pepper",
+      "Olive oil"
+    ],
+    "steps": [
+      "Season the chicken breasts with salt and pepper.",
+      "Heat a drizzle of olive oil in a pan over medium heat.",
+      "Cook the chicken breasts for 5-7 minutes on each side, or until cooked through. Let rest before slicing.",
+      "Chop the romaine lettuce and place in a large bowl.",
+      "Add the croutons and grated Parmesan cheese.",
+      "Slice the chicken breasts and add to the salad.",
+      "Drizzle with Caesar dressing and toss to combine.",
+      "Serve immediately."
+    ],
+    "username": "saladqueen",
+    "date": "2024-05-22T13:00:00.000Z",
+    "likes": 90,
+    "comments": [
+      {
+        "username": "healthyeater",
+        "comment": "A classic salad that's always a winner!",
+        "date": "2024-05-22T13:30:00.000Z"
+      },
+      {
+        "username": "fitnessguru",
+        "comment": "Perfect for a light lunch. Loved it!",
+        "date": "2024-05-22T14:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Lemon Garlic Shrimp",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9T9t5uKiMsJ4ma2RBPaZcCgBH5UxyXKTF4w&s",
+    "description": "Lemon Garlic Shrimp is a quick and flavorful dish that's perfect for a light dinner or an elegant appetizer. Succulent shrimp are sautéed in a tangy and aromatic mixture of lemon juice, garlic, and butter, then garnished with fresh parsley. This dish pairs beautifully with pasta, rice, or crusty bread to soak up the delicious sauce.",
+    "ingredients": [
+      "500g shrimp, peeled and deveined",
+      "3 cloves garlic, minced",
+      "2 tbsp butter",
+      "1 lemon, juiced",
+      "1 tbsp olive oil",
+      "Salt",
+      "Freshly ground black pepper",
+      "Fresh parsley, chopped"
+    ],
+    "steps": [
+      "Heat the olive oil and butter in a large pan over medium heat.",
+      "Add the garlic and sauté for about 1 minute, until fragrant.",
+      "Add the shrimp to the pan, season with salt and pepper, and cook for about 2-3 minutes on each side, until pink and opaque.",
+      "Stir in the lemon juice and cook for another minute.",
+      "Remove from heat, garnish with fresh parsley, and serve immediately."
+    ],
+    "username": "seafoodlover",
+    "date": "2024-05-21T18:00:00.000Z",
+    "likes": 130,
+    "comments": [
+      {
+        "username": "shrimpfanatic",
+        "comment": "So fresh and tasty! A new favorite.",
+        "date": "2024-05-21T19:00:00.000Z"
+      },
+      {
+        "username": "foodie2024",
+        "comment": "Quick, easy, and delicious. Perfect for weeknights.",
+        "date": "2024-05-22T08:30:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Beef Tacos",
+    "image": "https://www.twopeasandtheirpod.com/wp-content/uploads/2022/12/Beef-Tacos-55.jpg",
+    "description": "Beef Tacos are a crowd-pleasing favorite that combines seasoned ground beef with fresh toppings in a crispy taco shell. The beef is cooked with a blend of spices, creating a flavorful and satisfying filling. Topped with lettuce, tomatoes, cheese, and a dollop of sour cream, these tacos are perfect for a casual dinner or a fun taco night with friends and family.",
+    "ingredients": [
+      "500g ground beef",
+      "1 onion, finely chopped",
+      "2 cloves garlic, minced",
+      "1 tsp chili powder",
+      "1 tsp ground cumin",
+      "1/2 tsp paprika",
+      "Salt",
+      "Freshly ground black pepper",
+      "8 taco shells",
+      "Shredded lettuce",
+      "Diced tomatoes",
+      "Grated cheese",
+      "Sour cream",
+      "Salsa"
+    ],
+    "steps": [
+      "Heat a large skillet over medium-high heat.",
+      "Add the ground beef and cook until browned, about 5-7 minutes. Drain any excess fat.",
+      "Add the onion and garlic to the skillet and cook until softened, about 3-4 minutes.",
+      "Stir in the chili powder, cumin, paprika, salt, and pepper.",
+      "Reduce the heat and simmer for about 5 minutes.",
+      "Warm the taco shells according to package instructions.",
+      "Fill each taco shell with the beef mixture and top with lettuce, tomatoes, cheese, sour cream, and salsa.",
+      "Serve immediately."
+    ],
+    "username": "tacoking",
+    "date": "2024-05-20T17:30:00.000Z",
+    "likes": 200,
+    "comments": [
+      {
+        "username": "tacolover",
+        "comment": "These tacos are amazing! Perfectly seasoned.",
+        "date": "2024-05-20T18:00:00.000Z"
+      },
+      {
+        "username": "spicequeen",
+        "comment": "Love the flavors! Easy to make and delicious.",
+        "date": "2024-05-21T09:15:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Vegetable Stir-Fry",
+    "image": "https://images.immediate.co.uk/production/volatile/sites/30/2022/10/vegetarian-stir-fry-hero-fe84012.jpg",
+    "description": "This Vegetable Stir-Fry is a vibrant and healthy dish that features a medley of colorful vegetables cooked in a savory sauce. Perfect for a quick and nutritious meal, this stir-fry is packed with flavors and nutrients. Serve it over rice or noodles for a complete and satisfying meal.",
+    "ingredients": [
+      "1 red bell pepper, sliced",
+      "1 yellow bell pepper, sliced",
+      "1 broccoli crown, cut into florets",
+      "1 carrot, julienned",
+      "1 zucchini, sliced",
+      "2 cloves garlic, minced",
+      "2 tbsp soy sauce",
+      "1 tbsp hoisin sauce",
+      "1 tbsp sesame oil",
+      "1 tsp cornstarch mixed with 2 tbsp water",
+      "Cooked rice or noodles"
+    ],
+    "steps": [
+      "Heat the sesame oil in a large wok or skillet over medium-high heat.",
+      "Add the garlic and sauté for about 30 seconds, until fragrant.",
+      "Add the bell peppers, broccoli, carrot, and zucchini. Stir-fry for about 5-7 minutes, until the vegetables are tender-crisp.",
+      "Stir in the soy sauce and hoisin sauce.",
+      "Add the cornstarch mixture and cook for another 1-2 minutes, until the sauce thickens.",
+      "Serve immediately over cooked rice or noodles."
+    ],
+    "username": "veggielover",
+    "date": "2024-05-19T15:45:00.000Z",
+    "likes": 110,
+    "comments": [
+      {
+        "username": "healthnut",
+        "comment": "So fresh and tasty! Love the variety of veggies.",
+        "date": "2024-05-19T16:15:00.000Z"
+      },
+      {
+        "username": "stirfryfan",
+        "comment": "Quick, easy, and delicious. A new favorite.",
+        "date": "2024-05-20T07:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "title": "French Onion Soup",
+    "image": "https://www.simplyrecipes.com/thmb/YW8ehcfEPuMxkbbkqu9p9KYZlq8=/1920x1280/smart/filters:no_upscale()/Simply-Recipes-French-Onion-Soup-LEAD-7-2df68a104d674c648f2bc3120bbf8cbf.jpg",
+    "description": "French Onion Soup is a comforting and flavorful dish made with caramelized onions, beef broth, and a splash of wine. Topped with a toasted baguette slice and melted Gruyère cheese, this soup is rich and satisfying. It's perfect for a cozy dinner on a cold night.",
+    "ingredients": [
+      "5 large onions, thinly sliced",
+      "3 tbsp butter",
+      "1 tbsp olive oil",
+      "1 tsp sugar",
+      "1 tsp salt",
+      "2 cloves garlic, minced",
+      "1/2 cup dry white wine",
+      "8 cups beef broth",
+      "2 tbsp flour",
+      "1 baguette, sliced",
+      "200g Gruyère cheese, grated",
+      "Fresh thyme"
+    ],
+    "steps": [
+      "In a large pot, heat the butter and olive oil over medium heat.",
+      "Add the onions, sugar, and salt. Cook, stirring frequently, for about 30-40 minutes, until the onions are caramelized.",
+      "Add the garlic and cook for another minute.",
+      "Stir in the flour and cook for another 2 minutes.",
+      "Add the wine and beef broth, and bring to a simmer.",
+      "Cook for about 30 minutes, until the soup is rich and flavorful.",
+      "Preheat the broiler. Place the baguette slices on a baking sheet and toast under the broiler until golden brown.",
+      "Ladle the soup into oven-safe bowls, top each with a slice of toasted baguette and a generous amount of Gruyère cheese.",
+      "Place the bowls under the broiler until the cheese is melted and bubbly.",
+      "Garnish with fresh thyme and serve immediately."
+    ],
+    "username": "souplover",
+    "date": "2024-05-18T12:30:00.000Z",
+    "likes": 140,
+    "comments": [
+      {
+        "username": "comfortfoodie",
+        "comment": "So rich and delicious! Perfect for a cozy night.",
+        "date": "2024-05-18T13:00:00.000Z"
+      },
+      {
+        "username": "frenchfoodfan",
+        "comment": "Loved the flavors! Will make again.",
+        "date": "2024-05-19T08:20:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Berry Smoothie Bowl",
+    "image": "https://downshiftology.com/wp-content/uploads/2021/03/Berry-Smoothie-Bowl-5.jpg",
+    "description": "This Berry Smoothie Bowl is a refreshing and healthy breakfast option that's packed with antioxidants and vitamins. Made with a blend of mixed berries, banana, and Greek yogurt, it's creamy, tangy, and slightly sweet. Topped with fresh berries, granola, and a drizzle of honey, it's a nutritious way to start your day.",
+    "ingredients": [
+      "1 cup mixed berries (strawberries, blueberries, raspberries)",
+      "1 banana",
+      "1/2 cup Greek yogurt",
+      "1/2 cup almond milk",
+      "Fresh berries for topping",
+      "Granola for topping",
+      "Honey for drizzling"
+    ],
+    "steps": [
+      "In a blender, combine the mixed berries, banana, Greek yogurt, and almond milk. Blend until smooth.",
+      "Pour the smoothie into a bowl.",
+      "Top with fresh berries, granola, and a drizzle of honey.",
+      "Serve immediately."
+    ],
+    "username": "smoothiemaster",
+    "date": "2024-05-17T08:00:00.000Z",
+    "likes": 95,
+    "comments": [
+      {
+        "username": "healthystart",
+        "comment": "So fresh and delicious! Perfect start to my day.",
+        "date": "2024-05-17T08:30:00.000Z"
+      },
+      {
+        "username": "berrylover",
+        "comment": "Loved it! Will make this every morning.",
+        "date": "2024-05-17T09:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "title": "Quinoa Salad",
+    "image": "https://www.simplyrecipes.com/thmb/ujUwNk38IGzhLuyyZHpo3DPqFOU=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Quinoa-Salad-LEAD-3-132ebfd74e0e4744ab1a932dcf18d31e.jpg",
+    "description": "This Quinoa Salad is a light and healthy dish that's perfect for lunch or as a side dish. Packed with protein-rich quinoa, colorful vegetables, and a zesty lemon vinaigrette, it's both nutritious and delicious. The fresh herbs and feta cheese add a burst of flavor, making this salad a satisfying and wholesome choice.",
+    "ingredients": [
+      "1 cup quinoa",
+      "2 cups water",
+      "1 red bell pepper, diced",
+      "1 cucumber, diced",
+      "1/2 red onion, finely chopped",
+      "1/2 cup cherry tomatoes, halved",
+      "1/4 cup fresh parsley, chopped",
+      "1/4 cup fresh mint, chopped",
+      "1/2 cup feta cheese, crumbled",
+      "1/4 cup olive oil",
+      "1 lemon, juiced",
+      "Salt",
+      "Freshly ground black pepper"
+    ],
+    "steps": [
+      "Rinse the quinoa under cold water.",
+      "In a medium saucepan, bring the water to a boil. Add the quinoa, reduce the heat, and simmer for about 15 minutes, until the water is absorbed and the quinoa is tender.",
+      "Let the quinoa cool to room temperature.",
+      "In a large bowl, combine the quinoa, bell pepper, cucumber, red onion, cherry tomatoes, parsley, mint, and feta cheese.",
+      "In a small bowl, whisk together the olive oil, lemon juice, salt, and pepper.",
+      "Pour the dressing over the salad and toss to combine.",
+      "Serve immediately or refrigerate until ready to serve."
+    ],
+    "username": "quinoaqueen",
+    "date": "2024-05-16T12:00:00.000Z",
+    "likes": 85,
+    "comments": [
+      {
+        "username": "healthyeater",
+        "comment": "So light and refreshing! Perfect for summer.",
+        "date": "2024-05-16T12:30:00.000Z"
+      },
+      {
+        "username": "foodie2024",
+        "comment": "Loved the flavors and the fresh herbs.",
+        "date": "2024-05-16T14:15:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "title": "Chicken Alfredo",
+    "image": "https://therecipecritic.com/wp-content/uploads/2020/03/chickenalfredo-1.jpg",
+    "description": "Chicken Alfredo is a rich and creamy pasta dish that's perfect for a comforting dinner. Tender chicken breast is cooked in a luscious Alfredo sauce made with butter, heavy cream, and Parmesan cheese, then tossed with fettuccine. This dish is indulgent and satisfying, making it a favorite for pasta lovers.",
+    "ingredients": [
+      "2 chicken breasts, sliced",
+      "300g fettuccine",
+      "2 tbsp olive oil",
+      "3 cloves garlic, minced",
+      "1 cup heavy cream",
+      "1/2 cup butter",
+      "1 cup Parmesan cheese, grated",
+      "Salt",
+      "Freshly ground black pepper",
+      "Fresh parsley, chopped"
+    ],
+    "steps": [
+      "Cook the fettuccine according to package instructions. Drain and set aside.",
+      "Season the chicken breasts with salt and pepper.",
+      "Heat the olive oil in a large pan over medium heat. Cook the chicken until golden and cooked through, about 5-7 minutes per side. Remove and set aside.",
+      "In the same pan, melt the butter over medium heat. Add the garlic and sauté for about 1 minute, until fragrant.",
+      "Stir in the heavy cream and bring to a simmer.",
+      "Add the Parmesan cheese and stir until melted and the sauce is smooth.",
+      "Slice the chicken and add it to the sauce.",
+      "Add the cooked fettuccine to the pan and toss to combine.",
+      "Serve immediately, garnished with fresh parsley."
+    ],
+    "username": "pastalover",
+    "date": "2024-05-15T17:00:00.000Z",
+    "likes": 160,
+    "comments": [
+      {
+        "username": "foodie123",
+        "comment": "So creamy and delicious! A new family favorite.",
+        "date": "2024-05-15T17:30:00.000Z"
+      },
+      {
+        "username": "italianfoodfan",
+        "comment": "Loved it! Will definitely make again.",
+        "date": "2024-05-16T08:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "title": "Classic Pancakes",
+    "image": "https://www.cookingclassy.com/wp-content/uploads/2022/08/pancakes-11.jpg",
+    "description": "These Classic Pancakes are light, fluffy, and perfect for a weekend breakfast. Made with simple ingredients like flour, eggs, milk, and butter, they come together quickly and taste amazing. Top them with maple syrup, fresh berries, or a dollop of whipped cream for a delicious morning treat.",
+    "ingredients": [
+      "1 1/2 cups all-purpose flour",
+      "3 1/2 tsp baking powder",
+      "1 tsp salt",
+      "1 tbsp sugar",
+      "1 1/4 cups milk",
+      "1 egg",
+      "3 tbsp butter, melted"
+    ],
+    "steps": [
+      "In a large bowl, sift together the flour, baking powder, salt, and sugar.",
+      "Make a well in the center and pour in the milk, egg, and melted butter. Mix until smooth.",
+      "Heat a lightly oiled griddle or frying pan over medium-high heat.",
+      "Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.",
+      "Brown on both sides and serve hot.",
+      "Top with maple syrup, fresh berries, or whipped cream if desired."
+    ],
+    "username": "breakfastlover",
+    "date": "2024-05-14T08:00:00.000Z",
+    "likes": 120,
+    "comments": [
+      {
+        "username": "morningchef",
+        "comment": "Fluffy and delicious! Perfect start to my day.",
+        "date": "2024-05-14T08:30:00.000Z"
+      },
+      {
+        "username": "pancakefan",
+        "comment": "Best pancake recipe I've tried. Loved it!",
+        "date": "2024-05-14T09:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "title": "Classic Lasagna",
+    "image": "https://www.simplyrecipes.com/thmb/l5qUukmInqqxzWLMbp-t-9XBwm0=/2000x1500/filters:no_upscale()/Simply-Recipes-Lasagna-LEAD-4-fb4ea453e4db4a5e871c88d99af0a6ef.jpg",
+    "description": "Classic Lasagna is a hearty and comforting dish that layers rich meat sauce with creamy ricotta, mozzarella, and Parmesan cheese, all between sheets of tender pasta. Baked to perfection, this dish is a family favorite that's perfect for any occasion.",
+    "ingredients": [
+      "500g ground beef",
+      "1 onion, finely chopped",
+      "2 cloves garlic, minced",
+      "1 can (800g) crushed tomatoes",
+      "2 tbsp tomato paste",
+      "1 tsp dried basil",
+      "1 tsp dried oregano",
+      "Salt",
+      "Freshly ground black pepper",
+      "250g ricotta cheese",
+      "1 egg",
+      "250g mozzarella cheese, shredded",
+      "1 cup grated Parmesan cheese",
+      "12 lasagna noodles",
+      "Fresh basil for garnish"
+    ],
+    "steps": [
+      "Preheat the oven to 375°F (190°C).",
+      "In a large skillet, cook the ground beef, onion, and garlic over medium heat until browned. Drain any excess fat.",
+      "Add the crushed tomatoes, tomato paste, basil, oregano, salt, and pepper to the skillet. Simmer for about 30 minutes.",
+      "In a bowl, combine the ricotta cheese and egg.",
+      "Cook the lasagna noodles according to package instructions. Drain and set aside.",
+      "Spread a thin layer of the meat sauce in a 9x13 inch baking dish.",
+      "Place a layer of noodles over the sauce. Spread a layer of the ricotta mixture over the noodles. Sprinkle with mozzarella and Parmesan cheese.",
+      "Repeat the layers until all the ingredients are used, ending with a layer of noodles and sauce topped with mozzarella and Parmesan cheese.",
+      "Cover with aluminum foil and bake for about 25 minutes. Remove the foil and bake for an additional 25 minutes, until the cheese is bubbly and golden brown.",
+      "Let stand for 10 minutes before serving. Garnish with fresh basil."
+    ],
+    "username": "italianchef",
+    "date": "2024-05-13T17:00:00.000Z",
+    "likes": 180,
+    "comments": [
+      {
+        "username": "pastalover",
+        "comment": "Absolutely delicious! A new family favorite.",
+        "date": "2024-05-13T17:30:00.000Z"
+      },
+      {
+        "username": "foodie2024",
+        "comment": "Loved the flavors and the cheesy goodness.",
+        "date": "2024-05-14T08:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "title": "Chocolate Chip Cookies",
+    "image": "https://www.modernhoney.com/wp-content/uploads/2018/02/Chocolate-Chip-Cookies-6.jpg",
+    "description": "These Chocolate Chip Cookies are soft, chewy, and packed with chocolate chips. Made with simple ingredients like butter, sugar, eggs, and flour, they are easy to whip up and perfect for satisfying your sweet tooth. Enjoy them fresh out of the oven with a glass of milk.",
+    "ingredients": [
+      "1 cup unsalted butter, softened",
+      "1 cup white sugar",
+      "1 cup packed brown sugar",
+      "2 eggs",
+      "1 tsp vanilla extract",
+      "3 cups all-purpose flour",
+      "1 tsp baking soda",
+      "2 tsp hot water",
+      "1/2 tsp salt",
+      "2 cups semisweet chocolate chips",
+      "1 cup chopped walnuts (optional)"
+    ],
+    "steps": [
+      "Preheat the oven to 350°F (175°C).",
+      "Cream together the butter, white sugar, and brown sugar until smooth.",
+      "Beat in the eggs one at a time, then stir in the vanilla.",
+      "Dissolve baking soda in hot water. Add to batter along with salt.",
+      "Stir in flour, chocolate chips, and nuts.",
+      "Drop by large spoonfuls onto ungreased pans.",
+      "Bake for about 10 minutes in the preheated oven, or until edges are nicely browned."
+    ],
+    "username": "bakerlover",
+    "date": "2024-05-12T12:00:00.000Z",
+    "likes": 210,
+    "comments": [
+      {
+        "username": "sweettooth",
+        "comment": "Best chocolate chip cookies ever! So soft and chewy.",
+        "date": "2024-05-12T12:30:00.000Z"
+      },
+      {
+        "username": "cookielover",
+        "comment": "Loved these! Perfectly sweet and chocolaty.",
+        "date": "2024-05-12T13:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "title": "Spaghetti Carbonara",
+    "image": "https://www.simplyrecipes.com/thmb/bIAD90EsPezxb0vprmWIGtO6uEM=/2000x1500/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Carbonara-LEAD-2-b40bb41567b948d1ad86e4c6b52ef83b.jpg",
+    "description": "Spaghetti Carbonara is a classic Italian pasta dish made with eggs, cheese, pancetta, and pepper. It's creamy, savory, and incredibly satisfying. This dish comes together quickly and is perfect for a comforting and indulgent meal.",
+    "ingredients": [
+      "200g pancetta or guanciale, diced",
+      "3 large eggs",
+      "1 cup grated Pecorino Romano cheese",
+      "1 lb spaghetti",
+      "2 cloves garlic, minced",
+      "Salt",
+      "Freshly ground black pepper",
+      "Fresh parsley, chopped (optional)"
+    ],
+    "steps": [
+      "Cook the spaghetti according to package instructions. Reserve 1 cup of pasta water, then drain and set aside.",
+      "In a large pan, cook the pancetta over medium heat until crispy. Remove and set aside.",
+      "In a bowl, whisk together the eggs and Pecorino Romano cheese.",
+      "Add the garlic to the pan and sauté for about 1 minute, until fragrant.",
+      "Add the cooked spaghetti to the pan and toss to combine.",
+      "Remove the pan from heat and quickly stir in the egg and cheese mixture, adding reserved pasta water as needed to create a creamy sauce.",
+      "Stir in the pancetta and season with salt and freshly ground black pepper.",
+      "Serve immediately, garnished with fresh parsley if desired."
+    ],
+    "username": "pastalover",
+    "date": "2024-05-11T18:00:00.000Z",
+    "likes": 150,
+    "comments": [
+      {
+        "username": "italianfoodfan",
+        "comment": "Absolutely delicious! Just like in Italy.",
+        "date": "2024-05-11T18:30:00.000Z"
+      },
+      {
+        "username": "foodie2024",
+        "comment": "Loved it! Creamy and flavorful.",
+        "date": "2024-05-12T08:45:00.000Z"
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "title": "Margherita Pizza",
+    "image": "https://www.simplyrecipes.com/thmb/7c_TAPcCVGkmeWvvhsVbhZZoBPI=/2000x1333/filters:no_upscale()/Simply-Recipes-Margherita-Pizza-LEAD-3-c3c0a0ceae6d4ebd99e466698c961d42.jpg",
+    "description": "Margherita Pizza is a simple yet delicious pizza that features a thin crust topped with fresh tomatoes, mozzarella cheese, and basil. The combination of fresh ingredients makes this pizza a favorite for its light and refreshing flavors.",
+    "ingredients": [
+      "1 pizza dough",
+      "2 cups tomato sauce",
+      "200g fresh mozzarella cheese, sliced",
+      "Fresh basil leaves",
+      "2 tbsp olive oil",
+      "Salt",
+      "Freshly ground black pepper"
+    ],
+    "steps": [
+      "Preheat the oven to 475°F (245°C).",
+      "Roll out the pizza dough on a floured surface to your desired thickness.",
+      "Transfer the dough to a pizza stone or baking sheet.",
+      "Spread the tomato sauce evenly over the dough.",
+      "Top with slices of fresh mozzarella cheese.",
+      "Bake in the preheated oven for about 10-12 minutes, until the crust is golden and the cheese is bubbly.",
+      "Remove from the oven and top with fresh basil leaves.",
+      "Drizzle with olive oil and season with salt and freshly ground black pepper.",
+      "Serve immediately."
+    ],
+    "username": "pizzamaster",
+    "date": "2024-05-10T17:00:00.000Z",
+    "likes": 170,
+    "comments": [
+      {
+        "username": "pizzalover",
+        "comment": "Best homemade pizza ever! So fresh and delicious.",
+        "date": "2024-05-10T17:30:00.000Z"
+      },
+      {
+        "username": "foodie2024",
+        "comment": "Loved the simplicity and the flavors.",
+        "date": "2024-05-11T08:45:00.000Z"
+      }
+    ]
+  }
+]

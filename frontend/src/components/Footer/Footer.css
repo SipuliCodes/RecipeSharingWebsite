@@ -6,6 +6,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   color: var(--primary-text-color);
+  max-height: 4.5rem;
 }
 
 a {
@@ -16,6 +17,7 @@ a {
 
 .text {
   margin-bottom: 10px;
+  font-family: var(--secondary-font);
 }
 
 .icon {
@@ -27,4 +29,8 @@ a {
 .contacts {
   display: flex;
   align-items: center;
+}
+
+.green-background {
+  background-color: var(--secondary-background-color);
 }
