@@ -16,5 +16,5 @@ test('renders SignUpForms header, input fields and create button correctly', () 
   screen.getAllByPlaceholderText('Password');
   screen.findAllByPlaceholderText('Confirm password');
 
-  screen.getByRole('button', { name: 'Create User' });
+  screen.getByRole('button', { name: 'Create Account' });
 });

@@ -67,10 +67,10 @@ export const parseLikes = (likes: unknown): number => {
   }
 
   return likes;
-}
+};
 
 export const parseDate = (date: unknown): Date => {
   if (!isString(date) || !isDate(date)) {
     throw new Error('Incorrect date');
   }
-}
+};
