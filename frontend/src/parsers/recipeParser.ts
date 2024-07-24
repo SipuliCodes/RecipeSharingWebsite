@@ -69,8 +69,10 @@ export const parseLikes = (likes: unknown): number => {
   return likes;
 };
 
-export const parseDate = (date: unknown): Date => {
+export const parseDate = (date: unknown): string => {
   if (!isString(date) || !isDate(date)) {
     throw new Error('Incorrect date');
   }
+
+  return date;
 };

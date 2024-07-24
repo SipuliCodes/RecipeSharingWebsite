@@ -24,6 +24,7 @@ const RecipePage = () => {
       'description': '',
       'ingredients': [],
       'steps': [],
+      'mealCategory': [],
       'user': {'username': ''},
       'date': '',
       'likes': 0,

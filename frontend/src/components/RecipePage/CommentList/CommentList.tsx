@@ -44,7 +44,7 @@ const CommentList = ({ id, comments }: CommentListProps) => {
       {comments.map((comment, index) =>
         <div key={index} className='recipe-comment-box'> 
           <p className='recipe-comment'>{comment.comment}</p>
-          <p className='recipe-comment-user'>{comment.username} </p>
+          <p className='recipe-comment-user'>{comment.user.username} </p>
           <p className='recipe-comment-date'>{formatDate(comment.date)}</p>
         </div>)}
       {!wantToComment && <button className='recipe-add-comment-add-button recipe-add-comment-button' onClick={handleClick}>Add comment</button>}
