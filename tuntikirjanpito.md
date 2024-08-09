@@ -48,4 +48,4 @@
 | 14.7.2024 | 6 | reseptin filtteröinti ja pieniä visuaalisia muutoksia |
 | 17.7.2024 | 8 | profiilikuvan lisääminen, tähän liittyen azuren opettelua |
 | 9.8.2024 | 3 | i18n opettelua ja ensimmäisten komponenttien monikielistäminen | 
-| Yhteensä | 146 | tuntia |
+| Yhteensä | 149 | tuntia |
