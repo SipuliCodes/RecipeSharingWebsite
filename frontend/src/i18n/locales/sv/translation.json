@@ -1,0 +1,31 @@
+{
+  "landingPage": {
+    "motto": "Dela och hitta fantastiska recept",
+    "login": "Logga in",
+    "signup": "Registrera dig"
+  },
+  "footer": {
+    "copyright": "Reciphare. Alla rättigheter förbehållna.",
+    "contact": "Kontakta oss!"
+  },
+  "loginForm": {
+    "login": "Logga in",
+    "username": "Användarnamn",
+    "password": "Lösenord"
+  },
+  "signupForm": {
+    "signup": "Registrera dig",
+    "firstName": "Förnamn",
+    "lastName": "Efternamn",
+    "username": "Användarnamn",
+    "email": "E-post",
+    "password": "Lösenord",
+    "confirmPassword": "Bekräfta lösenord",
+    "create": "Skapa konto",
+    "errors": {
+      "username": "Användarnamet måste ha åtminstone 3 märken",
+      "email": "E-posten är inte giltig",
+      "samePasswords": "Lösenorden måste vara samma"
+    }
+  }
+}

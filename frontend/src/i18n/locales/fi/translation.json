@@ -1,0 +1,31 @@
+{
+  "landingPage": {
+    "motto": "Jaa ja löydä mahtavia reseptejä",
+    "login": "Kirjaudu sisään",
+    "signup": "Rekisteröidy"
+  },
+  "footer": {
+    "copyright": "Reciphare. Kaikki oikeudet pidätetään.",
+    "contact": "Ota yhteyttä!"
+  },
+  "loginForm": {
+    "login": "Kirjaudu sisään",
+    "username": "Käyttäjätunnus",
+    "password": "Salasana"
+  },
+  "signupForm": {
+    "signup": "Rekisteröidy",
+    "firstName": "Etunimi",
+    "lastName": "Sukunimi",
+    "username": "Käyttäjätunnus",
+    "email": "Sähköposti",
+    "password": "Salasana",
+    "confirmPassword": "Vahvista salasana",
+    "create": "Luo tili",
+    "errors": {
+      "username": "Käyttäjätunnuksen täytyy olla vähintään 3 merkkiä",
+      "email": "Sähköposti on virheellinen",
+      "samePasswords": "Salasanojen täytyy olla samat"
+    }
+  }
+}

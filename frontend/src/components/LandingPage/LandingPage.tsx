@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Footer from '../Footer/Footer';
 import './LandingPage.css';
@@ -8,6 +9,7 @@ import Logo from '../Logo/Logo';
 
 const LandingPage = () => {
   const [leftContent, setLeftContent] = useState('buttons');
+  const { t } = useTranslation('translation', {keyPrefix: 'landingPage'});
 
   return (
     <div className="landingpage-grid-container background">
@@ -17,10 +19,10 @@ const LandingPage = () => {
             <Logo />
             {leftContent === 'buttons' &&
               <>
-                <h1 className='motto landingpage-h1'> Share and find great recipes</h1>
+                <h1 className='motto landingpage-h1'>{t('motto')}</h1>
                 <div className='button-box'>
-                  <button className='basic-button' onClick={() => setLeftContent('login')}>Log in</button>
-                  <button className='basic-button' onClick={() => setLeftContent('signup')}>Sign up</button>
+                  <button className='basic-button' onClick={() => setLeftContent('login')}>{t('login') }</button>
+                  <button className='basic-button' onClick={() => setLeftContent('signup')}>{t('signup') }</button>
                 </div> 
               </>}
             {leftContent === 'signup' && <SignUpForm setLeftContent={setLeftContent}/>}

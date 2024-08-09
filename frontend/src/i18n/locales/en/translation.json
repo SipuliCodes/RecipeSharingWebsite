@@ -1,0 +1,31 @@
+{
+  "landingPage": {
+    "motto": "Share and find great recipies",
+    "login": "Login",
+    "signup": "Sign up"
+  },
+  "footer": {
+    "copyright": "Reciphare. All Rights Reserved.",
+    "contact": "Contact us!"
+  },
+  "loginForm": {
+    "login": "Login",
+    "username": "Username",
+    "password": "Password"
+  },
+  "signupForm": {
+    "signup": "Sign Up",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "create": "Create Account",
+    "errors": {
+      "username": "Username must be atleast 3 characters",
+      "email": "Email is not valid",
+      "samePasswords": "Passwords must be same"
+    }
+  }
+}

@@ -7,12 +7,15 @@ import { login } from '../../../services/userService';
 import { LoginFormProps } from '../../../interfaces/props';
 import { UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
 import { setToken} from '../../../utils/localStorage';
+import { useTranslation } from 'react-i18next';
 
 const LoginForm = ({setLeftContent}: LoginFormProps) => {
   const [formData, setFormData] = useState<LoginFormData>({
     username: '',
     password: ''
   });
+
+  const { t } = useTranslation('translation', { keyPrefix: 'loginForm' });
 
   const setTokenContext = useContext(UserSetTokenContext);
   const setUserContext = useContext(UserSetDetailsContext);
@@ -46,13 +49,13 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
             <div className='login-close-button-bar2'></div>
           </button>
         </div>
-        <h1 className='login-h1'>Login</h1>
+        <h1 className='login-h1'>{t('login') }</h1>
       </div>
       <form onSubmit={onSubmit} className='loginform-flex-container'>
         <input
           className='login-input'
           type="text"
-          placeholder="Username or email"
+          placeholder={t('username')}
           value={formData.username}
           onChange={handleChange}
           name='username'
@@ -60,12 +63,12 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
         <input
           className='login-input'
           type="password"
-          placeholder="Password"
+          placeholder={t('password')}
           value={formData.password}
           onChange={handleChange}
           name='password'
         />
-        <button className="login-button" type="submit">Login</button>
+        <button className="login-button" type="submit">{t('login') }</button>
       </form>
     </div>
   );

@@ -8,8 +8,11 @@ import { signup } from '../../../services/userService';
 import { SignUpFormProps } from '../../../interfaces/props';
 import { UserSetDetailsContext, UserSetTokenContext } from '../../../contexts/userContext';
 import { setToken } from '../../../utils/localStorage';
+import { useTranslation } from 'react-i18next';
 
-const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
+const SignUpForm = ({ setLeftContent }: SignUpFormProps) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'signupForm' });
+
   const [formData, setFormData] = useState<SignupFormData>({
     firstName: '',
     lastName: '',
@@ -60,13 +63,13 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
             <div className='signup-close-button-bar2'></div>
           </button>
         </div>
-        <h1 className='signup-h1'>Sign Up</h1>
+        <h1 className='signup-h1'>{t('signup') }</h1>
       </div>
       <form onSubmit={onSubmit} className='signupform-flex-container'>
         <input
           type="text"
           className="signup-input"
-          placeholder="First name"
+          placeholder={t('firstName')}
           name="firstName"
           value={formData.firstName}
           onChange={handleChange}
@@ -74,7 +77,7 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
         <input
           type="text"
           className="signup-input"
-          placeholder="Last name"
+          placeholder={t('lastName')}
           name="lastName"
           value={formData.lastName}
           onChange={handleChange}
@@ -82,27 +85,27 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
         <input
           className={ usernameError ? 'signup-input input-error' : 'signup-input'}
           type="text"
-          placeholder="Username"
+          placeholder={t('username')}
           name="username"
           value={formData.username}
           onChange={handleChange}
           onFocus={() => setUsernameTouched(true)}
         />
-        {usernameError && <p className='error-text-signupform'>Username must be atleast 3 characters</p>}
+        {usernameError && <p className='error-text-signupform'>{t('errors.username')}</p>}
         <input
           className={ emailError ? 'signup-input input-error' : 'signup-input'}
           type="email"
-          placeholder="Email"
+          placeholder={t('email')}
           name="email"
           value={formData.email}
           onChange={handleChange}
           onFocus={() => setEmailTouched(true)}
         />
-        {emailError && <p className='error-text-signupform'>Not a valid email</p>}
+        {emailError && <p className='error-text-signupform'>{t('errors.email')}</p>}
         <input
           className={passwordError.length == 0 || !passwordTouched ? 'signup-input' : 'signup-input input-error'}
           type="password"
-          placeholder="Password"
+          placeholder={t('password')}
           name="password"
           value={formData.password}
           onChange={handleChange}
@@ -112,14 +115,14 @@ const SignUpForm = ({setLeftContent}: SignUpFormProps) => {
         <input
           className={ confirmPasswordError ? 'signup-input input-error' : 'signup-input'}
           type="password"
-          placeholder="Confirm password"
+          placeholder={t('confirmPassword')}
           name="confirmPassword"
           value={formData.confirmPassword}
           onChange={handleChange}
           onFocus={() => setConfirmPasswordTouched(true)}
         />
-        {confirmPasswordError && <p className='error-text-signupform'>Passwords must be same</p>}
-        <button type='submit' className='create-button'>Create Account</button>
+        {confirmPasswordError && <p className='error-text-signupform'>{t('errors.samePasswords')}</p>}
+        <button type='submit' className='create-button'>{t('create')}</button>
       </form>
     </div>
   );

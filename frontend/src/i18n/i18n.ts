@@ -1,11 +1,11 @@
 import i18n, { InitOptions } from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import en from './en.json';
-import fi from './fi.json';
-import sv from './sv.json';
+import en from './locales/en/translation.json';
+import fi from './locales/fi/translation.json';
+import sv from './locales/sv/translation.json';
 
 const options: InitOptions = {
-  lng: 'en',
+  lng: 'sv',
   fallbackLng: 'en',
   resources: {
     en: { translation: en },
