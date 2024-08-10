@@ -86,5 +86,23 @@
     "newPassword": "Nytt lösenord",
     "confirmPassword": "Nytt lösenord igen",
     "confirmPasswordButton": "Bekräfta nytt lösenord"
+  },
+  "recipePage": {
+    "deleteConfirmation": "Är du säker på att du vill radera? Receptet kommer att försvinna för alltid.",
+    "back": "Tillbaka",
+    "publishedBy": "Publicerad av",
+    "deleteRecipe": "Radera recept",
+    "ingredientList": {
+      "ingredients": "Ingredienser"
+    },
+    "commentList": {
+      "comments": "Kommentarer",
+      "addComment": "Lägg till kommentar",
+      "cancel": "Avbryt",
+      "add": "Lägg till"
+    },
+    "stepList": {
+      "steps": "Steg"
+    }
   }
 }

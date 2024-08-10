@@ -86,5 +86,23 @@
     "newPassword": "New password",
     "confirmPassword": "New password again",
     "confirmPasswordButton": "Confirm new password"
+  },
+  "recipePage": {
+    "deleteConfirmation": "Are you sure you want to delete? The recipe will disappear forever",
+    "back": "Back",
+    "publishedBy": "Published by",
+    "deleteRecipe": "Delete recipe",
+    "ingredientList": {
+      "ingredients": "Ingredients"
+    },
+    "commentList": {
+      "comments": "Comments",
+      "addComment": "Add comment",
+      "cancel": "Cancel",
+      "add": "Add"
+    },
+    "stepList": {
+      "steps": "Steps"
+    }
   }
 }

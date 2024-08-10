@@ -1,10 +1,10 @@
 import { IngredientListProps } from '../../../interfaces/props';
 
 
-const IngredientList = ({ ingredients }: IngredientListProps ) => {
+const IngredientList = ({ ingredients, t }: IngredientListProps) => {
   return (
     <div className='recipe-ingredients-container'>
-      <h2 className='recipe-instructions-h2'> Ingredients </h2>
+      <h2 className='recipe-instructions-h2'> {t('ingredientList.ingredients')} </h2>
       <ul className='recipe-ingredients-list'>
         {ingredients.map((ingredient, index) => <li key={index} className='recipe-ingredient'>{ingredient}</li>)}
       </ul>

@@ -7,7 +7,7 @@ import './CommentList.css';
 import { commentRecipe } from '../../../services/recipeService';
 import { UserTokenContext } from '../../../contexts/userContext';
 
-const CommentList = ({ id, comments }: CommentListProps) => {
+const CommentList = ({ id, comments, t }: CommentListProps) => {
   const [comment, setComment] = useState('');
   const [wantToComment, setWantToComment] = useState(false);
 
@@ -37,17 +37,16 @@ const CommentList = ({ id, comments }: CommentListProps) => {
     setTimeout(() => commentRef.current?.scrollIntoView({ behavior: 'smooth' }), 10);
   };
 
-
   return (
     <div className='recipe-comments-container'>
-      <h2 className='recipe-instructions-h2'> Comments </h2>
+      <h2 className='recipe-instructions-h2'>{t('commentList.comments') }</h2>
       {comments.map((comment, index) =>
         <div key={index} className='recipe-comment-box'> 
           <p className='recipe-comment'>{comment.comment}</p>
-          <p className='recipe-comment-user'>{comment.user.username} </p>
+          <p className='recipe-comment-user'>{comment.user.username}</p>
           <p className='recipe-comment-date'>{formatDate(comment.date)}</p>
         </div>)}
-      {!wantToComment && <button className='recipe-add-comment-add-button recipe-add-comment-button' onClick={handleClick}>Add comment</button>}
+      {!wantToComment && <button className='recipe-add-comment-add-button recipe-add-comment-button' onClick={handleClick}>{t('commentList.addComment') }</button>}
       {wantToComment &&
         <div className='recipe-add-comment-box'>
           <textarea
@@ -60,8 +59,8 @@ const CommentList = ({ id, comments }: CommentListProps) => {
             className='recipe-add-comment-textarea'
           />
           <div className='recipe-add-comment-button-box'>
-            <button className='recipe-add-comment-cancel-button recipe-add-comment-button' onClick={handleClick}>Cancel</button>
-            <button onClick={handleAddClick} className='recipe-add-comment-add-button recipe-add-comment-button'>Add</button>
+            <button className='recipe-add-comment-cancel-button recipe-add-comment-button' onClick={handleClick}>{t('commentList.cancel') }</button>
+            <button onClick={handleAddClick} className='recipe-add-comment-add-button recipe-add-comment-button'>{t('commentList.add') }</button>
           </div>
         </div>
       }

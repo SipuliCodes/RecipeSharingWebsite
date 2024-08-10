@@ -86,6 +86,23 @@
     "newPassword": "Uusi salasana",
     "confirmPassword": "Uusi salasana uudelleen",
     "confirmPasswordButton": "Vahvista uusi salasana"
+  },
+  "recipePage": {
+    "deleteConfirmation": "Oletko varma, että haluat poistaa? Resepti katoaa ikuisesti.",
+    "back": "Takaisin",
+    "publishedBy": "Julkaissut",
+    "deleteRecipe": "Poista resepti",
+    "ingredientList": {
+      "ingredients": "Ainekset"
+    },
+    "commentList": {
+      "comments": "Kommentit",
+      "addComment": "Lisää kommentti",
+      "cancel": "Peruuta",
+      "add": "Lisää"
+    },
+    "stepList": {
+      "steps": "Vaiheet"
+    }
   }
-
 }
