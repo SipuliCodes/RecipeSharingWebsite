@@ -46,5 +46,37 @@
       "snack": "mellanmål",
       "dessert": "dessert"
   }
+  },
+  "settingsPage": {
+    "back": "Tillbaka",
+    "settings": "Inställningar",
+    "username": "Användarnamn: ",
+    "changeDetails": "Ändra användaruppgifter",
+    "currentFirstName": "Nuvarande förnamn: ",
+    "newFirstName": "Nytt förnamn",
+    "currentLastName": "Nuvarande efternamn: ",
+    "newLastName": "Nytt efternamn",
+    "currentEmail": "Nuvarande e-post: ",
+    "newEmail": "Ny e-post",
+    "confirm": "Bekräfta ändringar",
+    "errors": {
+      "email": "Inte en giltig e-postadress",
+      "samePasswords": "Lösenorden måste vara samma"
+    },
+    "passwordErrors": {
+      "mustHave": "Lösenordet måste innehålla",
+      "eightChars": " minst 8 tecken",
+      "number": " en siffra",
+      "smallLetter": " en liten bokstav",
+      "bigLetter": " en stor bokstav",
+      "specialChar": " ett specialtecken"
+    },
+    "passwordChangeSuccessful": "Lösenord ändrat",
+    "passwordChangeUnsuccessful": "Misslyckades med att ändra lösenordet",
+    "changePassword": "Ändra lösenord",
+    "currentPassword": "Nuvarande lösenord",
+    "newPassword": "Nytt lösenord",
+    "confirmPassword": "Nytt lösenord igen",
+    "confirmPasswordButton": "Bekräfta nytt lösenord"
   }
 }

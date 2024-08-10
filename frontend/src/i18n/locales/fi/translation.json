@@ -46,5 +46,38 @@
       "snack": "välipala",
       "dessert": "jälkiruoka"
     }
+  },
+  "settingsPage": {
+    "back": "Takaisin",
+    "settings": "Asetukset",
+    "username": "Käyttäjänimi: ",
+    "changeDetails": "Muuta käyttäjätietoja",
+    "currentFirstName": "Nykyinen etunimi: ",
+    "newFirstName": "Uusi etunimi",
+    "currentLastName": "Nykyinen sukunimi: ",
+    "newLastName": "Uusi sukunimi",
+    "currentEmail": "Nykyinen sähköposti: ",
+    "newEmail": "Uusi sähköposti",
+    "confirm": "Vahvista muutokset",
+    "errors": {
+      "email": "Ei kelvollinen sähköposti",
+      "samePasswords": "Salasanojen on oltava samat"
+    },
+    "passwordErrors": {
+      "mustHave": "Salasanan on sisällettävä",
+      "eightChars": " vähintään 8 merkkiä",
+      "number": " numero",
+      "smallLetter": " pieni kirjain",
+      "bigLetter": " iso kirjain",
+      "specialChar": " erikoismerkki"
+    },
+    "passwordChangeSuccessful": "Salasana vaihdettu",
+    "passwordChangeUnsuccessful": "Salasanan vaihtaminen epäonnistui",
+    "changePassword": "Vaihda salasana",
+    "currentPassword": "Nykyinen salasana",
+    "newPassword": "Uusi salasana",
+    "confirmPassword": "Uusi salasana uudelleen",
+    "confirmPasswordButton": "Vahvista uusi salasana"
   }
+
 }

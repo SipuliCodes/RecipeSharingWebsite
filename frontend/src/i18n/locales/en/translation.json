@@ -46,5 +46,37 @@
       "snack": "snack",
       "dessert": "dessert"
     }
+  },
+  "settingsPage": {
+    "back": "Back",
+    "settings": "Settings",
+    "username": "Username: ",
+    "changeDetails": "Change user details",
+    "currentFirstName": "Current first name: ",
+    "newFirstName": "New first name",
+    "currentLastName": "Curret last name: ",
+    "newLastName": "New last name",
+    "currentEmail": "Current email: ",
+    "newEmail": "New email",
+    "confirm": "Confirm changes",
+    "errors": {
+      "email": "Not a valid email",
+      "samePasswords": "Passwords must be same"
+    },
+    "passwordErrors": {
+      "mustHave": "Password must have",
+      "eightChars": " atleast 8 characters",
+      "number": " a number",
+      "smallLetter": " a small letter",
+      "bigLetter": " a big letter",
+      "specialChar": " a special character"
+    },
+    "passwordChangeSuccessful": "Password changed",
+    "passwordChangeUnsuccessful": "Failed to change password",
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "New password again",
+    "confirmPasswordButton": "Confirm new password"
   }
 }
