@@ -27,5 +27,24 @@
       "email": "Sähköposti on virheellinen",
       "samePasswords": "Salasanojen täytyy olla samat"
     }
+  },
+  "addRecipeForm": {
+    "addRecipe": "Lisää resepti",
+    "title": "Otsikko",
+    "description": "Kuvaus",
+    "category": "Kategoria",
+    "ingredient": "Ainesosa",
+    "add": "Lisää",
+    "step": "Vaihe",
+    "cancel": "Peruuta",
+    "saveRecipe": "Tallenna resepti",
+    "imageUrl": "Kuvan URL",
+    "categoryOptions": {
+      "breakfast": "aamiainen",
+      "lunch": "lounas",
+      "dinner": "illallinen",
+      "snack": "välipala",
+      "dessert": "jälkiruoka"
+    }
   }
 }

@@ -27,5 +27,24 @@
       "email": "E-posten är inte giltig",
       "samePasswords": "Lösenorden måste vara samma"
     }
+  },
+  "addRecipeForm": {
+    "addRecipe": "Lägg till recept",
+    "title": "Titel",
+    "description": "Beskrivning",
+    "category": "Kategori",
+    "ingredient": "Ingrediens",
+    "add": "Lägg till",
+    "step": "Steg",
+    "cancel": "Avbryt",
+    "saveRecipe": "Spara recept",
+    "imageUrl": "Bild URL",
+    "categoryOptions": {
+      "breakfast": "frukost",
+      "lunch": "lunch",
+      "dinner": "middag",
+      "snack": "mellanmål",
+      "dessert": "dessert"
+  }
   }
 }

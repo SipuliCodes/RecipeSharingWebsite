@@ -27,5 +27,24 @@
       "email": "Email is not valid",
       "samePasswords": "Passwords must be same"
     }
+  },
+  "addRecipeForm": {
+    "addRecipe": "Add recipe",
+    "title": "Title",
+    "description": "Description",
+    "category": "Category",
+    "ingredient": "Ingredient",
+    "add": "Add",
+    "step": "Step",
+    "cancel": "Cancel",
+    "saveRecipe": "Save recipe",
+    "imageUrl": "Image url",
+    "categoryOptions": {
+      "breakfast": "breakfast",
+      "lunch": "lunch",
+      "dinner": "dinner",
+      "snack": "snack",
+      "dessert": "dessert"
+    }
   }
 }

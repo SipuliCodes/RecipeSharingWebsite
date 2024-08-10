@@ -5,7 +5,7 @@ import fi from './locales/fi/translation.json';
 import sv from './locales/sv/translation.json';
 
 const options: InitOptions = {
-  lng: 'sv',
+  lng: 'en',
   fallbackLng: 'en',
   resources: {
     en: { translation: en },
