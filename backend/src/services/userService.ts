@@ -20,7 +20,6 @@ const addUser = async (user: NewUser): Promise<IUser> => {
   });
   
   if (addedUser) {
-    console.log(1, addedUser);
     return await addedUser.save();
   }
 
