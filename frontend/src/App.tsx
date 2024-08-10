@@ -36,9 +36,10 @@ const App = () => {
       getUserData(localStorageToken)
         .then((user) => setUser(user))
         .catch((error) => console.log(error));
-      setLoading(false);
     }
+    setLoading(false);
   }, []);
+
 
   if (loading) {
     return;

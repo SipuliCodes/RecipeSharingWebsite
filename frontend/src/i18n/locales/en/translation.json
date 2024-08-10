@@ -1,0 +1,108 @@
+{
+  "landingPage": {
+    "motto": "Share and find great recipies",
+    "login": "Login",
+    "signup": "Sign up"
+  },
+  "footer": {
+    "copyright": "Reciphare. All Rights Reserved.",
+    "contact": "Contact us!"
+  },
+  "loginForm": {
+    "login": "Login",
+    "username": "Username",
+    "password": "Password"
+  },
+  "signupForm": {
+    "signup": "Sign Up",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "create": "Create Account",
+    "errors": {
+      "username": "Username must be atleast 3 characters",
+      "email": "Email is not valid",
+      "samePasswords": "Passwords must be same"
+    },
+    "passwordErrors": {
+      "mustHave": "Password must have",
+      "eightChars": " atleast 8 characters",
+      "number": " a number",
+      "smallLetter": " a small letter",
+      "bigLetter": " a big letter",
+      "specialChar": " a special character"
+    }
+  },
+  "addRecipeForm": {
+    "addRecipe": "Add recipe",
+    "title": "Title",
+    "description": "Description",
+    "category": "Category",
+    "ingredient": "Ingredient",
+    "add": "Add",
+    "step": "Step",
+    "cancel": "Cancel",
+    "saveRecipe": "Save recipe",
+    "imageUrl": "Image url",
+    "categoryOptions": {
+      "breakfast": "breakfast",
+      "lunch": "lunch",
+      "dinner": "dinner",
+      "snack": "snack",
+      "dessert": "dessert"
+    }
+  },
+  "settingsPage": {
+    "back": "Back",
+    "settings": "Settings",
+    "username": "Username: ",
+    "changeDetails": "Change user details",
+    "currentFirstName": "Current first name: ",
+    "newFirstName": "New first name",
+    "currentLastName": "Curret last name: ",
+    "newLastName": "New last name",
+    "currentEmail": "Current email: ",
+    "newEmail": "New email",
+    "confirm": "Confirm changes",
+    "errors": {
+      "email": "Not a valid email",
+      "samePasswords": "Passwords must be same"
+    },
+    "passwordErrors": {
+      "mustHave": "Password must have",
+      "eightChars": " atleast 8 characters",
+      "number": " a number",
+      "smallLetter": " a small letter",
+      "bigLetter": " a big letter",
+      "specialChar": " a special character"
+    },
+    "passwordChangeSuccessful": "Password changed",
+    "passwordChangeUnsuccessful": "Failed to change password",
+    "changePassword": "Change password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "New password again",
+    "confirmPasswordButton": "Confirm new password"
+  },
+  "recipePage": {
+    "deleteConfirmation": "Are you sure you want to delete? The recipe will disappear forever",
+    "back": "Back",
+    "publishedBy": "Published by",
+    "deleteRecipe": "Delete recipe",
+    "ingredientList": {
+      "ingredients": "Ingredients"
+    },
+    "commentList": {
+      "comments": "Comments",
+      "addComment": "Add comment",
+      "cancel": "Cancel",
+      "add": "Add"
+    },
+    "stepList": {
+      "steps": "Steps"
+    }
+  }
+}

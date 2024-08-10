@@ -1,5 +1,6 @@
 import { Comment, Recipe } from './recipeInterfaces';
 import { BasicUser, Friend } from './userInterfaces';
+import { TFunction } from 'i18next';
 
 export interface FooterProps {
   greenBackground: boolean;
@@ -18,10 +19,12 @@ export interface LoginFormProps {
 
 export interface IngredientListProps {
   ingredients: string[];
+  t: TFunction<'translation', 'recipePage'>
 }
 
 export interface StepListProps {
   steps: string[];
+  t: TFunction<'translation', 'recipePage'>;
 }
 
 export interface StepProps {
@@ -31,6 +34,7 @@ export interface StepProps {
 export interface CommentListProps {
   id: string;
   comments: Comment[];
+  t: TFunction<'translation', 'recipePage'>;
 }
 
 type RequestType = 'none' | 'incoming' | 'pending'

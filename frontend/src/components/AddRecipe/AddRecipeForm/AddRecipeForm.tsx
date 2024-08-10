@@ -9,11 +9,14 @@ import useAutosizeTextArea from '../../../hooks/useAutosizeTextarea';
 import { useNavigate } from 'react-router-dom';
 import { addRecipe } from '../../../services/recipeService';
 import { UserTokenContext } from '../../../contexts/userContext';
+import { useTranslation } from 'react-i18next';
 
 const AddRecipeForm = () => {
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
   const token = useContext(UserTokenContext); 
+
+  const { t } = useTranslation('translation', { keyPrefix: 'addRecipeForm' });
 
   const [formData, setFormData] = useState<RecipeFormData>({
     title: '',
@@ -25,11 +28,11 @@ const AddRecipeForm = () => {
   });
 
   const categoryOptions = [
-    { value: 'breakfast', label: 'breakfast' },
-    { value: 'lunch', label: 'lunch' },
-    { value: 'dinner', label: 'dinner' },
-    { value: 'snack', label: 'snack' },
-    { value: 'dessert', label: 'dessert'}
+    { value: 'breakfast', label: t('categoryOptions.breakfast') },
+    { value: 'lunch', label: t('categoryOptions.lunch') },
+    { value: 'dinner', label: t('categoryOptions.dinner') },
+    { value: 'snack', label: t('categoryOptions.snack') },
+    { value: 'dessert', label: t('categoryOptions.dessert')}
   ];
 
   const [addIngredient, setAddIngredient] = useState('');
@@ -95,7 +98,7 @@ const AddRecipeForm = () => {
 
   return (
     <div className='add-recipe-flex add-recipe-container'>
-      <h1 className='add-recipe-form-h1'>Add recipe</h1>
+      <h1 className='add-recipe-form-h1'>{t('addRecipe') }</h1>
       <div className='add-recipe-flex-row'>
         <div className='add-recipe-inputs-box'>
           <form onSubmit={handleSubmit} className='add-recipe-inputs'>
@@ -108,7 +111,7 @@ const AddRecipeForm = () => {
                 name='title'
                 className='add-recipe-input'
               />
-              <label className='input-placeholder'>Title</label>
+              <label className='input-placeholder'>{t('title') }</label>
             </p>
             <p className='input-box'>
               <textarea 
@@ -120,7 +123,7 @@ const AddRecipeForm = () => {
                 rows={3}
                 className='add-recipe-input add-recipe-textarea'
               />
-              <label className='input-placeholder'>Description</label>
+              <label className='input-placeholder'>{t('description') }</label>
             </p>
             <Select
               onChange={(selected) => handleCategoryChange(selected.map(select => select.value))}
@@ -134,7 +137,7 @@ const AddRecipeForm = () => {
                   }
                 })
               }}
-              placeholder="Category"
+              placeholder={t('category')}
               isMulti
               name="mealCategory"
               options={categoryOptions}
@@ -149,8 +152,8 @@ const AddRecipeForm = () => {
                 name='ingredient'
                 className='add-recipe-input add-recipe-input-extra'
               />
-              <label className='input-placeholder'>Ingredient</label>
-              <button type='button' name='ingredient' onClick={handleClick} className='add-button'>Add</button>
+              <label className='input-placeholder'>{t('ingredient') }</label>
+              <button type='button' name='ingredient' onClick={handleClick} className='add-button'>{t('add') }</button>
             </p>
             {formData.ingredients &&
             <p className='add-recipe-ingredients'> 
@@ -165,16 +168,16 @@ const AddRecipeForm = () => {
                 name='step'
                 className='add-recipe-input add-recipe-input-extra'
               />
-              <label className='input-placeholder'>Step</label>
-              <button type='button' name='step' onClick={handleClick} className='add-button'>Add</button>
+              <label className='input-placeholder'>{t('step') }</label>
+              <button type='button' name='step' onClick={handleClick} className='add-button'>{t('add') }</button>
             </p>
             {formData.steps &&
               <ol className='add-recipe-steps'> 
                 {formData.steps.map((step, index) => <li key={index}>{step}</li>)}
               </ol> }
             <div className='add-recipe-form-button-box'>
-              <button onClick={() => navigate('/home')} className='add-recipe-button cancel-button'>Cancel</button>
-              <button type='submit' className='add-recipe-button save-button'>Save recipe</button>
+              <button onClick={() => navigate('/home')} className='add-recipe-button cancel-button'>{t('cancel') }</button>
+              <button type='submit' className='add-recipe-button save-button'>{t('addRecipe') }</button>
             </div>
           </form>
         </div>
@@ -196,7 +199,7 @@ const AddRecipeForm = () => {
               name='image'
               className='add-recipe-input'
             />
-            <label className='input-placeholder'>Image url</label>
+            <label className='input-placeholder'>{t('imageUrl') }</label>
           </p>
         </div>
       </div>

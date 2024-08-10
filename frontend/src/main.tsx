@@ -6,6 +6,8 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 import App from './App.tsx';
 import './index.css';
 
+import './i18n/i18n.ts';
+
 library.add(fas, far);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

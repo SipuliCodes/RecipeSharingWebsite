@@ -1,0 +1,108 @@
+{
+  "landingPage": {
+    "motto": "Dela och hitta fantastiska recept",
+    "login": "Logga in",
+    "signup": "Registrera dig"
+  },
+  "footer": {
+    "copyright": "Reciphare. Alla rättigheter förbehållna.",
+    "contact": "Kontakta oss!"
+  },
+  "loginForm": {
+    "login": "Logga in",
+    "username": "Användarnamn",
+    "password": "Lösenord"
+  },
+  "signupForm": {
+    "signup": "Registrera dig",
+    "firstName": "Förnamn",
+    "lastName": "Efternamn",
+    "username": "Användarnamn",
+    "email": "E-post",
+    "password": "Lösenord",
+    "confirmPassword": "Bekräfta lösenord",
+    "create": "Skapa konto",
+    "errors": {
+      "username": "Användarnamet måste ha åtminstone 3 märken",
+      "email": "E-posten är inte giltig",
+      "samePasswords": "Lösenorden måste vara samma"
+    },
+    "passwordErrors": {
+      "mustHave": "Lösenordet måste innehålla",
+      "eightChars": " minst 8 tecken",
+      "number": " en siffra",
+      "smallLetter": " en liten bokstav",
+      "bigLetter": " en stor bokstav",
+      "specialChar": " ett specialtecken"
+    }
+  },
+  "addRecipeForm": {
+    "addRecipe": "Lägg till recept",
+    "title": "Titel",
+    "description": "Beskrivning",
+    "category": "Kategori",
+    "ingredient": "Ingrediens",
+    "add": "Lägg till",
+    "step": "Steg",
+    "cancel": "Avbryt",
+    "saveRecipe": "Spara recept",
+    "imageUrl": "Bild URL",
+    "categoryOptions": {
+      "breakfast": "frukost",
+      "lunch": "lunch",
+      "dinner": "middag",
+      "snack": "mellanmål",
+      "dessert": "dessert"
+  }
+  },
+  "settingsPage": {
+    "back": "Tillbaka",
+    "settings": "Inställningar",
+    "username": "Användarnamn: ",
+    "changeDetails": "Ändra användaruppgifter",
+    "currentFirstName": "Nuvarande förnamn: ",
+    "newFirstName": "Nytt förnamn",
+    "currentLastName": "Nuvarande efternamn: ",
+    "newLastName": "Nytt efternamn",
+    "currentEmail": "Nuvarande e-post: ",
+    "newEmail": "Ny e-post",
+    "confirm": "Bekräfta ändringar",
+    "errors": {
+      "email": "Inte en giltig e-postadress",
+      "samePasswords": "Lösenorden måste vara samma"
+    },
+    "passwordErrors": {
+      "mustHave": "Lösenordet måste innehålla",
+      "eightChars": " minst 8 tecken",
+      "number": " en siffra",
+      "smallLetter": " en liten bokstav",
+      "bigLetter": " en stor bokstav",
+      "specialChar": " ett specialtecken"
+    },
+    "passwordChangeSuccessful": "Lösenord ändrat",
+    "passwordChangeUnsuccessful": "Misslyckades med att ändra lösenordet",
+    "changePassword": "Ändra lösenord",
+    "currentPassword": "Nuvarande lösenord",
+    "newPassword": "Nytt lösenord",
+    "confirmPassword": "Nytt lösenord igen",
+    "confirmPasswordButton": "Bekräfta nytt lösenord"
+  },
+  "recipePage": {
+    "deleteConfirmation": "Är du säker på att du vill radera? Receptet kommer att försvinna för alltid.",
+    "back": "Tillbaka",
+    "publishedBy": "Publicerad av",
+    "deleteRecipe": "Radera recept",
+    "ingredientList": {
+      "ingredients": "Ingredienser"
+    },
+    "commentList": {
+      "comments": "Kommentarer",
+      "addComment": "Lägg till kommentar",
+      "cancel": "Avbryt",
+      "add": "Lägg till"
+    },
+    "stepList": {
+      "steps": "Steg"
+    }
+  }
+}
