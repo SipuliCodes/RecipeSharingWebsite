@@ -26,6 +26,14 @@
       "username": "Käyttäjätunnuksen täytyy olla vähintään 3 merkkiä",
       "email": "Sähköposti on virheellinen",
       "samePasswords": "Salasanojen täytyy olla samat"
+    },
+    "passwordErrors": {
+      "mustHave": "Salasanan on sisällettävä",
+      "eightChars": " vähintään 8 merkkiä",
+      "number": " numero",
+      "smallLetter": " pieni kirjain",
+      "bigLetter": " iso kirjain",
+      "specialChar": " erikoismerkki"
     }
   },
   "addRecipeForm": {

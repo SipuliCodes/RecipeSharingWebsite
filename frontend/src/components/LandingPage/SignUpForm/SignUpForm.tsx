@@ -49,7 +49,7 @@ const SignUpForm = ({ setLeftContent }: SignUpFormProps) => {
     });
   };
 
-  const passwordError = isPasswordValid(formData.password);
+  const passwordError = isPasswordValid(formData.password, t);
   const confirmPasswordError = !arePasswordsSame(formData.password, formData.confirmPassword) && confirmPasswordTouched;
   const usernameError = !isUsernameValid(formData.username) && usernameTouched;
   const emailError = !isEmailValid(formData.email) && emailTouched;

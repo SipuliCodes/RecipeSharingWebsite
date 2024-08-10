@@ -26,6 +26,14 @@
       "username": "Användarnamet måste ha åtminstone 3 märken",
       "email": "E-posten är inte giltig",
       "samePasswords": "Lösenorden måste vara samma"
+    },
+    "passwordErrors": {
+      "mustHave": "Lösenordet måste innehålla",
+      "eightChars": " minst 8 tecken",
+      "number": " en siffra",
+      "smallLetter": " en liten bokstav",
+      "bigLetter": " en stor bokstav",
+      "specialChar": " ett specialtecken"
     }
   },
   "addRecipeForm": {

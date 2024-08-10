@@ -26,6 +26,14 @@
       "username": "Username must be atleast 3 characters",
       "email": "Email is not valid",
       "samePasswords": "Passwords must be same"
+    },
+    "passwordErrors": {
+      "mustHave": "Password must have",
+      "eightChars": " atleast 8 characters",
+      "number": " a number",
+      "smallLetter": " a small letter",
+      "bigLetter": " a big letter",
+      "specialChar": " a special character"
     }
   },
   "addRecipeForm": {
