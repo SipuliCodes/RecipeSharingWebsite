@@ -20,6 +20,9 @@ const getOneRecipe = async (recipeId: string): Promise<IRecipe> => {
   const recipe = await Recipe.findById(recipeId).populate({
     path: "user",
     select: "username",
+  }).populate({
+    path: "comments.user",
+    select: "username"
   });
   if (recipe) return recipe;
   throw new Error('Recipe was not found');
