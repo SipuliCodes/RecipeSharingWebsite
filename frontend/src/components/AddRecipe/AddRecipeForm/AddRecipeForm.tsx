@@ -5,7 +5,7 @@ import './AddRecipeForm.css';
 import { RecipeFormData } from '../../../interfaces/recipeInterfaces';
 import useAutosizeTextArea from '../../../hooks/useAutosizeTextarea';
 import { useNavigate } from 'react-router-dom';
-import { addRecipe } from '../../../services/recipeService';
+import { addRecipe, uploadRecipePic } from '../../../services/recipeService';
 import { UserTokenContext } from '../../../contexts/userContext';
 import { useTranslation } from 'react-i18next';
 import AddRecipePic from './AddRecipePic/AddRecipePic';
@@ -14,6 +14,7 @@ const AddRecipeForm = () => {
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
   const navigate = useNavigate();
   const token = useContext(UserTokenContext); 
+  const [file, setFile] = useState<File>();
 
   const { t } = useTranslation('translation', { keyPrefix: 'addRecipeForm' });
 
@@ -82,9 +83,15 @@ const AddRecipeForm = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      console.log('hi');
       if (formData.title && formData.image && formData.description && formData.ingredients && formData.steps) {
-        addRecipe(formData, token);
+        addRecipe(formData, token)
+          .then(response => {
+            if (file) {
+              uploadRecipePic(response.id, formData.title, file, token)
+                .then(response => console.log(response))
+                .catch(error => console.log(error));
+            }
+          });
         navigate('/home');
       }
     } catch (error) {
@@ -191,7 +198,7 @@ const AddRecipeForm = () => {
           <img className='add-recipe-pic' src={formData.image} alt='Picture of the food' />
             }
             {!formData.image && 
-              <AddRecipePic recipeName={formData.title} setImage={setImage} />
+              <AddRecipePic recipeName={formData.title} setImage={setImage} setFile={setFile} />
             }
           </div>
           <p className='input-box'>

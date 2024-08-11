@@ -2,20 +2,31 @@ import Dropzone from 'react-dropzone';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-import { useCallback } from 'react';
+import { useCallback, useContext } from 'react';
 import './AddRecipePic.css';
+import { UserDetailsContext } from '../../../../contexts/userContext';
 
 interface AddRecipePicProps {
   recipeName: string;
   setImage: (imageUrl: string) => void;
+  setFile: React.Dispatch<React.SetStateAction<File | undefined>>;
 }
 
-const AddRecipePic = ({ recipeName, setImage }: AddRecipePicProps) => {
+const AddRecipePic = ({ recipeName, setImage, setFile }: AddRecipePicProps) => {
+  const user = useContext(UserDetailsContext);
+
+  const removeSpaces = (line: string) => {
+    const words = line.split(' ');
+    const wordsWithBigFirstLetter = words.map((word, index) => index != 0 ? word.charAt(0).toUpperCase() + word.toLowerCase().slice(1) : word.toLowerCase());
+
+    return wordsWithBigFirstLetter.join('');
+  };
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    const file = new File([acceptedFiles[0]], `${recipeName}-profilepic`, { type: acceptedFiles[0].type });
+    const file = new File([acceptedFiles[0]], `${removeSpaces(recipeName)}-${user.username}-profilepic`, { type: acceptedFiles[0].type });
     setImage(URL.createObjectURL(file));
-  }, [recipeName, setImage]);
+    setFile(file);
+  }, [recipeName, setImage, user, setFile]);
 
   return (
     <div className='add-recipe-pic-drag-and-drop'>

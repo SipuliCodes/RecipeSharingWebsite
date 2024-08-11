@@ -114,4 +114,36 @@ const deleteRecipe = async (recipeId: string, token: string) => {
   }
 };
 
-export {getAllRecipes, getAllRecipesFromUser, getOneRecipe, addRecipe, likeRecipe, commentRecipe, deleteRecipe};
+const uploadRecipePic = async (
+  recipeId: string,
+  recipeName: string,
+  file: File,
+  token: string
+): Promise<boolean> => {
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('recipeName', recipeName);
+    formData.append('recipeId', recipeId);
+
+    const response = await axios.post(
+      `${config.apiUrl}/recipes/upload-recipe-pic`,
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export {getAllRecipes, getAllRecipesFromUser, getOneRecipe, addRecipe, likeRecipe, commentRecipe, deleteRecipe, uploadRecipePic};
