@@ -1,6 +1,4 @@
 import { useRef, useState, useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import Select from 'react-select';
 
 import './AddRecipeForm.css';
@@ -10,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { addRecipe } from '../../../services/recipeService';
 import { UserTokenContext } from '../../../contexts/userContext';
 import { useTranslation } from 'react-i18next';
+import AddRecipePic from './AddRecipePic/AddRecipePic';
 
 const AddRecipeForm = () => {
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
@@ -45,6 +44,13 @@ const AddRecipeForm = () => {
     setFormData({
       ...formData,
       [name]: value,
+    });
+  };
+
+  const setImage = (imageUrl: string) => {
+    setFormData({
+      ...formData,
+      ['image']: imageUrl,
     });
   };
 
@@ -93,8 +99,6 @@ const AddRecipeForm = () => {
   const handleEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') { event.preventDefault(), handleClick(event);}
   };
-
-  console.log(formData);
 
   return (
     <div className='add-recipe-flex add-recipe-container'>
@@ -187,7 +191,7 @@ const AddRecipeForm = () => {
           <img className='add-recipe-pic' src={formData.image} alt='Picture of the food' />
             }
             {!formData.image && 
-            <FontAwesomeIcon className='add-recipe-icon add-recipe-default-pic' icon={findIconDefinition({ prefix: 'fas', iconName: 'image' })} />
+              <AddRecipePic recipeName={formData.title} setImage={setImage} />
             }
           </div>
           <p className='input-box'>
