@@ -6,6 +6,7 @@ import './LandingPage.css';
 import SignUpForm from './SignUpForm/SignUpForm';
 import LoginForm from './LoginForm/LoginForm';
 import Logo from '../Logo/Logo';
+import LanguageDropdown from '../LanguageDropdown/LanguageDropdown';
 
 const LandingPage = () => {
   const [leftContent, setLeftContent] = useState('buttons');
@@ -13,6 +14,7 @@ const LandingPage = () => {
 
   return (
     <div className="landingpage-grid-container background">
+      <LanguageDropdown />
       <div className="content content-flex-container">
         <div className='left-content-background'>
           <div className='left-content'>

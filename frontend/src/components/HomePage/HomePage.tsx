@@ -14,6 +14,7 @@ import useDebounce from '../../hooks/useDebounce';
 import UserResult from './UserResult/UserResult';
 import { getOneUser } from '../../services/userService';
 import { useTranslation } from 'react-i18next';
+import LanguageDropdown from '../LanguageDropdown/LanguageDropdown';
 
 const HomePage = () => {
   const {t} = useTranslation('translation', {keyPrefix: 'homePage'});
@@ -72,6 +73,7 @@ const HomePage = () => {
             {users.map(user => <UserResult setSearch={setSearch} setUsers={setUsers} user={user} t={t} />)}
           </div>}
         </div>
+        <LanguageDropdown />
       </div>
       <div className={ isChanged ? 'change home-content' : 'home-content' }>
         <div className='home-sidebar'>
