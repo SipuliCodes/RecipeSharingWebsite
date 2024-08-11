@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
+import { BlobServiceClient } from "@azure/storage-blob";
+
 import { IRecipe, NewRecipe, Comment } from "../interfaces/recipeInterfaces";
 import { Recipe, User } from '../models';
+import { CONNECTIONSTRING, RECIPEPIC_CONTAINER } from "../utils/config";
 
 
 const getAllRecipes = async (filter: string): Promise<IRecipe[]> => {
@@ -91,6 +94,53 @@ const commentRecipe = async ({id, comment, userId }: { id: string, comment: stri
   throw new Error('Commenting was not possible');
 };
 
+const uploadPicture = async (
+  recipeId: string,
+  recipeName: string,
+  username: string,
+  fileContent: Express.Multer.File
+): Promise<boolean> => {
+
+  const connectionString = CONNECTIONSTRING;
+  const containerName = RECIPEPIC_CONTAINER;
+
+  const removeSpaces = (line: string) => {
+    const words = line.split(" ");
+    const wordsWithBigFirstLetter = words.map((word, index) =>
+      index != 0
+        ? word.charAt(0).toUpperCase() + word.toLowerCase().slice(1)
+        : word.toLowerCase()
+    );
+
+    return wordsWithBigFirstLetter.join("");
+  };
+  const fileName = `${removeSpaces(recipeName)}-${username}-recipe`;
+
+  if (!connectionString || !containerName) {
+    throw new Error("Connection string or container name is missing");
+  }
+
+  try {
+    const blobServiceClient =
+      BlobServiceClient.fromConnectionString(connectionString);
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const blockBlobClient = containerClient.getBlockBlobClient(fileName);
+
+    const buffer = fileContent.buffer;
+    await blockBlobClient.upload(buffer, buffer.length);
+
+    const fileUrl = blockBlobClient.url;
+    await Recipe.findByIdAndUpdate(recipeId, { image: fileUrl });
+
+    if (fileUrl) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    throw new Error("Upload was not successful" + error);
+  }
+};
+
 export default {
   getAllRecipes,
   getAllRecipesFromUser,
@@ -98,5 +148,6 @@ export default {
   addRecipe,
   deleteRecipe,
   likeRecipe,
-  commentRecipe
+  commentRecipe,
+  uploadPicture
 };
