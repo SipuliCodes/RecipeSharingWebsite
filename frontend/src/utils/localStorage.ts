@@ -11,3 +11,11 @@ export const getToken = (): Token | null => {
 export const removeToken = () => {
   localStorage.removeItem('jwt');
 };
+
+export const setLanguageLocalStorage = (language: string) => {
+  localStorage.setItem('lang', language);
+};
+
+export const getLanguage = (): string | null => {
+  return localStorage.getItem('lang');
+};

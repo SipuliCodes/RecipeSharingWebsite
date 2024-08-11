@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { UserTokenContext, UserSetTokenContext, UserDetailsContext, UserSetDetailsContext } from './contexts/userContext.ts';
 import { Token } from './interfaces/contextTypes.ts';
-import { getToken } from './utils/localStorage.ts';
+import { getLanguage, getToken } from './utils/localStorage.ts';
 import { LoggedInUser } from './interfaces/userInterfaces.ts';
 import { getUserData } from './services/userService.ts';
 import PrivateRoute from './routes/PrivateRoute.tsx';
@@ -36,6 +36,10 @@ const App = () => {
 
 
   useEffect(() => {
+    const localStorageLanguage = getLanguage();
+    if (localStorageLanguage) {
+      setLanguage(localStorageLanguage);
+    }
     const localStorageToken = getToken();
     if (localStorageToken) {
       setToken(localStorageToken);
