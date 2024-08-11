@@ -4,6 +4,7 @@ import { useContext } from 'react';
 
 import './LanguageDropdown.css';
 import { LanguageContext, SetLanguageContext } from '../../contexts/languageContext';
+import { setLanguageLocalStorage } from '../../utils/localStorage';
 
 const LanguageDropdown = () => {
   const setLanguage = useContext(SetLanguageContext);
@@ -16,6 +17,7 @@ const LanguageDropdown = () => {
   ];
 
   const handleFilterChange = (value: string) => {
+    setLanguageLocalStorage(value);
     i18next.changeLanguage(value);
     setLanguage(value);
   };
