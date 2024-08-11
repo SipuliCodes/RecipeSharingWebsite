@@ -14,6 +14,8 @@ import LandingPage from './components/LandingPage/LandingPage.tsx';
 import AddRecipe from './components/AddRecipe/AddRecipe.tsx';
 import RecipePage from './components/RecipePage/RecipePage.tsx';
 import SettingsPage from './components/SettingsPage/SettingsPage.tsx';
+import { LanguageContext, SetLanguageContext } from './contexts/languageContext.ts';
+import useSyncLanguage from './hooks/useSyncLanguage.ts';
 
 const App = () => {
   const [token, setToken] = useState<Token>('');
@@ -28,6 +30,10 @@ const App = () => {
     'recipes': [],
     'likedRecipes': []
   });
+  const [language, setLanguage] = useState('en');
+
+  useSyncLanguage();
+
 
   useEffect(() => {
     const localStorageToken = getToken();
@@ -46,26 +52,30 @@ const App = () => {
   }
 
   return (
-    <UserTokenContext.Provider value={token} >
-      <UserSetTokenContext.Provider value={setToken}>
-        <UserDetailsContext.Provider value={user}>
-          <UserSetDetailsContext.Provider value={setUser}>
-            <Router>
-              <Routes>
-                <Route path="/" element={<OpenRoute element={<LandingPage />} token={token} />} />
-                <Route path="/home" element={<PrivateRoute element={<HomePage />} token={token} />} />
-                <Route path="/add-recipe" element={<PrivateRoute element={<AddRecipe />} token={token} />} />
-                <Route path="/recipe/:id" element={<PrivateRoute element={<RecipePage />} token={token} />} />
-                <Route path="/friends" element={<PrivateRoute element={<HomePage />} token={token} />} />
-                <Route path="/:id/recipes" element={<PrivateRoute element={<HomePage />} token={token} />} />
-                <Route path="/settings" element={<PrivateRoute element={<SettingsPage />} token={token} />} />
-                <Route path="/liked-recipes" element={<PrivateRoute element={<HomePage />} token={token} />} />
-              </Routes>
-            </Router>
-          </UserSetDetailsContext.Provider>
-        </UserDetailsContext.Provider>
-      </UserSetTokenContext.Provider>
-    </UserTokenContext.Provider>
+    <LanguageContext.Provider value={language}>
+      <SetLanguageContext.Provider value={setLanguage}>
+        <UserTokenContext.Provider value={token} >
+          <UserSetTokenContext.Provider value={setToken}>
+            <UserDetailsContext.Provider value={user}>
+              <UserSetDetailsContext.Provider value={setUser}>
+                <Router>
+                  <Routes>
+                    <Route path="/" element={<OpenRoute element={<LandingPage />} token={token} />} />
+                    <Route path="/home" element={<PrivateRoute element={<HomePage />} token={token} />} />
+                    <Route path="/add-recipe" element={<PrivateRoute element={<AddRecipe />} token={token} />} />
+                    <Route path="/recipe/:id" element={<PrivateRoute element={<RecipePage />} token={token} />} />
+                    <Route path="/friends" element={<PrivateRoute element={<HomePage />} token={token} />} />
+                    <Route path="/:id/recipes" element={<PrivateRoute element={<HomePage />} token={token} />} />
+                    <Route path="/settings" element={<PrivateRoute element={<SettingsPage />} token={token} />} />
+                    <Route path="/liked-recipes" element={<PrivateRoute element={<HomePage />} token={token} />} />
+                  </Routes>
+                </Router>
+              </UserSetDetailsContext.Provider>
+            </UserDetailsContext.Provider>
+          </UserSetTokenContext.Provider>
+        </UserTokenContext.Provider>
+      </SetLanguageContext.Provider>
+    </LanguageContext.Provider>
   );
 };
 
