@@ -4,17 +4,14 @@ import './AddProfilePic.css';
 import { useCallback, useContext, useState } from 'react';
 import { UserDetailsContext, UserTokenContext } from '../../../../contexts/userContext';
 import { changeProfilePic } from '../../../../services/userService';
+import { AddProfilePicProps } from '../../../../interfaces/props';
 
-interface AddProfilePicProps {
-  setProfilePic: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const AddProfilePic = ({ setProfilePic }: AddProfilePicProps) => {
+const AddProfilePic = ({ setProfilePic, t }: AddProfilePicProps) => {
   const user = useContext(UserDetailsContext);
   const token = useContext(UserTokenContext);
 
   const [succesfulChange, setSuccesfulChange] = useState<boolean | undefined>(undefined);
-  const succesMessage = succesfulChange ? 'Picture changed' : succesfulChange === false ? 'Picture change failed' : '';
+  const succesMessage = succesfulChange ? t('sidebar.addProfilePic.pictureChanged') : succesfulChange === false ? t('sidebar.addProfilePic.pictureChangeFailed') : '';
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = new File([acceptedFiles[0]], `${user.username}-profilepic`, { type: acceptedFiles[0].type });
@@ -38,7 +35,7 @@ const AddProfilePic = ({ setProfilePic }: AddProfilePicProps) => {
             <section>
               <div {...getRootProps()}>
                 <input {...getInputProps()} />
-                <p className='add-profile-pic'>Add profile pic</p>
+                <p className='add-profile-pic'>{t('sidebar.addProfilePic.addProfilePic') }</p>
               </div>
             </section>
           )}

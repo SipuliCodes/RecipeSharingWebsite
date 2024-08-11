@@ -11,7 +11,7 @@ import { Recipe } from '../../../interfaces/recipeInterfaces';
 import { UserDetailsContext, UserTokenContext } from '../../../contexts/userContext';
 import { RecipeListProps } from '../../../interfaces/props';
 
-const RecipeList = ({userId, liked}: RecipeListProps) => {
+const RecipeList = ({userId, liked, t}: RecipeListProps) => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
 
   const navigate = useNavigate();
@@ -20,12 +20,12 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
 
   const [currentFilter, setCurrentFilter] = useState('');
   const filterOptions = [
-    { value: '', label: 'All recipes' },
-    { value: 'breakfast', label: 'Breakfast' },
-    { value: 'lunch', label: 'Lunch' },
-    { value: 'dinner', label: 'Dinner' },
-    { value: 'snack', label: 'Snack' },
-    { value: 'dessert', label: 'Dessert' }
+    { value: '', label: t('recipeList.allRecipes') },
+    { value: 'breakfast', label: t('recipeList.breakfast') },
+    { value: 'lunch', label: t('recipeList.lunch') },
+    { value: 'dinner', label: t('recipeList.dinner') },
+    { value: 'snack', label: t('recipeList.snack') },
+    { value: 'dessert', label: t('recipeList.dessert') }
   ];
 
   const handleFilterChange = (filterValue: string) => {
@@ -75,11 +75,11 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
           <div onClick={() => navigate('/add-recipe')} className='recipe-card recipe-grid'>
             <FontAwesomeIcon className='add-recipe-icon' icon={findIconDefinition({ prefix: 'fas', iconName: 'image' })} />
             <div className='recipe-details-box'>
-              <h1 className='add-recipe-h1 recipe-h1'>Add recipe</h1>
+              <h1 className='add-recipe-h1 recipe-h1'>{t('recipeList.addRecipe')}</h1>
             </div>
           </div>
         }
-        {recipeData.map(recipe => <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} likedBy={recipe.likedBy} />)}
+        {recipeData.map(recipe => <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} likedBy={recipe.likedBy} t={t} />)}
       </div>
     </div>
   );

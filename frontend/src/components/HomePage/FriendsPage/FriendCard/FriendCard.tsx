@@ -7,7 +7,7 @@ import './FriendCard.css';
 import { UserDetailsContext, UserSetDetailsContext, UserTokenContext } from '../../../../contexts/userContext';
 import { useNavigate } from 'react-router-dom';
 
-const FriendCard = ({ friend, requestType }: FriendCardProps) => {
+const FriendCard = ({ friend, requestType, t }: FriendCardProps) => {
   const navigate = useNavigate();
 
   const user = useContext(UserDetailsContext);
@@ -44,12 +44,12 @@ const FriendCard = ({ friend, requestType }: FriendCardProps) => {
       <h4 className='friend-card-h4'>{friend.firstName} {friend.lastName}</h4>
       {requestType !== 'pending' &&
         <div className={requestType === 'incoming' ? 'friend-request-card-button-bar' : 'friend-card-button-bar'}>
-          <button onClick={requestType === 'incoming' ? () => handleRequest(true) : showRecipes} className='friend-card-button show'> {requestType === 'incoming' ? 'Accept' : 'Show recipes'}</button>
-          <button onClick={requestType === 'incoming' ? () => handleRequest(false) : deleteFriend} className='friend-card-button remove'> {requestType === 'incoming' ? 'Decline' : 'Remove friend'}</button>
+          <button onClick={requestType === 'incoming' ? () => handleRequest(true) : showRecipes} className='friend-card-button show'> {requestType === 'incoming' ? t('friendCard.accept') : t('friendCard.showRecipes')}</button>
+          <button onClick={requestType === 'incoming' ? () => handleRequest(false) : deleteFriend} className='friend-card-button remove'> {requestType === 'incoming' ? t('friendCard.decline') : t('friendCard.removeFriend')}</button>
         </div>
       }
       {requestType === 'pending' &&
-        <h4 className='friend-card-h4'> Waiting... </h4>
+        <h4 className='friend-card-h4'> {t('friendCard.waiting')} </h4>
       }
     </div>
   );
