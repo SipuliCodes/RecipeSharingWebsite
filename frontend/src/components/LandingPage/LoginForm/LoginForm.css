@@ -74,7 +74,7 @@
 }
 
 .login-button {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bold;
   font-family: var(--primary-font);
   color: var(--primary-text-color);
