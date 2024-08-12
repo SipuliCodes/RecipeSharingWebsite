@@ -44,7 +44,11 @@ const RecipeList = ({userId, liked, t}: RecipeListProps) => {
         .catch(error => console.log(error));
     }
     if (liked) {
-      setRecipeData(currentUser.likedRecipes);
+      if (currentUser.likedRecipes && currentFilter) {
+        setRecipeData(currentUser.likedRecipes.filter(likedRecipe => likedRecipe.mealCategory.includes(currentFilter)));
+      } else {
+        setRecipeData(currentUser.likedRecipes);
+      }
     }
 
   }, [token, userId, liked, currentUser, currentFilter]);
