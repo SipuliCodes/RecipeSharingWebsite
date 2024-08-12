@@ -49,4 +49,6 @@
 | 17.7.2024 | 8 | profiilikuvan lisääminen, tähän liittyen azuren opettelua |
 | 09.8.2024 | 3 | i18n opettelua ja ensimmäisten komponenttien monikielistäminen | 
 | 10.8.2024 | 3 | jatkoin komponenttien monikielistämistä |
-| Yhteensä | 152 | tuntia |
+| 11.8.2024 | 6 | monikielistys valmiiksi, kielivalikon teko ja mahdollisuus lisätä omia kuvia resepteihin |
+| 12.8.2024 | 1 | kuvan lisääminen kaverikortteihin, tykättyjen reseptien filtteröinti kategorian perusteella ja pieniä design korjauksia |
+| Yhteensä | 159 | tuntia |
