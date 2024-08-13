@@ -141,6 +141,33 @@ const uploadPicture = async (
   }
 };
 
+const getAllRecipesWithWord = async (
+  word: string
+): Promise<IRecipe[]> => {
+  
+  const startRegex = new RegExp(`^${word}`, "i");
+  const containRegex = new RegExp(`${word}`, "i");
+
+  const recipes = await Recipe.find({
+    title: { $regex: containRegex }
+  });
+
+  if (!recipes) {
+    return [];
+  }
+
+  recipes.sort((a, b) => {
+    const aStartsWith = startRegex.test(a.title);
+    const bStartsWith = startRegex.test(b.title);
+
+    if (aStartsWith && !bStartsWith) return -1;
+    if (!aStartsWith && bStartsWith) return 1;
+    return 0;
+  });
+
+  return recipes;
+};
+
 export default {
   getAllRecipes,
   getAllRecipesFromUser,
@@ -149,5 +176,6 @@ export default {
   deleteRecipe,
   likeRecipe,
   commentRecipe,
-  uploadPicture
+  uploadPicture,
+  getAllRecipesWithWord
 };

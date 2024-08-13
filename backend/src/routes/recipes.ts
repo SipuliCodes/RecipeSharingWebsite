@@ -27,6 +27,23 @@ router.get('/', (req: Request, res: Response) => {
   }
 });
 
+router.get("/search-recipe", (req, res) => {
+  try {
+    const searchWord: string = req.query.searchword as string;
+    
+    if (searchWord) {
+      recipeService
+        .getAllRecipesWithWord(searchWord)
+        .then((recipes) => res.json(recipes))
+        .catch((error) => console.log(error));
+    } else {
+      res.json([]);
+    }
+  } catch (error) {
+    res.status(404).end();
+  }
+});
+
 router.get('/:id', (req: Request, res: Response) => {
   try {
     const recipeId = req.params.id;
