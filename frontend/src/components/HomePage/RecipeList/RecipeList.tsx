@@ -1,6 +1,6 @@
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import Select from 'react-select';
 
@@ -13,6 +13,8 @@ import { RecipeListProps } from '../../../interfaces/props';
 
 const RecipeList = ({userId, liked, t, searchWord}: RecipeListProps) => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
+
+  const path = useLocation().pathname;
 
   const navigate = useNavigate();
   const token = useContext(UserTokenContext);
@@ -59,7 +61,7 @@ const RecipeList = ({userId, liked, t, searchWord}: RecipeListProps) => {
 
   return (
     <div className='recipe-list-flex'>
-      <div className='recipe-list-category-filter-box'>
+      {(path === '/home' || path === '/liked-recipes') && <div className='recipe-list-category-filter-box'>
         <Select
           theme={(theme) => ({
             ...theme,
@@ -74,7 +76,7 @@ const RecipeList = ({userId, liked, t, searchWord}: RecipeListProps) => {
           defaultValue={filterOptions[0]}
           className='recipe-list-category-filter'
         />
-      </div>
+      </div>}
       <div className='recipe-list'>
         {!userId && !liked &&
           <div onClick={() => navigate('/add-recipe')} className='recipe-card recipe-grid'>

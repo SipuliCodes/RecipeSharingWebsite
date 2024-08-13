@@ -72,13 +72,14 @@ const HomePage = () => {
           <div className="bar2 invisible"></div>
           <div className="bar3 invisible"></div>
         </button>
-        <div className='homepage-search-box'>
-          <input onChange={handleChange} value={search} className='searchbar' placeholder={t('search') }></input>
-          {users.length !== 0 &&
-          <div className='homepage-search-results'>
-            {users.map(user => <UserResult setSearch={setSearch} setUsers={setUsers} user={user} t={t} />)}
+        {(path === '/friends' || path === '/home') &&
+          <div className='homepage-search-box'>
+            <input onChange={handleChange} value={search} className='searchbar' placeholder={t('search')}></input>
+            {users.length !== 0 &&
+              <div className='homepage-search-results'>
+                {users.map(user => <UserResult setSearch={setSearch} setUsers={setUsers} user={user} t={t} />)}
+              </div>}
           </div>}
-        </div>
         <LanguageDropdown />
       </div>
       <div className={ isChanged ? 'change home-content' : 'home-content' }>
