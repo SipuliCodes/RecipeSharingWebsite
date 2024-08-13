@@ -14,8 +14,7 @@ const getAllRecipes = async (filter: string, searchWord: string): Promise<IRecip
     const containRegex = new RegExp(`${searchWord}`, "i");
 
     const recipes = await Recipe.find({
-      title: { $regex: containRegex },
-      mealCategory: { $in: [filter] },
+      title: { $regex: containRegex }
     });
 
     if (!recipes) {
@@ -38,6 +37,7 @@ const getAllRecipes = async (filter: string, searchWord: string): Promise<IRecip
 
     const recipes = await Recipe.find({
       title: { $regex: containRegex },
+      mealCategory: { $in: [filter] },
     });
 
     if (!recipes) {
