@@ -15,7 +15,7 @@ import AddRecipe from './components/AddRecipe/AddRecipe.tsx';
 import RecipePage from './components/RecipePage/RecipePage.tsx';
 import SettingsPage from './components/SettingsPage/SettingsPage.tsx';
 import { LanguageContext, SetLanguageContext } from './contexts/languageContext.ts';
-import useSyncLanguage from './hooks/useSyncLanguage.ts';
+import i18next from 'i18next';
 
 const App = () => {
   const [token, setToken] = useState<Token>('');
@@ -32,13 +32,11 @@ const App = () => {
   });
   const [language, setLanguage] = useState('en');
 
-  useSyncLanguage();
-
-
   useEffect(() => {
     const localStorageLanguage = getLanguage();
     if (localStorageLanguage) {
       setLanguage(localStorageLanguage);
+      i18next.changeLanguage(localStorageLanguage);
     }
     const localStorageToken = getToken();
     if (localStorageToken) {
