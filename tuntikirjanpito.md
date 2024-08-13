@@ -51,4 +51,5 @@
 | 10.8.2024 | 3 | jatkoin komponenttien monikielistämistä |
 | 11.8.2024 | 6 | monikielistys valmiiksi, kielivalikon teko ja mahdollisuus lisätä omia kuvia resepteihin |
 | 12.8.2024 | 1 | kuvan lisääminen kaverikortteihin, tykättyjen reseptien filtteröinti kategorian perusteella ja pieniä design korjauksia |
-| Yhteensä | 159 | tuntia |
+| 13.8.2024 | 4 | Visuaalisia muutoksia, hakutoiminnon lisääminen resepteihin, cypress e2e testauksen aloittaminen |
+| Yhteensä | 163 | tuntia |
