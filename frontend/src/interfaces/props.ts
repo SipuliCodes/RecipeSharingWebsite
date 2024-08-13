@@ -6,7 +6,7 @@ export interface FooterProps {
   greenBackground: boolean;
 }
 
-export type RecipeCardProps = Pick<Recipe, 'title' | 'image' | 'likes' | 'id' | 'likedBy'>
+export type RecipeCardProps = Pick<Recipe, 'title' | 'image' | 'likes' | 'id' | 'likedBy'> & { t: TFunction<'translation', 'homePage'> };
 
 
 export interface SignUpFormProps {
@@ -42,12 +42,14 @@ type RequestType = 'none' | 'incoming' | 'pending'
 export interface FriendCardProps {
   friend: Friend;
   requestType: RequestType;
+  t: TFunction<'translation', 'homePage.friendsPage'>;
 }
 
 export interface UserResultProps {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   setUsers: React.Dispatch<React.SetStateAction<BasicUser[]>>;
   user: BasicUser;
+  t: TFunction<'translation', 'homePage'>;
 }
 
 export interface OpenRouteProps {
@@ -62,9 +64,17 @@ export interface PrivateRouteProps {
 
 export interface RecipeListProps {
   userId: string | undefined;
-  liked: boolean
+  liked: boolean;
+  t: TFunction<'translation', 'homePage'>;
+  searchWord: string
 }
 
 export interface SidebarProps {
   toggleClass: () => void;
+  t: TFunction<'translation', 'homePage'>;
+}
+
+export interface AddProfilePicProps {
+  setProfilePic: React.Dispatch<React.SetStateAction<string>>;
+  t: TFunction<'translation', 'homePage'>;
 }

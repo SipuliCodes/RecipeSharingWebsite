@@ -4,6 +4,7 @@ import { BlobServiceClient } from "@azure/storage-blob";
 
 import { IUser, NewUser, LoginUser, NewUserDetails, NewAndOldPassword } from '../interfaces/userInterfaces';
 import User from '../models/user';
+import { CONNECTIONSTRING, PROFILEPIC_CONTAINER } from '../utils/config';
 
 const addUser = async (user: NewUser): Promise<IUser> => {
   const { firstName, lastName, username, email, password } = user;
@@ -143,8 +144,8 @@ const changePassword = async (newAndOldPassword: NewAndOldPassword, userId: stri
 
 
 const uploadPicture = async (userId: string, fileContent: Express.Multer.File): Promise<boolean> => {
-  const connectionString = process.env.CONNECTIONSTRING;
-  const containerName = process.env.CONTAINERNAME;
+  const connectionString= CONNECTIONSTRING;
+  const containerName = PROFILEPIC_CONTAINER;
   const user = await User.findById(userId);
   const fileName = `${user!.username}-profilepic`;
 

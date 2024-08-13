@@ -9,6 +9,31 @@
   padding: 0.5rem;
 }
 
+.friend-card-with-pic {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--tertiary-background-color);
+  border-radius: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.friend-card-with-pic-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+}
+
+.friend-card-pic {
+  height: 5rem;
+  width: 5rem;
+  color: var(--primary-text-color);
+  margin-bottom: 0;
+}
+
 .friend-card-h1 {
   font-family: var(--secondary-font);
   margin: 0;

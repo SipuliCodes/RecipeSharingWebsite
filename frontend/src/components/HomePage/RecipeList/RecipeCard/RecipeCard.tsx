@@ -9,7 +9,7 @@ import { UserDetailsContext, UserTokenContext } from '../../../../contexts/userC
 import { likeRecipe } from '../../../../services/recipeService';
 
 
-const RecipeCard = ({ title, image, likes, id, likedBy }: RecipeCardProps) => {
+const RecipeCard = ({ title, image, likes, id, likedBy, t }: RecipeCardProps) => {
   const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
   const [frontendLikes, setFrontendLikes] = useState(likes);
@@ -49,7 +49,7 @@ const RecipeCard = ({ title, image, likes, id, likedBy }: RecipeCardProps) => {
         <h1 className='recipe-h1'>{title}</h1>
         <div className='recipe-like-box'>
           <FontAwesomeIcon onClick={onLikeClick} className='recipe-like-heart' icon={heartIcon}/>
-          <h3 className='recipe-likes'>{frontendLikes} likes</h3>
+          <h3 className='recipe-likes'>{frontendLikes} {t('recipeList.recipeCard.likes') }</h3>
         </div>
       </div>
     </div>

@@ -104,5 +104,53 @@
     "stepList": {
       "steps": "Steps"
     }
+  },
+  "homePage": {
+    "userRecipes": "'s recipes",
+    "likedRecipes": "Liked recipes",
+    "recipes": "Recipes",
+    "search": "search",
+    "userResult": {
+      "sendRequest": "Send request",
+      "requestSent": "Request sent!",
+      "showRecipes": "Show recipes"
+    },
+    "sidebar": {
+      "home": "Home",
+      "likedRecipes": "Liked recipes",
+      "friends": "Friends",
+      "settings": "Settings",
+      "logOut": "Log out",
+      "addProfilePic": {
+        "pictureChanged": "Picture changed",
+        "pictureChangeFailed": "Picture change failed",
+        "addProfilePic": "Add profile pic"
+      }
+    },
+    "recipeList": {
+      "allRecipes": "All recipes",
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner",
+      "snack": "snack",
+      "dessert": "Dessert",
+      "addRecipe": "Add recipe",
+      "recipeCard": {
+        "likes": "likes"
+      }
+    },
+    "friendsPage": {
+      "friends": "Friends",
+      "friendRequests": "Friend Requests",
+      "received": "Received",
+      "sent": "Sent",
+      "friendCard": {
+        "waiting": "Waiting...",
+        "accept": "Accept",
+        "decline": "Decline",
+        "showRecipes": "Show recipes",
+        "removeFriend": "Remove friend"
+      }
+    }
   }
 }

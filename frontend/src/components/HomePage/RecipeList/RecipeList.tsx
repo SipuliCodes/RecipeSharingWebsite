@@ -1,6 +1,6 @@
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import Select from 'react-select';
 
@@ -11,8 +11,10 @@ import { Recipe } from '../../../interfaces/recipeInterfaces';
 import { UserDetailsContext, UserTokenContext } from '../../../contexts/userContext';
 import { RecipeListProps } from '../../../interfaces/props';
 
-const RecipeList = ({userId, liked}: RecipeListProps) => {
+const RecipeList = ({userId, liked, t, searchWord}: RecipeListProps) => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
+
+  const path = useLocation().pathname;
 
   const navigate = useNavigate();
   const token = useContext(UserTokenContext);
@@ -20,12 +22,12 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
 
   const [currentFilter, setCurrentFilter] = useState('');
   const filterOptions = [
-    { value: '', label: 'All recipes' },
-    { value: 'breakfast', label: 'Breakfast' },
-    { value: 'lunch', label: 'Lunch' },
-    { value: 'dinner', label: 'Dinner' },
-    { value: 'snack', label: 'Snack' },
-    { value: 'dessert', label: 'Dessert' }
+    { value: '', label: t('recipeList.allRecipes') },
+    { value: 'breakfast', label: t('recipeList.breakfast') },
+    { value: 'lunch', label: t('recipeList.lunch') },
+    { value: 'dinner', label: t('recipeList.dinner') },
+    { value: 'snack', label: t('recipeList.snack') },
+    { value: 'dessert', label: t('recipeList.dessert') }
   ];
 
   const handleFilterChange = (filterValue: string) => {
@@ -33,8 +35,9 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
   };
 
   useEffect(() => {
+    console.log(searchWord);
     if (token && !userId && !liked) {
-      getAllRecipes(token, currentFilter)
+      getAllRecipes(token, currentFilter, searchWord)
         .then(recipes => setRecipeData(recipes))
         .catch(error => console.log(error));
     }
@@ -44,17 +47,21 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
         .catch(error => console.log(error));
     }
     if (liked) {
-      setRecipeData(currentUser.likedRecipes);
+      if (currentUser.likedRecipes && currentFilter) {
+        setRecipeData(currentUser.likedRecipes.filter(likedRecipe => likedRecipe.mealCategory.includes(currentFilter)));
+      } else {
+        setRecipeData(currentUser.likedRecipes);
+      }
     }
 
-  }, [token, userId, liked, currentUser, currentFilter]);
+  }, [token, userId, liked, currentUser, currentFilter, searchWord]);
 
 
   if (!recipeData) return <div></div>;
 
   return (
     <div className='recipe-list-flex'>
-      <div className='recipe-list-category-filter-box'>
+      {(path === '/home' || path === '/liked-recipes') && <div className='recipe-list-category-filter-box'>
         <Select
           theme={(theme) => ({
             ...theme,
@@ -69,17 +76,17 @@ const RecipeList = ({userId, liked}: RecipeListProps) => {
           defaultValue={filterOptions[0]}
           className='recipe-list-category-filter'
         />
-      </div>
+      </div>}
       <div className='recipe-list'>
         {!userId && !liked &&
           <div onClick={() => navigate('/add-recipe')} className='recipe-card recipe-grid'>
             <FontAwesomeIcon className='add-recipe-icon' icon={findIconDefinition({ prefix: 'fas', iconName: 'image' })} />
             <div className='recipe-details-box'>
-              <h1 className='add-recipe-h1 recipe-h1'>Add recipe</h1>
+              <h1 className='add-recipe-h1 recipe-h1'>{t('recipeList.addRecipe')}</h1>
             </div>
           </div>
         }
-        {recipeData.map(recipe => <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} likedBy={recipe.likedBy} />)}
+        {recipeData.map(recipe => <RecipeCard key={recipe.id} id={recipe.id} title={recipe.title} image={recipe.image} likes={recipe.likes} likedBy={recipe.likedBy} t={t} />)}
       </div>
     </div>
   );

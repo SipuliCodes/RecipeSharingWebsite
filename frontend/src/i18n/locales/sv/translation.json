@@ -104,5 +104,53 @@
     "stepList": {
       "steps": "Steg"
     }
+  },
+  "homePage": {
+    "userRecipes": "s recept",
+    "likedRecipes": "Gillade recept",
+    "recipes": "Recept",
+    "search": "sök",
+    "userResult": {
+      "sendRequest": "Skicka förfrågan",
+      "requestSent": "Förfrågan skickad!",
+      "showRecipes": "Visa recept"
+    },
+    "sidebar": {
+      "home": "Hem",
+      "likedRecipes": "Gillade recept",
+      "friends": "Vänner",
+      "settings": "Inställningar",
+      "logOut": "Logga ut",
+      "addProfilePic": {
+        "pictureChanged": "Bild ändrad",
+        "pictureChangeFailed": "Bildändring misslyckades",
+        "addProfilePic": "Lägg till profilbild"
+      }
+    },
+    "recipeList": {
+      "allRecipes": "Alla recept",
+      "breakfast": "Frukost",
+      "lunch": "Lunch",
+      "dinner": "Middag",
+      "snack": "Mellanmål",
+      "dessert": "Efterrätt",
+      "addRecipe": "Lägg till recept",
+      "recipeCard": {
+        "likes": "gillningar"
+      }
+    },
+    "friendsPage": {
+      "friends": "Vänner",
+      "friendRequests": "Vänförfrågningar",
+      "received": "Mottagna",
+      "sent": "Skickade",
+      "friendCard": {
+        "waiting": "Väntar...",
+        "accept": "Acceptera",
+        "decline": "Avböj",
+        "showRecipes": "Visa recept",
+        "removeFriend": "Ta bort vän"
+    }
+  }
   }
 }

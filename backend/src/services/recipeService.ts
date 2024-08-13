@@ -1,11 +1,59 @@
 import mongoose from "mongoose";
+import { BlobServiceClient } from "@azure/storage-blob";
+
 import { IRecipe, NewRecipe, Comment } from "../interfaces/recipeInterfaces";
 import { Recipe, User } from '../models';
+import { CONNECTIONSTRING, RECIPEPIC_CONTAINER } from "../utils/config";
 
 
-const getAllRecipes = async (filter: string): Promise<IRecipe[]> => {
-  if (filter) {
+const getAllRecipes = async (filter: string, searchWord: string): Promise<IRecipe[]> => {
+  if (filter && !searchWord) {
     return await Recipe.find({ mealCategory: { $in: [filter] } });
+  } else if (!filter && searchWord) {
+    const startRegex = new RegExp(`^${searchWord}`, "i");
+    const containRegex = new RegExp(`${searchWord}`, "i");
+
+    const recipes = await Recipe.find({
+      title: { $regex: containRegex }
+    });
+
+    if (!recipes) {
+      return [];
+    }
+
+    recipes.sort((a, b) => {
+      const aStartsWith = startRegex.test(a.title);
+      const bStartsWith = startRegex.test(b.title);
+
+      if (aStartsWith && !bStartsWith) return -1;
+      if (!aStartsWith && bStartsWith) return 1;
+      return 0;
+    });
+
+    return recipes;
+  } else if (filter && searchWord) {
+    const startRegex = new RegExp(`^${searchWord}`, "i");
+    const containRegex = new RegExp(`${searchWord}`, "i");
+
+    const recipes = await Recipe.find({
+      title: { $regex: containRegex },
+      mealCategory: { $in: [filter] },
+    });
+
+    if (!recipes) {
+      return [];
+    }
+
+    recipes.sort((a, b) => {
+      const aStartsWith = startRegex.test(a.title);
+      const bStartsWith = startRegex.test(b.title);
+
+      if (aStartsWith && !bStartsWith) return -1;
+      if (!aStartsWith && bStartsWith) return 1;
+      return 0;
+    });
+
+    return recipes;
   }
 
   return await Recipe.find({});
@@ -91,6 +139,53 @@ const commentRecipe = async ({id, comment, userId }: { id: string, comment: stri
   throw new Error('Commenting was not possible');
 };
 
+const uploadPicture = async (
+  recipeId: string,
+  recipeName: string,
+  username: string,
+  fileContent: Express.Multer.File
+): Promise<boolean> => {
+
+  const connectionString = CONNECTIONSTRING;
+  const containerName = RECIPEPIC_CONTAINER;
+
+  const removeSpaces = (line: string) => {
+    const words = line.split(" ");
+    const wordsWithBigFirstLetter = words.map((word, index) =>
+      index != 0
+        ? word.charAt(0).toUpperCase() + word.toLowerCase().slice(1)
+        : word.toLowerCase()
+    );
+
+    return wordsWithBigFirstLetter.join("");
+  };
+  const fileName = `${removeSpaces(recipeName)}-${username}-recipe`;
+
+  if (!connectionString || !containerName) {
+    throw new Error("Connection string or container name is missing");
+  }
+
+  try {
+    const blobServiceClient =
+      BlobServiceClient.fromConnectionString(connectionString);
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const blockBlobClient = containerClient.getBlockBlobClient(fileName);
+
+    const buffer = fileContent.buffer;
+    await blockBlobClient.upload(buffer, buffer.length);
+
+    const fileUrl = blockBlobClient.url;
+    await Recipe.findByIdAndUpdate(recipeId, { image: fileUrl });
+
+    if (fileUrl) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    throw new Error("Upload was not successful" + error);
+  }
+};
+
 export default {
   getAllRecipes,
   getAllRecipesFromUser,
@@ -98,5 +193,6 @@ export default {
   addRecipe,
   deleteRecipe,
   likeRecipe,
-  commentRecipe
+  commentRecipe,
+  uploadPicture
 };

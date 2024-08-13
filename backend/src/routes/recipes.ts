@@ -1,18 +1,21 @@
 import { Router, Request, Response } from 'express';
+import multer from "multer";
 
 import { toLiked, toNewRecipe, toComment } from '../utils/requestValidations';
 import  recipeService from '../services/recipeService';
 import mongoose from 'mongoose';
 
 const router: Router = Router();
+const upload = multer({ storage: multer.memoryStorage() });
 
 router.get('/', (req: Request, res: Response) => {
   try {
     const user: string = req.query.user as string;
     const filter: string = req.query.filter as string;
+    const searchWord: string = req.query.searchWord as string;
 
     if (!user) {
-      recipeService.getAllRecipes(filter)
+      recipeService.getAllRecipes(filter, searchWord)
         .then((recipes) => res.json(recipes))
         .catch((error) => console.log(error));
     } else {
@@ -93,6 +96,24 @@ router.put('/comment/:id', (req, res) => {
     res.status(404).end();
   }
 
+});
+
+router.post("/upload-recipe-pic", upload.single("file"), (req, res) => {
+  try {
+    const recipeId: string = req.body.recipeId as string;
+    const recipeName: string = req.body.recipeName as string;
+    const username = req.decodedToken!.username;
+    const fileContent = req.file;
+
+    if (fileContent) {
+      recipeService
+        .uploadPicture(recipeId, recipeName, username, fileContent)
+        .then((response) => res.json(response))
+        .catch((error) => console.log(error));
+    }
+  } catch (error) {
+    res.status(404).end();
+  }
 });
 
 export default router;

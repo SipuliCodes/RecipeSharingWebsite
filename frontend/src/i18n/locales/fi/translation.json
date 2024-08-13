@@ -104,5 +104,53 @@
     "stepList": {
       "steps": "Vaiheet"
     }
+  },
+  "homePage": {
+    "userRecipes": " reseptit",
+    "likedRecipes": "Tykätyt reseptit",
+    "recipes": "Reseptit",
+    "search": "etsi",
+    "userResult": {
+      "sendRequest": "Lähetä pyyntö",
+      "requestSent": "Pyyntö lähetetty!",
+      "showRecipes": "Näytä reseptit"
+    },
+    "sidebar": {
+      "home": "Koti",
+      "likedRecipes": "Tykätyt reseptit",
+      "friends": "Ystävät",
+      "settings": "Asetukset",
+      "logOut": "Kirjaudu ulos",
+      "addProfilePic": {
+        "pictureChanged": "Kuva vaihdettu",
+        "pictureChangeFailed": "Kuvan vaihto epäonnistui",
+        "addProfilePic": "Lisää profiilikuva"
+      }
+    },
+    "recipeList": {
+      "allRecipes": "Kaikki reseptit",
+      "breakfast": "Aamiainen",
+      "lunch": "Lounas",
+      "dinner": "Illallinen",
+      "snack": "Välipala",
+      "dessert": "Jälkiruoka",
+      "addRecipe": "Lisää resepti",
+      "recipeCard": {
+        "likes": "tykkäystä"
+      }
+    },
+    "friendsPage": {
+      "friends": "Ystävät",
+      "friendRequests": "Kaveripyynnöt",
+      "received": "Vastaanotetut",
+      "sent": "Lähetetyt",
+      "friendCard": {
+        "waiting": "Odottaa...",
+        "accept": "Hyväksy",
+        "decline": "Hylkää",
+        "showRecipes": "Näytä reseptit",
+        "removeFriend": "Poista ystävä"
+    }
+  }
   }
 }

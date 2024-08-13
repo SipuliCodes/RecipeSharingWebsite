@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { SidebarProps } from '../../../interfaces/props';
 import AddProfilePic from './AddProfilePic/AddProfilePic';
 
-const Sidebar = ({ toggleClass }: SidebarProps) => {
+const Sidebar = ({ toggleClass, t }: SidebarProps) => {
   const [profilePic, setProfilePic] = useState('');
   const navigate = useNavigate();
   const setTokenContext = useContext(UserSetTokenContext);
@@ -49,16 +49,16 @@ const Sidebar = ({ toggleClass }: SidebarProps) => {
     <div className='sidebar'>
       <div className='profile-details'>
         {profilePic ? <img src={profilePic} className='profilepic'/> : <FontAwesomeIcon className='profilepic' icon={findIconDefinition({ prefix: 'fas', iconName: 'user' })} />}
-        <AddProfilePic setProfilePic={setProfilePic} />
+        <AddProfilePic setProfilePic={setProfilePic} t={t} />
         <h4 className='username'>@{userDetails.username}</h4>
       </div>
       <div className='link-list'>
-        <h3 onClick={handleClick} id='home' className='sidebar-links'>Home</h3>
-        <h3 onClick={handleClick} id='liked-recipes' className='sidebar-links'>Liked recipes</h3>
-        <h3 onClick={handleClick} id='friends' className='sidebar-links'>Friends</h3>
-        <h3 onClick={handleClick} id='settings' className='sidebar-links'>Settings</h3>
+        <h3 onClick={handleClick} id='home' className='sidebar-links'>{t('sidebar.home')}</h3>
+        <h3 onClick={handleClick} id='liked-recipes' className='sidebar-links'>{t('sidebar.likedRecipes') }</h3>
+        <h3 onClick={handleClick} id='friends' className='sidebar-links'>{t('sidebar.friends') }</h3>
+        <h3 onClick={handleClick} id='settings' className='sidebar-links'>{t('sidebar.settings') }</h3>
       </div>
-      <button onClick={logout} className='logout-button'>Log out</button>
+      <button onClick={logout} className='logout-button'>{t('sidebar.logOut')}</button>
     </div>
   );
 };
