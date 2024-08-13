@@ -66,6 +66,7 @@ export interface RecipeListProps {
   userId: string | undefined;
   liked: boolean;
   t: TFunction<'translation', 'homePage'>;
+  searchWord: string
 }
 
 export interface SidebarProps {

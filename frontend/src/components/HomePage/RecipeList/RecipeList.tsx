@@ -11,7 +11,7 @@ import { Recipe } from '../../../interfaces/recipeInterfaces';
 import { UserDetailsContext, UserTokenContext } from '../../../contexts/userContext';
 import { RecipeListProps } from '../../../interfaces/props';
 
-const RecipeList = ({userId, liked, t}: RecipeListProps) => {
+const RecipeList = ({userId, liked, t, searchWord}: RecipeListProps) => {
   const [recipeData, setRecipeData] = useState<Recipe[]>();
 
   const navigate = useNavigate();
@@ -33,8 +33,9 @@ const RecipeList = ({userId, liked, t}: RecipeListProps) => {
   };
 
   useEffect(() => {
+    console.log(searchWord);
     if (token && !userId && !liked) {
-      getAllRecipes(token, currentFilter)
+      getAllRecipes(token, currentFilter, searchWord)
         .then(recipes => setRecipeData(recipes))
         .catch(error => console.log(error));
     }
@@ -51,7 +52,7 @@ const RecipeList = ({userId, liked, t}: RecipeListProps) => {
       }
     }
 
-  }, [token, userId, liked, currentUser, currentFilter]);
+  }, [token, userId, liked, currentUser, currentFilter, searchWord]);
 
 
   if (!recipeData) return <div></div>;

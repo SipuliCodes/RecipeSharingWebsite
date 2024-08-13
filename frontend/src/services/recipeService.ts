@@ -3,10 +3,18 @@ import axios from 'axios';
 import { config } from '../utils/config';
 import { Recipe, RecipeFormData, Comment } from '../interfaces/recipeInterfaces';
 
-const getAllRecipes = async (token: string, filter: string): Promise<Recipe[]> => {
+const getAllRecipes = async (token: string, filter: string, searchWord: string): Promise<Recipe[]> => {
   try {
-    const filterRegex = filter ? `?filter=${filter}` : '';
-    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes${filterRegex}`,{ headers: {'Authorization' : `Bearer ${token}`} });
+    let queryParams = '';
+
+    if (filter) {
+      queryParams += `?filter=${filter}`;
+    }
+
+    if (searchWord) {
+      queryParams += `${queryParams ? '&' : '?'}searchWord=${searchWord}`;
+    }
+    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes${queryParams}`,{ headers: {'Authorization' : `Bearer ${token}`} });
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -146,4 +154,24 @@ const uploadRecipePic = async (
   }
 };
 
-export {getAllRecipes, getAllRecipesFromUser, getOneRecipe, addRecipe, likeRecipe, commentRecipe, deleteRecipe, uploadRecipePic};
+const searchForRecipes = async (
+  searchWord: string,
+  token: string
+): Promise<Recipe> => {
+  try {
+    const response = await axios.get(
+      `${config.apiUrl}/recipes/search-recipe?searchword=${searchWord}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+
+    return response.data;
+  } catch (error) {
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return Promise.reject(new Error(errorMessage));
+  }
+};
+
+export {getAllRecipes, getAllRecipesFromUser, getOneRecipe, addRecipe, likeRecipe, commentRecipe, deleteRecipe, uploadRecipePic, searchForRecipes};
