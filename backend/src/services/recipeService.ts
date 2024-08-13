@@ -6,9 +6,54 @@ import { Recipe, User } from '../models';
 import { CONNECTIONSTRING, RECIPEPIC_CONTAINER } from "../utils/config";
 
 
-const getAllRecipes = async (filter: string): Promise<IRecipe[]> => {
-  if (filter) {
+const getAllRecipes = async (filter: string, searchWord: string): Promise<IRecipe[]> => {
+  if (filter && !searchWord) {
     return await Recipe.find({ mealCategory: { $in: [filter] } });
+  } else if (!filter && searchWord) {
+    const startRegex = new RegExp(`^${searchWord}`, "i");
+    const containRegex = new RegExp(`${searchWord}`, "i");
+
+    const recipes = await Recipe.find({
+      title: { $regex: containRegex },
+      mealCategory: { $in: [filter] },
+    });
+
+    if (!recipes) {
+      return [];
+    }
+
+    recipes.sort((a, b) => {
+      const aStartsWith = startRegex.test(a.title);
+      const bStartsWith = startRegex.test(b.title);
+
+      if (aStartsWith && !bStartsWith) return -1;
+      if (!aStartsWith && bStartsWith) return 1;
+      return 0;
+    });
+
+    return recipes;
+  } else if (filter && searchWord) {
+    const startRegex = new RegExp(`^${searchWord}`, "i");
+    const containRegex = new RegExp(`${searchWord}`, "i");
+
+    const recipes = await Recipe.find({
+      title: { $regex: containRegex },
+    });
+
+    if (!recipes) {
+      return [];
+    }
+
+    recipes.sort((a, b) => {
+      const aStartsWith = startRegex.test(a.title);
+      const bStartsWith = startRegex.test(b.title);
+
+      if (aStartsWith && !bStartsWith) return -1;
+      if (!aStartsWith && bStartsWith) return 1;
+      return 0;
+    });
+
+    return recipes;
   }
 
   return await Recipe.find({});
@@ -141,33 +186,6 @@ const uploadPicture = async (
   }
 };
 
-const getAllRecipesWithWord = async (
-  word: string
-): Promise<IRecipe[]> => {
-  
-  const startRegex = new RegExp(`^${word}`, "i");
-  const containRegex = new RegExp(`${word}`, "i");
-
-  const recipes = await Recipe.find({
-    title: { $regex: containRegex }
-  });
-
-  if (!recipes) {
-    return [];
-  }
-
-  recipes.sort((a, b) => {
-    const aStartsWith = startRegex.test(a.title);
-    const bStartsWith = startRegex.test(b.title);
-
-    if (aStartsWith && !bStartsWith) return -1;
-    if (!aStartsWith && bStartsWith) return 1;
-    return 0;
-  });
-
-  return recipes;
-};
-
 export default {
   getAllRecipes,
   getAllRecipesFromUser,
@@ -176,6 +194,5 @@ export default {
   deleteRecipe,
   likeRecipe,
   commentRecipe,
-  uploadPicture,
-  getAllRecipesWithWord
+  uploadPicture
 };
