@@ -44,7 +44,7 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
     <div className='login-container'>
       <div className='login-header-grid'>
         <div>
-          <button onClick={() => setLeftContent('buttons') } className='login-close-button'>
+          <button onClick={() => setLeftContent('buttons') } id='close-button' className='login-close-button'>
             <div className='login-close-button-bar1'></div>
             <div className='login-close-button-bar2'></div>
           </button>
