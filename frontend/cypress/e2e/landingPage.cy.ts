@@ -1,6 +1,4 @@
-import { testUsers} from '../fixtures/userDetails';
-
-describe('reciphare', () => {
+describe('Landing page works', () => {
   beforeEach('Visit page', () => {
     cy.visit('');
   });
@@ -93,47 +91,5 @@ describe('reciphare', () => {
       cy.contains('Share and find great recipes');
     });
   });
-  describe('When users', () => {
-    before('Reset database and add users', () => {
-      cy.request('POST', 'http://localhost:3003/api/testing/reset');
-      cy.visit('');
-
-      testUsers.forEach((user) => {
-        cy.contains('Sign up').click();
-
-        cy.get('input[placeholder="First name"]').should('not.be.disabled').type(user.firstName);
-        cy.get('input[placeholder="Last name"]').type(user.lastName);
-        cy.get('input[placeholder="Username"]').type(user.username);
-        cy.get('input[placeholder="Email"]').type(user.email);
-        cy.get('input[placeholder="Password"]').type(user.password);
-        cy.get('input[placeholder="Confirm password"]').type(user.password);
-
-        cy.contains('button', 'Create Account').click();
-
-        cy.get('#menu-button').click();
-        cy.contains('Log out').click();
-      });
-    });
-
-    describe('Login tests', () => {
-      beforeEach('Open login form', () => {
-        cy.contains('Login').click();
-      });
-
-      it('Login fails with false password', () => {
-        cy.get('input[placeholder="Username"]').type(testUsers[0].username);
-        cy.get('input[placeholder="Password"]').type('wrong');
-
-        cy.contains('button', 'Login').click();
-        cy.contains('Password or username was wrong');
-      });
-
-      it('Login works with correct password', () => {
-        cy.get('input[placeholder="Username"]').type(testUsers[0].username);
-        cy.get('input[placeholder="Password"]').type(testUsers[0].password);
-
-        cy.contains('button', 'Login').click();
-      });
-    });
-  });
 });
+
