@@ -15,6 +15,8 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
     password: ''
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const { t } = useTranslation('translation', { keyPrefix: 'loginForm' });
 
   const setTokenContext = useContext(UserSetTokenContext);
@@ -36,7 +38,10 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
       setToken(token);
       setUserContext(user);
     } catch (error) {
-      console.log(error);
+      setErrorMessage('Password or username was wrong');
+      setTimeout(() => {
+        setErrorMessage('');
+      }, 3000);
     }
   };
 
@@ -68,6 +73,7 @@ const LoginForm = ({setLeftContent}: LoginFormProps) => {
           onChange={handleChange}
           name='password'
         />
+        {errorMessage && <p className='login-error-message'>{errorMessage}</p>}
         <button className="login-button" type="submit">{t('login') }</button>
       </form>
     </div>
