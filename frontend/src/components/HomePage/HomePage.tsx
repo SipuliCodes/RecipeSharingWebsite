@@ -61,7 +61,7 @@ const HomePage = () => {
   return (
     <div className='homepage-container'>
       <div className='home-header'>
-        <button onClick={toggleClass} className={ isChanged ? 'change menu-button' : 'menu-button'}>
+        <button onClick={toggleClass} id='menu-button' className={ isChanged ? 'change menu-button' : 'menu-button'}>
           <div className="bar1"></div>
           <div className="bar2"></div>
           <div className="bar3"></div>
