@@ -1,7 +1,7 @@
 import { testUsers } from '../fixtures/userDetails';
 
 describe('Login tests', () => {
-  beforeEach('Open login form', () => {
+  beforeEach(() => {
     cy.visit('');
     cy.contains('Login').click();
   });

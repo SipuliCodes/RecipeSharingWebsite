@@ -1,5 +1,5 @@
 describe('Landing page works', () => {
-  beforeEach('Visit page', () => {
+  beforeEach(() => {
     cy.visit('');
   });
 
@@ -18,7 +18,7 @@ describe('Landing page works', () => {
   });
 
   describe('Signupform', () => {
-    beforeEach('Open signupform', () => {
+    beforeEach(() => {
       cy.contains('Sign up').click();
     });
 
@@ -74,7 +74,7 @@ describe('Landing page works', () => {
   });
 
   describe('Loginform', () => {
-    beforeEach('Open loginform', () => {
+    beforeEach(() => {
       cy.contains('Login').click();
     });
     
