@@ -53,4 +53,6 @@
 | 12.8.2024 | 1 | kuvan lisääminen kaverikortteihin, tykättyjen reseptien filtteröinti kategorian perusteella ja pieniä design korjauksia |
 | 13.8.2024 | 4 | Visuaalisia muutoksia, hakutoiminnon lisääminen resepteihin, cypress e2e testauksen aloittaminen |
 | 14.8.2024 | 5 | Kirjoitin testejä |
-| Yhteensä | 168 | tuntia |
+| 15.8.2024 | 1 | Muutoksia layaouttiin |
+| 16.8.2024 | 7 | Loput testit |
+| Yhteensä | 176 | tuntia |
