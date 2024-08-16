@@ -55,8 +55,8 @@ describe('When logged in', () => {
       cy.contains('Log out').click();
 
       cy.contains('Login').click();
-      cy.get('input[placeholder="Username"]').type(testUsers[2].username);
-      cy.get('input[placeholder="Password"]').type(testUsers[2].password);
+      cy.get('input[placeholder="Username"]').type(testUsers[1].username);
+      cy.get('input[placeholder="Password"]').type(testUsers[1].password);
       cy.contains('button', 'Login').click();
       cy.get('#menu-button').click();
       cy.contains('Friends').click();
@@ -73,8 +73,8 @@ describe('When logged in', () => {
       cy.contains('Log out').click();
 
       cy.contains('Login').click();
-      cy.get('input[placeholder="Username"]').type(testUsers[2].username);
-      cy.get('input[placeholder="Password"]').type(testUsers[2].password);
+      cy.get('input[placeholder="Username"]').type(testUsers[1].username);
+      cy.get('input[placeholder="Password"]').type(testUsers[1].password);
       cy.contains('button', 'Login').click();
       cy.get('#menu-button').click();
       cy.contains('Friends').click();
@@ -82,7 +82,7 @@ describe('When logged in', () => {
 
       cy.get('John').should('not.exist');
       cy.get('Doe').should('not.exist');
-      cy.get('johnDoe123').should('not.exist');
+      cy.get('johnDoe113').should('not.exist');
     });
 
     it('Alice sending friend request', () => {
@@ -90,8 +90,8 @@ describe('When logged in', () => {
       cy.contains('Log out').click();
 
       cy.contains('Login').click();
-      cy.get('input[placeholder="Username"]').type(testUsers[2].username);
-      cy.get('input[placeholder="Password"]').type(testUsers[2].password);
+      cy.get('input[placeholder="Username"]').type(testUsers[1].username);
+      cy.get('input[placeholder="Password"]').type(testUsers[1].password);
       cy.contains('button', 'Login').click();
       cy.get('#menu-button').click();
       cy.contains('Friends').click();
@@ -130,8 +130,8 @@ describe('When logged in', () => {
       cy.contains('Log out').click();
 
       cy.contains('Login').click();
-      cy.get('input[placeholder="Username"]').type(testUsers[2].username);
-      cy.get('input[placeholder="Password"]').type(testUsers[2].password);
+      cy.get('input[placeholder="Username"]').type(testUsers[1].username);
+      cy.get('input[placeholder="Password"]').type(testUsers[1].password);
       cy.contains('button', 'Login').click();
       cy.get('#menu-button').click();
       cy.contains('Friends').click();
