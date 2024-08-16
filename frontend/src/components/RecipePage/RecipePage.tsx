@@ -65,7 +65,7 @@ const RecipePage = () => {
 
   return (
     <div className='recipe-page-content'>
-      <div className='recipe-page-back-button' onClick={() => navigate(-1)}>{t('back') }</div>
+      <button className='recipe-page-back-button' onClick={() => navigate(-1)}>{t('back') }</button>
       <div className='recipe-details'>
         <div className='recipe-image-box'>
           <h1 className='recipe-title'>{recipeData.title}</h1>

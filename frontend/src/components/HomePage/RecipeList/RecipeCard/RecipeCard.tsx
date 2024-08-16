@@ -17,8 +17,10 @@ const RecipeCard = ({ title, image, likes, id, likedBy, t }: RecipeCardProps) =>
   const token = useContext(UserTokenContext);
 
   useEffect(() => {
-    if (likedBy.includes(userDetails.id)) {
-      setLiked(true);
+    if (userDetails.id && likedBy) {
+      if (likedBy.includes(userDetails.id)) {
+        setLiked(true);
+      }
     }
   }, [likedBy, userDetails.id]);
 
@@ -48,8 +50,8 @@ const RecipeCard = ({ title, image, likes, id, likedBy, t }: RecipeCardProps) =>
       <div className='recipe-details-box'>
         <h1 className='recipe-h1'>{title}</h1>
         <div className='recipe-like-box'>
-          <FontAwesomeIcon onClick={onLikeClick} className='recipe-like-heart' icon={heartIcon}/>
-          <h3 className='recipe-likes'>{frontendLikes} {t('recipeList.recipeCard.likes') }</h3>
+          <FontAwesomeIcon id='like-button' onClick={onLikeClick} className='recipe-like-heart' icon={heartIcon}/>
+          <h3 id='likes' className='recipe-likes'>{frontendLikes} {t('recipeList.recipeCard.likes') }</h3>
         </div>
       </div>
     </div>

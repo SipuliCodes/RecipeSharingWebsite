@@ -74,7 +74,7 @@ const HomePage = () => {
         </button>
         {(path === '/friends' || path === '/home') &&
           <div className='homepage-search-box'>
-            <input onChange={handleChange} value={search} className='searchbar' placeholder={t('search')}></input>
+            <input id='search' onChange={handleChange} value={search} className='searchbar' placeholder={t('search')}></input>
             {users.length !== 0 &&
               <div className='homepage-search-results'>
                 {users.map(user => <UserResult setSearch={setSearch} setUsers={setUsers} user={user} t={t} />)}

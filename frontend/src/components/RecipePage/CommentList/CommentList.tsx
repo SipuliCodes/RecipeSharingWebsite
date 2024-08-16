@@ -53,6 +53,7 @@ const CommentList = ({ id, comments, t }: CommentListProps) => {
             placeholder=""
             value={comment}
             onChange={handleTextAreaChange}
+            id='comment-box'
             name='description'
             ref={commentRef}
             rows={3}
