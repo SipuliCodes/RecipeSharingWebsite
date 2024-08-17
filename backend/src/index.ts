@@ -28,6 +28,8 @@ if (MONGODB_URI) {
 
 const app = express();
 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
 app.use(express.static('dist'));
 
 if (process.env.NODE_ENV === 'test') {
