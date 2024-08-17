@@ -74,10 +74,11 @@ const RecipeList = ({userId, liked, t, searchWord}: RecipeListProps) => {
           onChange={filter => handleFilterChange(filter!.value)}
           options={filterOptions}
           defaultValue={filterOptions[0]}
+          id='category-filter-select'
           className='recipe-list-category-filter'
         />
       </div>}
-      <div className='recipe-list'>
+      <div id='recipe-list' className='recipe-list'>
         {!userId && !liked &&
           <div onClick={() => navigate('/add-recipe')} className='recipe-card recipe-grid'>
             <FontAwesomeIcon className='add-recipe-icon' icon={findIconDefinition({ prefix: 'fas', iconName: 'image' })} />

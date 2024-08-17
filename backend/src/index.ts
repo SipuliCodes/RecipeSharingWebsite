@@ -4,10 +4,11 @@ import cors from 'cors';
 
 import { MONGODB_URI, PORT } from './utils/config';
 
-import SignupRouter from './routes/signup';
-import LoginRouter from './routes/login';
-import RecipeRouter from './routes/recipes';
-import UserRouter from './routes/users';
+import signupRouter from './routes/signup';
+import loginRouter from './routes/login';
+import recipeRouter from './routes/recipes';
+import userRouter from './routes/users';
+import testingRouter from './routes/testing';
 import { checkAuthMiddleware, extractToken } from './utils/middleware';
 
 mongoose.set('strictQuery', false);
@@ -25,16 +26,29 @@ if (MONGODB_URI) {
     });
 }
 
-
 const app = express();
+
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
+app.use(express.static('dist'));
+
+if (process.env.NODE_ENV === 'test') {
+  app.use("/api/testing", testingRouter);
+}
+
 app.use(express.json());
 app.use(cors<Request>());
-app.use(extractToken);
 
-app.use('/api/signup', SignupRouter);
-app.use('/api/login', LoginRouter);
-app.use('/api/recipes', checkAuthMiddleware, RecipeRouter);
-app.use('/api/users', checkAuthMiddleware, UserRouter);
+app.use('/api/signup', signupRouter);
+app.use('/api/login', loginRouter);
+
+app.use(extractToken);
+app.use('/api/recipes', checkAuthMiddleware, recipeRouter);
+app.use('/api/users', checkAuthMiddleware, userRouter);
+
+app.get('*', (_req, res) => {
+  res.sendFile('index.html', { root: 'dist' });
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

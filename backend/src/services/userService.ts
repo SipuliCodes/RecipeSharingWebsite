@@ -30,7 +30,11 @@ const addUser = async (user: NewUser): Promise<IUser> => {
 const loginUser = async (user: LoginUser): Promise<IUser> => {
   const { username, password } = user;
 
-  const loggedInUser = await User.findOne({ username }).populate('friends').populate('sentRequests').populate('receivedRequests');
+  const loggedInUser = await User.findOne({ username })
+    .populate('friends')
+    .populate('sentRequests')
+    .populate('receivedRequests')
+    .populate('likedRecipes');
   if (loggedInUser) {
     if (await bcrypt.compare(password, loggedInUser.password)) {
       return loggedInUser;

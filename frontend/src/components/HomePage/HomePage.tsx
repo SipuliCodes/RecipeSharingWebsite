@@ -61,7 +61,7 @@ const HomePage = () => {
   return (
     <div className='homepage-container'>
       <div className='home-header'>
-        <button onClick={toggleClass} className={ isChanged ? 'change menu-button' : 'menu-button'}>
+        <button onClick={toggleClass} id='menu-button' className={ isChanged ? 'change menu-button' : 'menu-button'}>
           <div className="bar1"></div>
           <div className="bar2"></div>
           <div className="bar3"></div>
@@ -74,7 +74,7 @@ const HomePage = () => {
         </button>
         {(path === '/friends' || path === '/home') &&
           <div className='homepage-search-box'>
-            <input onChange={handleChange} value={search} className='searchbar' placeholder={t('search')}></input>
+            <input id='search' onChange={handleChange} value={search} className='searchbar' placeholder={t('search')}></input>
             {users.length !== 0 &&
               <div className='homepage-search-results'>
                 {users.map(user => <UserResult setSearch={setSearch} setUsers={setUsers} user={user} t={t} />)}

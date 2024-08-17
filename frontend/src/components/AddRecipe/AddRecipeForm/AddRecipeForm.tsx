@@ -118,7 +118,8 @@ const AddRecipeForm = () => {
                 onKeyDown={preventEnter}
                 placeholder=""
                 value={formData.title}
-                onChange={handleFormDataChange }
+                onChange={handleFormDataChange}
+                id='title'
                 name='title'
                 className='add-recipe-input'
               />
@@ -129,6 +130,7 @@ const AddRecipeForm = () => {
                 placeholder=""
                 value={formData.description}
                 onChange={handleFormDataChange}
+                id='description'
                 name='description'
                 ref={descriptionRef}
                 rows={3}
@@ -148,6 +150,7 @@ const AddRecipeForm = () => {
                   }
                 })
               }}
+              id='category-select'
               placeholder={t('category')}
               isMulti
               name="mealCategory"
@@ -159,12 +162,13 @@ const AddRecipeForm = () => {
                 onKeyDown={handleEnter}
                 placeholder=""
                 value={addIngredient}
-                onChange={(event) => handleInputChange(event, setAddIngredient) }
+                onChange={(event) => handleInputChange(event, setAddIngredient)}
+                id='ingredient'
                 name='ingredient'
                 className='add-recipe-input add-recipe-input-extra'
               />
               <label className='input-placeholder'>{t('ingredient') }</label>
-              <button type='button' name='ingredient' onClick={handleClick} className='add-button'>{t('add') }</button>
+              <button id='add-ingredient-button' type='button' name='ingredient' onClick={handleClick} className='add-button'>{t('add') }</button>
             </p>
             {formData.ingredients &&
             <p className='add-recipe-ingredients'> 
@@ -176,18 +180,19 @@ const AddRecipeForm = () => {
                 placeholder=""
                 value={addStep}
                 onChange={(event) => handleInputChange(event, setAddStep)}
+                id='step'
                 name='step'
                 className='add-recipe-input add-recipe-input-extra'
               />
               <label className='input-placeholder'>{t('step') }</label>
-              <button type='button' name='step' onClick={handleClick} className='add-button'>{t('add') }</button>
+              <button id='add-step-button' type='button' name='step' onClick={handleClick} className='add-button'>{t('add') }</button>
             </p>
             {formData.steps &&
               <ol className='add-recipe-steps'> 
                 {formData.steps.map((step, index) => <li key={index}>{step}</li>)}
               </ol> }
             <div className='add-recipe-form-button-box'>
-              <button onClick={() => navigate('/home')} className='add-recipe-button cancel-button'>{t('cancel') }</button>
+              <button type='reset' onClick={() => navigate('/home')} className='add-recipe-button cancel-button'>{t('cancel') }</button>
               <button type='submit' className='add-recipe-button save-button'>{t('addRecipe') }</button>
             </div>
           </form>
@@ -206,7 +211,8 @@ const AddRecipeForm = () => {
               onKeyDown={preventEnter}
               placeholder=""
               value={formData.image}
-              onChange={handleFormDataChange }
+              onChange={handleFormDataChange}
+              id='image'
               name='image'
               className='add-recipe-input'
             />

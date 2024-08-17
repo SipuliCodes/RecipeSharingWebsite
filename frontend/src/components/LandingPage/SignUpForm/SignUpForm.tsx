@@ -58,7 +58,7 @@ const SignUpForm = ({ setLeftContent }: SignUpFormProps) => {
     <div className='signup-container'>
       <div className='signup-header-grid'>
         <div>
-          <button onClick={() => setLeftContent('buttons') } className='signup-close-button'>
+          <button onClick={() => setLeftContent('buttons') } id='close-button' className='signup-close-button'>
             <div className='signup-close-button-bar1'></div>
             <div className='signup-close-button-bar2'></div>
           </button>
