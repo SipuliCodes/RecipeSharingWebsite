@@ -46,6 +46,10 @@ app.use(extractToken);
 app.use('/api/recipes', checkAuthMiddleware, recipeRouter);
 app.use('/api/users', checkAuthMiddleware, userRouter);
 
+app.get('*', (_req, res) => {
+  res.sendFile('index.html', { root: 'dist' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
