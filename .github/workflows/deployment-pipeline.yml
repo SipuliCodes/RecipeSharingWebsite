@@ -9,8 +9,31 @@ on:
     types: [opened, synchronize]
 
 jobs: 
+  backend_pipeline:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: |
+          cd backend
+          npm install
+      - run: |
+          cd backend
+          npm run lint
   frontend_pipeline:
     runs-on: ubuntu-22.04
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+      NODE_ENV: 'test'
+      SECRET: ${{ secrets.SECRET }}
+      CONNECTIONSTRING: ${{ secrets.CONNECTIONSTRING }}
+      PROFILEPICS_CONTAINER:  ${{ secrets.PROFILEPICS_CONTAINER }}
+      RECIPEPICS_CONTAINER: ${{ secrets.RECIPEPICS_CONTAINER }}
+
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
@@ -34,3 +57,16 @@ jobs:
         run: |
           cd frontend
           npm run test
+          
+      - name: Start server in the background
+        run: |
+          cd backend
+          npm install
+          npm run start &
+
+      - name: e2e tests
+        uses: cypress-io/github-action@v5
+        with:
+          working-directory: frontend
+          command: npm run cypress:run
+          wait-on: 'http://localhost:3003'
