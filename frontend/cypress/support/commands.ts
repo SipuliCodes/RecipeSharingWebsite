@@ -5,7 +5,7 @@
 // existing commands.
 //
 // For more comprehensive examples of custom
-// commands please read more here:
+// commands please read more here: t
 // https://on.cypress.io/custom-commands
 // ***********************************************
 //
