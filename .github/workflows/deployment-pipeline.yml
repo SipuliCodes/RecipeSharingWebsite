@@ -69,4 +69,4 @@ jobs:
         with:
           working-directory: frontend
           command: npm run cypress:run
-          wait-on: 'http://localhost:3003'
+          wait-on: 'http://127.0.0.1:3003'
