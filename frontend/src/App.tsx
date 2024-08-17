@@ -18,7 +18,6 @@ import { LanguageContext, SetLanguageContext } from './contexts/languageContext.
 import i18next from 'i18next';
 
 const App = () => {
-  console.log(import.meta.env.VITE_API_URL);
   const [token, setToken] = useState<Token>('');
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<LoggedInUser>({
