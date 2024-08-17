@@ -69,4 +69,3 @@ jobs:
         with:
           working-directory: frontend
           command: npm run cy:run
-          wait-on: 'http://localhost:3003'
