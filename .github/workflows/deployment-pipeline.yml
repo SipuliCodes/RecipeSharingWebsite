@@ -68,5 +68,4 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           working-directory: frontend
-          command: npm run cypress:run
-          wait-on: 'http://127.0.0.1:3003'
+          command: npm run cy:run
