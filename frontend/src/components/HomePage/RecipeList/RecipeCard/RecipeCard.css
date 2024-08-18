@@ -7,7 +7,6 @@
   border-radius: 4px;
   background-color: color-mix(in srgb, var(--secondary-background-color) 70%, transparent);
   height: 15rem;
-  min-width: 20rem;
   width: 100%;
   align-self: center;
   overflow: hidden;
