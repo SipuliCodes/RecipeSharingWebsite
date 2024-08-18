@@ -4,6 +4,10 @@ import SignUpForm from './SignUpForm';
 
 const mockSetLeftContent = jest.fn();
 
+jest.mock('../../../constants', () => ({
+  apiUrl: 'http://localhost:3003/api',
+}));
+
 test('renders SignUpForms header, input fields and create button correctly', () => {
   render(<SignUpForm setLeftContent={mockSetLeftContent} />);
 

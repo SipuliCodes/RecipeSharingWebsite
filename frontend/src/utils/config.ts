@@ -1,3 +1,5 @@
+import { VITE_API_URL } from '../constants';
+
 export const config = {
-  apiUrl: process.env.VITE_API_URL,
+  apiUrl: VITE_API_URL
 };
