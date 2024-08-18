@@ -46,6 +46,10 @@ app.use(extractToken);
 app.use('/api/recipes', checkAuthMiddleware, recipeRouter);
 app.use('/api/users', checkAuthMiddleware, userRouter);
 
+app.use('/api/*', (_req, res) => {
+  res.status(404).json({ error: 'API endpoint not found' });
+});
+
 app.get('*', (_req, res) => {
   res.sendFile('index.html', { root: 'dist' });
 });

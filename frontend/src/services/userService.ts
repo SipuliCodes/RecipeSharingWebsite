@@ -5,7 +5,7 @@ import { LoggedInUserWithToken, LoginFormData, BasicUser, LoggedInUser, SignupFo
 
 const signup = async (user: SignupFormData): Promise<LoggedInUserWithToken> => {
   try {
-    const response = await axios.post(`${config.apiUrl}/signup`, user);
+    const response = await axios.post(`${config.apiUrl}api/signup`, user);
     return response.data;
   } catch(error) {
     let errorMessage = 'Something went wrong.';
@@ -18,7 +18,7 @@ const signup = async (user: SignupFormData): Promise<LoggedInUserWithToken> => {
 
 const login = async (user: LoginFormData): Promise<LoggedInUserWithToken> => {
   try {
-    const response = await axios.post(`${config.apiUrl}/login`, user);
+    const response = await axios.post(`${config.apiUrl}api/login`, user);
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -32,7 +32,7 @@ const login = async (user: LoginFormData): Promise<LoggedInUserWithToken> => {
 const getUserData = async (token: string): Promise<LoggedInUser> => {
   try {
     const response = await axios.get(
-      `${config.apiUrl}/users/me`,
+      `${config.apiUrl}api/users/me`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     return response.data;
@@ -47,7 +47,7 @@ const getUserData = async (token: string): Promise<LoggedInUser> => {
 
 const getOneUser = async (userId:string, token: string): Promise<LoggedInUser> => {
   try {
-    const response = await axios.get(`${config.apiUrl}/users/user?userId=${userId}`, {
+    const response = await axios.get(`${config.apiUrl}api/users/user?userId=${userId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -63,7 +63,7 @@ const getOneUser = async (userId:string, token: string): Promise<LoggedInUser> =
 const searchForUsers = async (searchWord: string, token: string): Promise<BasicUser[]> => {
   try {
     const response = await axios.get(
-      `${config.apiUrl}/users?searchword=${searchWord}`,
+      `${config.apiUrl}api/users?searchword=${searchWord}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     console.log(response.data);
@@ -80,7 +80,7 @@ const searchForUsers = async (searchWord: string, token: string): Promise<BasicU
 const sendFriendRequest = async (username: string, token: string) => {
   try {
     await axios.post(
-      `${config.apiUrl}/users/send-request`,
+      `${config.apiUrl}api/users/send-request`,
       { username },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -96,7 +96,7 @@ const sendFriendRequest = async (username: string, token: string) => {
 const removeFriend = async (username: string, token: string) => {
   try {
     await axios.post(
-      `${config.apiUrl}/users/remove-friend`,
+      `${config.apiUrl}api/users/remove-friend`,
       { username },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -112,7 +112,7 @@ const removeFriend = async (username: string, token: string) => {
 const handleFriendRequest = async (isAccepted: boolean, username: string, token: string) => {
   try {
     await axios.post(
-      `${config.apiUrl}/users/requests`,
+      `${config.apiUrl}api/users/requests`,
       { isAccepted, username },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -128,7 +128,7 @@ const handleFriendRequest = async (isAccepted: boolean, username: string, token:
 const changeUserDetails = async (firstName: string, lastName: string, email: string, token: string): Promise<LoggedInUser> => {
   try {
     const response = await axios.put<LoggedInUser>(
-      `${config.apiUrl}/users/change-user-details`,
+      `${config.apiUrl}api/users/change-user-details`,
       { firstName, lastName, email },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -145,7 +145,7 @@ const changeUserDetails = async (firstName: string, lastName: string, email: str
 const changePassword = async (oldPassword: string, newPassword: string, token: string): Promise<boolean> => {
   try {
     const response = await axios.put(
-      `${config.apiUrl}/users/change-password`,
+      `${config.apiUrl}api/users/change-password`,
       {newPassword, oldPassword },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -164,7 +164,7 @@ const changeProfilePic = async (file: File, token: string): Promise<boolean> => 
     const formData = new FormData();
     formData.append('file', file);
 
-    const response = await axios.put(`${config.apiUrl}/users/change-profilepic`,
+    const response = await axios.put(`${config.apiUrl}api/users/change-profilepic`,
       formData,
       {
         headers: {

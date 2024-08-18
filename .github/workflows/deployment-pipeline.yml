@@ -11,7 +11,7 @@ on:
 jobs: 
   backend_pipeline:
     runs-on: ubuntu-22.04
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -33,8 +33,9 @@ jobs:
       CONNECTIONSTRING: ${{ secrets.CONNECTIONSTRING }}
       PROFILEPICS_CONTAINER:  ${{ secrets.PROFILEPICS_CONTAINER }}
       RECIPEPICS_CONTAINER: ${{ secrets.RECIPEPICS_CONTAINER }}
+      VITE_API_URL: http:localhost:3003/
 
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -62,6 +63,7 @@ jobs:
         run: |
           cd backend
           npm install
+          bash ./build_step.sh
           npm run start &
 
       - name: e2e tests
