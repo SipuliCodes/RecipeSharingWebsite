@@ -14,7 +14,7 @@ const getAllRecipes = async (token: string, filter: string, searchWord: string):
     if (searchWord) {
       queryParams += `${queryParams ? '&' : '?'}searchWord=${searchWord}`;
     }
-    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes${queryParams}`,{ headers: {'Authorization' : `Bearer ${token}`} });
+    const response = await axios.get<Recipe[]>(`${config.apiUrl}api/recipes${queryParams}`,{ headers: {'Authorization' : `Bearer ${token}`} });
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -27,7 +27,7 @@ const getAllRecipes = async (token: string, filter: string, searchWord: string):
 
 const getAllRecipesFromUser = async (user: string, token: string): Promise<Recipe[]> => {
   try {
-    const response = await axios.get<Recipe[]>(`${config.apiUrl}/recipes?user=${user}`, {
+    const response = await axios.get<Recipe[]>(`${config.apiUrl}api/recipes?user=${user}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -43,7 +43,7 @@ const getAllRecipesFromUser = async (user: string, token: string): Promise<Recip
 
 const getOneRecipe = async (token: string, id: string): Promise<Recipe> => {
   try {
-    const response = await axios.get<Recipe>(`${config.apiUrl}/recipes/${id}`, {
+    const response = await axios.get<Recipe>(`${config.apiUrl}api/recipes/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -58,7 +58,7 @@ const getOneRecipe = async (token: string, id: string): Promise<Recipe> => {
 
 const addRecipe = async ( recipe: RecipeFormData, token: string): Promise<Recipe> => {
   try {
-    const response = await axios.post<Recipe>(`${config.apiUrl}/recipes`, recipe, { headers: { 'Authorization': `Bearer ${token}` } });
+    const response = await axios.post<Recipe>(`${config.apiUrl}api/recipes`, recipe, { headers: { 'Authorization': `Bearer ${token}` } });
     return response.data;
   } catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -75,7 +75,7 @@ const likeRecipe = async (id: string, liked: boolean, token: string): Promise<Re
       liked
     };
     const response = await axios.put<Recipe>(
-      `${config.apiUrl}/recipes/like/${id}`,
+      `${config.apiUrl}api/recipes/like/${id}`,
       recipeLikes,
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -95,7 +95,7 @@ const commentRecipe = async (id: string, comment: string, token: string): Promis
       comment
     };
     const response = await axios.put<Comment>(
-      `${config.apiUrl}/recipes/comment/${id}`,
+      `${config.apiUrl}api/recipes/comment/${id}`,
       newComment,
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -111,7 +111,7 @@ const commentRecipe = async (id: string, comment: string, token: string): Promis
 
 const deleteRecipe = async (recipeId: string, token: string) => {
   try {
-    await axios.delete(`${config.apiUrl}/recipes/${recipeId}`, { headers: { Authorization: `Bearer ${token}` } });
+    await axios.delete(`${config.apiUrl}api/recipes/${recipeId}`, { headers: { Authorization: `Bearer ${token}` } });
   }
   catch (error) {
     let errorMessage = 'Something went wrong.';
@@ -135,7 +135,7 @@ const uploadRecipePic = async (
     formData.append('recipeId', recipeId);
 
     const response = await axios.post(
-      `${config.apiUrl}/recipes/upload-recipe-pic`,
+      `${config.apiUrl}api/recipes/upload-recipe-pic`,
       formData,
       {
         headers: {
@@ -160,7 +160,7 @@ const searchForRecipes = async (
 ): Promise<Recipe> => {
   try {
     const response = await axios.get(
-      `${config.apiUrl}/recipes/search-recipe?searchword=${searchWord}`,
+      `${config.apiUrl}api/recipes/search-recipe?searchword=${searchWord}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 

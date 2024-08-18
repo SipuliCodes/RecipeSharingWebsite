@@ -2,3 +2,4 @@ node_modules
 .env
 requests
 local.settings.json
+dist
