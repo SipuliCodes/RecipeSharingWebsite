@@ -33,6 +33,7 @@ jobs:
       CONNECTIONSTRING: ${{ secrets.CONNECTIONSTRING }}
       PROFILEPICS_CONTAINER:  ${{ secrets.PROFILEPICS_CONTAINER }}
       RECIPEPICS_CONTAINER: ${{ secrets.RECIPEPICS_CONTAINER }}
+      VITE_API_URL: http:localhost:3003/
 
     timeout-minutes: 5
     steps:
@@ -62,6 +63,7 @@ jobs:
         run: |
           cd backend
           npm install
+          bash ./build_step.sh
           npm run start &
 
       - name: e2e tests
