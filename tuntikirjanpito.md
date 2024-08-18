@@ -55,4 +55,6 @@
 | 14.8.2024 | 5 | Kirjoitin testejä |
 | 15.8.2024 | 1 | Muutoksia layaouttiin |
 | 16.8.2024 | 7 | Loput testit |
-| Yhteensä | 176 | tuntia |
+| 17.8.2024 | 5 | Pipelinen teko ja deployaus renderillä |
+| 18.8.2024 | 5 | Ongelmien selvittelyä liittyen deployaukseen |
+| Yhteensä | 186 | tuntia |
