@@ -3,6 +3,6 @@ npm install
 cd ..
 cd frontend
 npm install
-VITE_API_URL=http://localhost:3003/ npm run build
+VITE_API_URL=https://recipesharingwebsite.onrender.com/ npm run build
 cp -r dist ../backend
 cd ..
